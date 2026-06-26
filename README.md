@@ -45,7 +45,10 @@ distribution, zip the folder contents (modinfo.json at the zip root).
 Licensed under the [Apache License 2.0](LICENSE.txt) — use, modify, and redistribute freely; retain
 attribution and mark any files you change (Apache §4). See [NOTICE.txt](NOTICE.txt).
 
-This pack is tuning **data**. It references entities from other Vintage Story mods (such as Faces of
-the Stone Age, Feverstone, Pegasus, and Primitive Survival) by their entity codes for
+This pack is tuning **data**. It references entities from other Vintage Story mods (such as 
+the [Fauna of the Stone Age](https://mods.vintagestory.at/show/user/2ABE1C9265B6B2CFEFAE) series,
+[Feverstone's Horses](https://mods.vintagestory.at/feverstonehorses),
+[Pegasus](https://mods.vintagestory.at/pegasus),
+and [Primitive Survival](https://mods.vintagestory.at/primitivesurvival)) by their entity codes for
 interoperability only — it contains **none of those mods' assets**, and they remain under their own
 licenses.
