@@ -1,0 +1,22 @@
+// Cycle of Life: Realistic Fauna — Feverstone wild horses.
+//
+// Grazers (auto [forage:Grain/Fruit]). Slow reproducers: ~11-month gestation, a single foal a year,
+// long lives — but large and herd-living, so not trivial prey.
+{
+  "species": {
+    "feverstonehorses:horse-wild-quarter": {
+      "growthRate": 0.15, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 7500, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.3 }
+    },
+    "feverstonehorses:horse-wild-shire": {
+      // heavy draft build — large, slower
+      "growthRate": 0.13, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 7000, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.3 }
+    },
+    "feverstonehorses:horse-wild-donkey": {
+      // hardy and long-lived
+      "growthRate": 0.12, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 365, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.3 }
+    }
+  }
+}

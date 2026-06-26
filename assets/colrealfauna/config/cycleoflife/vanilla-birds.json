@@ -1,0 +1,20 @@
+// Cycle of Life: Realistic Fauna — base-game birds.
+//
+// game:chicken is the red junglefowl (the wild ancestor): a ground-nesting forager that breeds in a
+// spring season, lays a sizeable clutch, and loses most chicks to predators. Slow steady turnover
+// rather than the year-round egg machine of the domestic bird.
+{
+  "species": {
+    "game:chicken": {
+      "growthRate": 0.5,                     // prolific, but bounded by heavy chick loss
+      "predationVulnerability": 0.9,         // a ground bird: easy prey
+      "lifecycle": {
+        "lifespanDays": 1800,                // ~5 years, though few wild birds reach it
+        "gestationDays": 30,                 // can re-clutch within the season
+        "litterSizeMin": 3, "litterSizeMax": 8,
+        "breedingMonths": [3, 4, 5],         // chicks in spring
+        "juvenileMortality": 0.6
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+// Cycle of Life: Realistic Fauna — wild pegasus.
+//
+// A mythical flying horse, kept deliberately rare (K=1, loaded-world cap of 1). Leaned into the myth:
+// very long-lived, slow to reproduce, and hard to catch (it flies), so encountering one stays a
+// special event. Auto-classed as a forager (it grazes); only its lifecycle is shaped here.
+{
+  "species": {
+    "pegasus:wildpegasus-caelestis": {
+      "growthRate": 0.08,
+      "predationVulnerability": 0.1,            // takes wing — very hard to bring down
+      "lifecycle": {
+        "lifespanDays": 12000,                  // ~33 years; magical longevity
+        "gestationDays": 360,
+        "litterSizeMin": 1, "litterSizeMax": 1,
+        "breedingMonths": [4, 5],
+        "juvenileMortality": 0.2
+      }
+    }
+  }
+}

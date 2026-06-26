@@ -1,0 +1,201 @@
+// Cycle of Life: Realistic Fauna — base-game mammals.
+//
+// "Real-but-playable" tuning. Values lean on real-world biology, scaled to game time. With 30-day
+// months (~360 game-days/year) the lifespans below are roughly literal (e.g. 8000d ≈ 22 years).
+// Lifecycles are deliberately slow: long lives, modest litters, seasonal births, so a hunted-out
+// area recovers slowly and overhunting has consequences.
+//
+// Only fields that differ from auto-discovery are set; maturityDays is left to the auto-detected
+// grow-chain value (overlays merge lifecycle fields). breedingMonths = the months young are BORN
+// (1=Jan..12=Dec); gestationDays caps how often a female can give birth. preyPerPredator is only
+// meaningful for predators (0 = an omnivore that won't starve for lack of meat).
+//
+// NOT touched here: carryingCapacity. Vanilla deer/goats carry a high per-chunk K (deer K=12) — a
+// density/gameplay lever better tuned by observation than by biology, so it's left alone for now.
+{
+  "species": {
+
+    // ===================== BEARS (apex/omnivore, slow breeders, den-raised cubs) =====================
+    "game:bear-black": {
+      "preyPerPredator": 0,                  // omnivore — forage/berries, doesn't depend on meat
+      "predationVulnerability": 0.07,
+      "growthRate": 0.12,
+      "isForager": true, "foodCategories": ["Fruit", "Vegetable"],   // omnivore — berries, roots; now actually forages
+      "lifecycle": {
+        "lifespanDays": 7200, "gestationDays": 220,
+        "litterSizeMin": 1, "litterSizeMax": 3,
+        "breedingMonths": [1], "juvenileMortality": 0.35
+      }
+    },
+    "game:bear-brown": {
+      "preyPerPredator": 0,
+      "predationVulnerability": 0.05,
+      "growthRate": 0.1,
+      "isForager": true, "foodCategories": ["Fruit", "Vegetable"],   // omnivore — berries, roots, tubers
+      "lifecycle": {
+        "lifespanDays": 8000, "gestationDays": 220,
+        "litterSizeMin": 1, "litterSizeMax": 3,
+        "breedingMonths": [1], "juvenileMortality": 0.35
+      }
+    },
+    "game:bear-polar": {
+      "preyPerPredator": 2.5,                // a true carnivore — will struggle outside the ice (realistic)
+      "predationVulnerability": 0.04,
+      "growthRate": 0.08,
+      "lifecycle": {
+        "lifespanDays": 9000, "gestationDays": 240,
+        "litterSizeMin": 1, "litterSizeMax": 2,
+        "breedingMonths": [1], "juvenileMortality": 0.45
+      }
+    },
+    "game:bear-panda": {
+      // bamboo specialist. Vanilla tags every bear "predator", so override it off; it forages the
+      // Vegetable category (closest fit for bamboo) so its density is capped by overgrazing.
+      "isPredator": false,
+      "predationVulnerability": 0.1,
+      "growthRate": 0.08,
+      "isForager": true, "foodCategories": ["Vegetable"],   // bamboo
+      "lifecycle": {
+        "lifespanDays": 7000, "gestationDays": 140,
+        "litterSizeMin": 1, "litterSizeMax": 1,
+        "breedingMonths": [8], "juvenileMortality": 0.45
+      }
+    },
+    "game:bear-sun": {
+      // smallest bear, frugivore (keeps its auto [forage:Fruit])
+      "predationVulnerability": 0.12,
+      "growthRate": 0.15,
+      "lifecycle": {
+        "lifespanDays": 6500, "gestationDays": 95,
+        "litterSizeMin": 1, "litterSizeMax": 2,
+        "breedingMonths": [4], "juvenileMortality": 0.35
+      }
+    },
+
+    // ===================== CERVIDS (herd herbivores, mostly one calf a year) =====================
+    "game:deer-caribou": {
+      "growthRate": 0.25, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 }
+    },
+    "game:deer-chital": {
+      "growthRate": 0.35, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+    "game:deer-elk": {
+      // wapiti — large, bugling rut
+      "growthRate": 0.25, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 4700, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 }
+    },
+    "game:deer-fallow": {
+      "growthRate": 0.3, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 4700, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [6], "juvenileMortality": 0.4 }
+    },
+    "game:deer-guemal": {
+      // huemul: small, more solitary Andean deer
+      "growthRate": 0.25, "predationVulnerability": 0.75,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+    "game:deer-marsh": {
+      // largest South American deer
+      "growthRate": 0.2, "predationVulnerability": 0.75,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 270, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+    "game:deer-pampas": {
+      "growthRate": 0.3, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+    "game:deer-pudu": {
+      // smallest deer in the world (~10 kg)
+      "growthRate": 0.35, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 }
+    },
+    "game:deer-redbrocket": {
+      "growthRate": 0.35, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 4000, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+    "game:deer-taruca": {
+      "growthRate": 0.25, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 240, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+    "game:deer-water": {
+      // water deer: no antlers, tusks instead, and unusually fecund for a deer (litters of 2-4)
+      "growthRate": 0.45, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [5, 6], "juvenileMortality": 0.5 }
+    },
+    "game:deer-whitetail": {
+      // adaptable, frequently twins
+      "growthRate": 0.4, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 }
+    },
+
+    // ===================== GAZELLE (fast open-plains prey) =====================
+    "game:gazelle-thomson": {
+      "growthRate": 0.5, "predationVulnerability": 0.95,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 10], "juvenileMortality": 0.5 }
+    },
+
+    // ===================== WILD GOATS & SHEEP-LIKE (mountain herds, sure-footed = harder to catch) ===
+    "game:goat-angora":    { "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "game:goat-ibexalp":   { "growthRate": 0.28, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 5000, "gestationDays": 170, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "game:goat-ibexnub":   { "growthRate": 0.3, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 4700, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+    "game:goat-markhor":   { "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4000, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "game:goat-mountain":  { "growthRate": 0.26, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 4700, "gestationDays": 180, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "game:goat-muskox":    { "growthRate": 0.2, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 7000, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 } },
+    "game:goat-nubian":    { "growthRate": 0.32, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+    "game:goat-sirohi":    { "growthRate": 0.33, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+    "game:goat-takingold": { "growthRate": 0.25, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 5000, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+    "game:goat-turdag":    { "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "game:goat-valais":    { "growthRate": 0.32, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+
+    // ===================== TRUE WILD SHEEP =====================
+    "game:sheep-bighorn": { "growthRate": 0.25, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 175, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "game:sheep-mouflon": { "growthRate": 0.3, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+
+    // ===================== HARES (r-strategists: short-lived, breed fast and often, heavily preyed on) ==
+    "game:hare-arctic": {
+      "growthRate": 0.55, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 50, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6, 7], "juvenileMortality": 0.5 }
+    },
+    "game:hare-cape": {
+      "growthRate": 0.6, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 42, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [3, 4, 5, 6, 7, 8], "juvenileMortality": 0.5 }
+    },
+    "game:hare-european": {
+      "growthRate": 0.6, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 42, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [3, 4, 5, 6, 7, 8], "juvenileMortality": 0.5 }
+    },
+
+    // ===================== PIGS (prolific omnivores) =====================
+    "game:pig-eurasian": {
+      "preyPerPredator": 0,
+      "growthRate": 0.6, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 3000, "gestationDays": 115, "litterSizeMin": 3, "litterSizeMax": 7, "breedingMonths": [3, 4], "juvenileMortality": 0.4 }
+    },
+    "game:pig-redriver": {
+      "preyPerPredator": 0,
+      "growthRate": 0.55, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 125, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [3, 4], "juvenileMortality": 0.4 }
+    },
+    "game:pig-warthog": {
+      "preyPerPredator": 0,
+      "growthRate": 0.5, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 170, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    },
+
+    // ===================== SMALL OMNIVORES =====================
+    "game:raccoon-common": {
+      "preyPerPredator": 0,
+      "growthRate": 0.4, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+
+    // ===================== HYENA (denning pack predator) =====================
+    "game:hyena-spotted": {
+      "predationVulnerability": 0.3,         // formidable in clans; not easy prey
+      "preyPerPredator": 2.5,
+      "growthRate": 0.2,
+      "lifecycle": { "lifespanDays": 7000, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.4 }
+    }
+
+  }
+}

@@ -1,0 +1,100 @@
+// Cycle of Life: Realistic Fauna — territories (home ranges).
+//
+// Predators get a territory automatically (radius from body size), so this file only opts IN the
+// large HERD HERBIVORES, which otherwise fill every cell to K. radiusChunks is the spacing kept
+// between herds — bigger = sparser herds / lower average. Small, gregarious species (hares, raccoon,
+// chicken, the snakes) are left OUT on purpose: they overlap freely, as in nature. The overall
+// background density between herds is set by TerritoryFloorFraction in the mod config, not here.
+//
+// These merge onto each species' other overlay settings (lifecycle etc. live in the other files).
+{
+  "species": {
+
+    // ===================== Vanilla deer =====================
+    "game:deer-caribou":   { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "game:deer-elk":       { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "game:deer-marsh":     { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "game:deer-chital":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-fallow":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-guemal":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-pampas":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-redbrocket":{ "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-taruca":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-water":     { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-whitetail": { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:deer-pudu":      { "territory": { "enabled": true, "radiusChunks": 3 } },
+
+    // ===================== Vanilla goats & sheep (mountain herds) =====================
+    "game:goat-muskox":    { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "game:goat-takingold": { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "game:goat-angora":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-ibexalp":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-ibexnub":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-markhor":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-mountain":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-nubian":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-sirohi":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-turdag":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:goat-valais":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:sheep-bighorn":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:sheep-mouflon":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+
+    // ===================== Vanilla gazelle & boar =====================
+    "game:gazelle-thomson":{ "territory": { "enabled": true, "radiusChunks": 4 } },
+    "game:pig-eurasian":   { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "game:pig-redriver":   { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "game:pig-warthog":    { "territory": { "enabled": true, "radiusChunks": 3 } },
+
+    // ===================== FotSA cervids =====================
+    // Moose: huge home ranges
+    "capreolinae:cervidae-alceini-alcesalces":      { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "capreolinae:cervidae-alceini-cervalcesscotti": { "territory": { "enabled": true, "radiusChunks": 6 } },
+    // Roe & water deer
+    "capreolinae:cervidae-capreolini-capreoluscapreolus": { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-capreolini-capreoluspygargus":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-capreolini-hydropotesinermis":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    // Caribou / reindeer
+    "capreolinae:cervidae-odocoileini-rangifertarandus":      { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-rangifercaribou":       { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-rangiferarcticus":      { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-rangiferfennicus":      { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-rangifergroenlandicus": { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-rangiferplatyrhynchus": { "territory": { "enabled": true, "radiusChunks": 5 } },
+    // Odocoileus
+    "capreolinae:cervidae-odocoileini-odocoileusvirginianus": { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-odocoileushemionus":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-odocoileuslucasi":      { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-odocoileuspandora":     { "territory": { "enabled": true, "radiusChunks": 4 } },
+    // Brockets (small, tropical)
+    "capreolinae:cervidae-odocoileini-mazamaamericana":   { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamabricenii":    { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamajucunda":     { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamanana":        { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamarufa":        { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamarufina":      { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamatemama":      { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-mazamatienhoveni":  { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-passalitesnemorivaga": { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-subulogouazoubira":    { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-subulochunyi":         { "territory": { "enabled": true, "radiusChunks": 3 } },
+    // Pudús (tiny)
+    "capreolinae:cervidae-odocoileini-pudupuda":             { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-pudellacarlae":        { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "capreolinae:cervidae-odocoileini-pudellamephistophiles":{ "territory": { "enabled": true, "radiusChunks": 3 } },
+    // Huemuls
+    "capreolinae:cervidae-odocoileini-hippocamelusantisensis": { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-hippocamelusbisulcus":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+    // Marsh / pampas / extinct larger deer
+    "capreolinae:cervidae-odocoileini-blastocerusdichotomus":  { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "capreolinae:cervidae-odocoileini-ozotocerosbezoarticus":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-antiferultra":           { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-bretzianebrascensis":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "capreolinae:cervidae-odocoileini-torontoceroshypnogeos":  { "territory": { "enabled": true, "radiusChunks": 5 } },
+
+    // ===================== Feverstone wild horses =====================
+    "feverstonehorses:horse-wild-quarter": { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "feverstonehorses:horse-wild-shire":   { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "feverstonehorses:horse-wild-donkey":  { "territory": { "enabled": true, "radiusChunks": 5 } }
+
+  }
+}

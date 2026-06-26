@@ -1,0 +1,63 @@
+// Cycle of Life: Realistic Fauna — FotSA deer (Capreolinae).
+//
+// Herd herbivores (auto-detected foragers). One calf a year for most; small/tropical species breed
+// a touch faster, the big northern ones slower. predationVulnerability scales inversely with size —
+// a pudú is easy prey, a moose can stand and fight. breedingMonths = the month calves are born.
+// Group baselines by tribe/size; K left at auto (mostly 2; moose 1).
+{
+  "species": {
+
+    // ---- Moose (Alceini): large, can defend ----
+    "capreolinae:cervidae-alceini-alcesalces":      { "growthRate": 0.2, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 5400, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-alceini-cervalcesscotti":  { "growthRate": 0.2, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 5400, "gestationDays": 235, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+
+    // ---- Roe & water deer (Capreolini): small, twin-bearing; water deer unusually fecund ----
+    "capreolinae:cervidae-capreolini-capreoluscapreolus": { "growthRate": 0.35, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 290, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-capreolini-capreoluspygargus": { "growthRate": 0.35, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 290, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-capreolini-hydropotesinermis":  { "growthRate": 0.45, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [5, 6], "juvenileMortality": 0.5 } },
+
+    // ---- Caribou / reindeer (Rangifer): large migratory herds ----
+    "capreolinae:cervidae-odocoileini-rangifertarandus":      { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "capreolinae:cervidae-odocoileini-rangifercaribou":       { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "capreolinae:cervidae-odocoileini-rangiferarcticus":      { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "capreolinae:cervidae-odocoileini-rangiferfennicus":      { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "capreolinae:cervidae-odocoileini-rangifergroenlandicus": { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+    "capreolinae:cervidae-odocoileini-rangiferplatyrhynchus": { "growthRate": 0.25, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
+
+    // ---- Odocoileus (mule / white-tailed and extinct kin): adaptable, often twins ----
+    "capreolinae:cervidae-odocoileini-odocoileusvirginianus": { "growthRate": 0.4, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-odocoileushemionus":    { "growthRate": 0.38, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 205, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-odocoileuslucasi":      { "growthRate": 0.38, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 205, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-odocoileuspandora":     { "growthRate": 0.4, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 } },
+
+    // ---- Brockets (Mazama / Subulo / Passalites): small, tropical, single fawn ----
+    "capreolinae:cervidae-odocoileini-mazamaamericana":   { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-mazamabricenii":    { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-mazamajucunda":     { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-mazamanana":        { "growthRate": 0.37, "predationVulnerability": 0.88, "lifecycle": { "lifespanDays": 3600, "gestationDays": 215, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+    "capreolinae:cervidae-odocoileini-mazamarufa":        { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-mazamarufina":      { "growthRate": 0.37, "predationVulnerability": 0.88, "lifecycle": { "lifespanDays": 3600, "gestationDays": 215, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+    "capreolinae:cervidae-odocoileini-mazamatemama":      { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-mazamatienhoveni":  { "growthRate": 0.37, "predationVulnerability": 0.88, "lifecycle": { "lifespanDays": 3600, "gestationDays": 215, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+    "capreolinae:cervidae-odocoileini-passalitesnemorivaga": { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-subulogouazoubira":    { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-subulochunyi":         { "growthRate": 0.35, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+
+    // ---- Pudús (smallest deer) ----
+    "capreolinae:cervidae-odocoileini-pudupuda":             { "growthRate": 0.35, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 3600, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+    "capreolinae:cervidae-odocoileini-pudellacarlae":        { "growthRate": 0.35, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 3600, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+    "capreolinae:cervidae-odocoileini-pudellamephistophiles":{ "growthRate": 0.35, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 3600, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.5 } },
+
+    // ---- Huemuls (Hippocamelus): Andean, hardy ----
+    "capreolinae:cervidae-odocoileini-hippocamelusantisensis": { "growthRate": 0.25, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 240, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-hippocamelusbisulcus":   { "growthRate": 0.25, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 240, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+
+    // ---- Marsh / pampas / extinct larger deer ----
+    "capreolinae:cervidae-odocoileini-blastocerusdichotomus":  { "growthRate": 0.2, "predationVulnerability": 0.75, "lifecycle": { "lifespanDays": 4300, "gestationDays": 270, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-ozotocerosbezoarticus":  { "growthRate": 0.3, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-antiferultra":           { "growthRate": 0.3, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 220, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-bretzianebrascensis":    { "growthRate": 0.3, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 215, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 } },
+    "capreolinae:cervidae-odocoileini-torontoceroshypnogeos":  { "growthRate": 0.28, "predationVulnerability": 0.75, "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 } }
+
+  }
+}
