@@ -1,0 +1,6 @@
+Cycle of Life: Realistic Fauna
+Copyright 2026 Maeyanie
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this content except in compliance with the License.
+See the LICENSE.txt file in this repository for the full text.

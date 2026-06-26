@@ -39,3 +39,13 @@ in-game for the authoritative keys.
 
 No build needed (no code). For development, point the server at this folder as a mod path; for
 distribution, zip the folder contents (modinfo.json at the zip root).
+
+## License
+
+Licensed under the [Apache License 2.0](LICENSE.txt) — use, modify, and redistribute freely; retain
+attribution and mark any files you change (Apache §4). See [NOTICE.txt](NOTICE.txt).
+
+This pack is tuning **data**. It references entities from other Vintage Story mods (such as Faces of
+the Stone Age, Feverstone, Pegasus, and Primitive Survival) by their entity codes for
+interoperability only — it contains **none of those mods' assets**, and they remain under their own
+licenses.
