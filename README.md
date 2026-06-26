@@ -1,6 +1,6 @@
 # Cycle of Life: Realistic Fauna
 
-A **content-only** overlay pack for the [Cycle of Life](../Cycle%20of%20Life) ecosystem mod. It
+A **content-only** overlay pack for the [Cycle of Life](https://github.com/Maeyanie/Cycle-of-Life) ecosystem mod. It
 ships per-species tuning JSON under `assets/colrealfauna/config/cycleoflife/`, which Cycle of Life's
 overlay loader picks up automatically (it scans `config/cycleoflife/` across every loaded mod).
 
