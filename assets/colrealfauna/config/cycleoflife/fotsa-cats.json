@@ -9,58 +9,67 @@
 //
 // preyPerPredator = standing prey units needed to sustain one cat; higher = more limited by prey.
 // breedingMonths = birth months. K=1 already (these are deliberately rare).
+//
+// huntWhenFull = the fraction of the full kill rate a SATED cat keeps (0 = stops when full). Felids
+// are documented surplus killers: a single leopard once killed 51 sheep in a pen, and snow leopards
+// are notorious for slaughtering whole corrals of goats. Livestock-raiding spotted cats (leopard,
+// snow leopard) get the strongest floor; the big social/solitary cats a modest opportunistic one;
+// the sabertooths keep 0 — megafauna specialists whose huge kills feed them for days, no reason to
+// keep killing.
 {
   "species": {
 
     // ---- Lions: social prides — keep the den ----
     "pantherinae:pantherinae-panthera-leo-normal": {
-      "predationVulnerability": 0.04, "preyPerPredator": 6, "growthRate": 0.1,
+      "predationVulnerability": 0.04, "preyPerPredator": 6, "growthRate": 0.1, "huntWhenFull": 0.15,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-atrox-normal": {
       // American lion — large, likely social
-      "predationVulnerability": 0.03, "preyPerPredator": 7, "growthRate": 0.08,
+      "predationVulnerability": 0.03, "preyPerPredator": 7, "growthRate": 0.08, "huntWhenFull": 0.15,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
     },
 
     // ---- Solitary big cats — suppress the den ----
     "pantherinae:pantherinae-panthera-tigris-normal": {
-      "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "den": { "enabled": false },
+      "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "den": { "enabled": false }, "huntWhenFull": 0.15,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 105, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-spelaea-normal": {
       // cave lion — treat as solitary
-      "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "den": { "enabled": false },
+      "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "den": { "enabled": false }, "huntWhenFull": 0.15,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-pardus-normal": {
-      "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "den": { "enabled": false },
+      // leopard — textbook surplus killer (51 sheep in one pen incident)
+      "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "den": { "enabled": false }, "huntWhenFull": 0.3,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-pardus-melanistic": {
-      "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "den": { "enabled": false },
+      "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "den": { "enabled": false }, "huntWhenFull": 0.3,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-onca-normal": {
-      "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "den": { "enabled": false },
+      // jaguar — opportunistic
+      "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "den": { "enabled": false }, "huntWhenFull": 0.12,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-onca-melanistic": {
-      "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "den": { "enabled": false },
+      "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "den": { "enabled": false }, "huntWhenFull": 0.12,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-uncia-normal": {
-      // snow leopard — sparse, harsh range
-      "predationVulnerability": 0.05, "preyPerPredator": 3, "growthRate": 0.1, "den": { "enabled": false },
+      // snow leopard — sparse, harsh range; infamous for slaughtering whole corrals
+      "predationVulnerability": 0.05, "preyPerPredator": 3, "growthRate": 0.1, "den": { "enabled": false }, "huntWhenFull": 0.3,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-neofelis-diardi-normal": {
       // clouded leopard (Sunda) — small, arboreal
-      "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "den": { "enabled": false },
+      "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "den": { "enabled": false }, "huntWhenFull": 0.1,
       "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-neofelis-nebulosa-normal": {
-      "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "den": { "enabled": false },
+      "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "den": { "enabled": false }, "huntWhenFull": 0.1,
       "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
 

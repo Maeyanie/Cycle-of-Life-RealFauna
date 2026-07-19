@@ -42,6 +42,7 @@
       "preyPerPredator": 2.5,                // a true carnivore — will struggle outside the ice (realistic)
       "predationVulnerability": 0.04,
       "growthRate": 0.08,
+      "huntWhenFull": 0.15,                  // documented surplus killer of seals and seabird colonies
       "lifecycle": {
         "lifespanDays": 9000, "gestationDays": 240,
         "litterSizeMin": 1, "litterSizeMax": 2,
@@ -194,6 +195,8 @@
       "predationVulnerability": 0.3,         // formidable in clans; not easy prey
       "preyPerPredator": 2.5,
       "growthRate": 0.2,
+      "huntWhenFull": 0.3,                   // the species Kruuk coined "surplus killing" studying —
+                                             // a clan once killed 82 gazelle in a night, ate 16%
       "lifecycle": { "lifespanDays": 7000, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.4 }
     }
 
