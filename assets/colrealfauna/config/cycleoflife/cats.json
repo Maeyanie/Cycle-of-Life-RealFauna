@@ -14,6 +14,14 @@
 // All four are true felids, and felids are documented surplus killers — the reason a fox-proof
 // henhouse is not a cat-proof one. They all carry a huntWhenFull floor; the house cat carries the
 // highest, since a well-fed domestic cat is the textbook example of killing for its own sake.
+//
+// VERIFICATION STATUS: the species keys in this file were derived from the mod's own entity
+// JSON (its spawn conditions and variant axes), not read off a live server roster — this mod
+// is not installed on the pack author's server. A key that turned out wrong does not break
+// anything: an overlay entry that matches no species is simply ignored, and the animal keeps
+// its auto-discovered values. If you run this mod, `/col species` (or the roster dumped to the
+// server log at startup) lists the authoritative keys, and anything mistyped here will be
+// absent from it. Corrections welcome.
 {
   "species": {
 

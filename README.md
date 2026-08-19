@@ -44,6 +44,24 @@ assets/colrealfauna/config/cycleoflife/
   primitivesurvival.json     # Primitive Survival
 ```
 
+### Verification status
+
+Files are marked below by how their species keys were confirmed. A key that is wrong is *inert*, not
+harmful: an overlay entry matching no species is ignored and the animal simply keeps its
+auto-discovered values. The one exception is an `exclude` pattern, which is why the aquatic
+exclusions in `feverstonewilds.json` are deliberately belt-and-braces.
+
+| Verified against a live roster | Derived from the mod's entity JSON only |
+|---|---|
+| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles |
+
+The right-hand column covers mods the pack author does not run. Their keys were computed by
+replicating Cycle of Life's own key derivation (domain + base code + non-demographic variants,
+honouring `spawnconditionsByType` gating) against the mod archives, and cross-checked both ways —
+but nothing beats seeing them in a roster. If you run one of those mods, `/col species` and the
+startup roster dump list the authoritative keys, and anything mistyped will simply be missing from
+them. Corrections are welcome.
+
 Species keys must match exactly what Cycle of Life discovered — check `/col species <filter>`
 in-game for the authoritative keys.
 

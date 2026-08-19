@@ -17,16 +17,29 @@
 // Note the tamed variants (bison-tamed, horse-tamed-*) carry no spawn conditions, so they never
 // become species and need no entries. The wild horses share their lifecycle numbers with the
 // Feverstone Horses pack (feverstone-horses.json) so the two mods agree.
+//
+// VERIFICATION STATUS: the species keys in this file were derived from the mod's own entity
+// JSON (its spawn conditions and variant axes), not read off a live server roster — this mod
+// is not installed on the pack author's server. A key that turned out wrong does not break
+// anything: an overlay entry that matches no species is simply ignored, and the animal keeps
+// its auto-discovered values. If you run this mod, `/col species` (or the roster dumped to the
+// server log at startup) lists the authoritative keys, and anything mistyped here will be
+// absent from it. Corrections welcome.
 {
+  // Both the bare code and a "-*" form are listed for the fish. As of 2.1.2 none of them carry a
+  // variant axis, so the bare code is what exists and is what matches — but an exclude that misses
+  // is the one mistake in this pack that actually destroys something (we would veto their in-water
+  // spawns and then fail to place them on land), so the wildcard is cheap insurance against the mod
+  // later splitting a fish by type the way it already splits sharks.
   "exclude": [
     "feverstonewilds:golem-*",
-    "feverstonewilds:buromenfish",
-    "feverstonewilds:discus",
-    "feverstonewilds:eel",
-    "feverstonewilds:ghostfish",
-    "feverstonewilds:orca",
+    "feverstonewilds:buromenfish",  "feverstonewilds:buromenfish-*",
+    "feverstonewilds:discus",       "feverstonewilds:discus-*",
+    "feverstonewilds:eel",          "feverstonewilds:eel-*",
+    "feverstonewilds:ghostfish",    "feverstonewilds:ghostfish-*",
+    "feverstonewilds:orca",         "feverstonewilds:orca-*",
     "feverstonewilds:shark-*",
-    "feverstonewilds:stingray"
+    "feverstonewilds:stingray",     "feverstonewilds:stingray-*"
   ],
   "species": {
 
