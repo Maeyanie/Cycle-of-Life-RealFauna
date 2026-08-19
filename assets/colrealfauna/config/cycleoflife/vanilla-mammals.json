@@ -101,6 +101,11 @@
       "growthRate": 0.2, "predationVulnerability": 0.75,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 270, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
     },
+    "game:deer-moose": {
+      // largest living deer; FotSA Capreolinae replaces it when that mod is installed
+      "growthRate": 0.2, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 240, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 }
+    },
     "game:deer-pampas": {
       "growthRate": 0.3, "predationVulnerability": 0.85,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
@@ -188,6 +193,32 @@
       "preyPerPredator": 0,
       "growthRate": 0.4, "predationVulnerability": 0.6,
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+
+    // ===================== CANIDS (vanilla wolf + foxes) =====================
+    // NOTE: FotSA Caninae REPLACES these — with that mod installed these keys simply never appear
+    // in the roster and these entries no-op. They're here so the pack stands alone on a server
+    // without FotSA. See fotsa-canids.json for the equivalents.
+    "game:wolf-eurasian": {
+      "predationVulnerability": 0.3,         // pack animals defend themselves
+      "preyPerPredator": 3,
+      "growthRate": 0.25,
+      "huntWhenFull": 0.15,                  // surplus-kills opportunistically (deep snow, livestock)
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 63, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    "game:fox-red": {
+      "predationVulnerability": 0.6,
+      "preyPerPredator": 1.5,
+      "growthRate": 0.5,
+      "huntWhenFull": 0.3,                   // the textbook surplus killer (74 penguins in one spree)
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 52, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4], "juvenileMortality": 0.5 }
+    },
+    "game:fox-arctic": {
+      "predationVulnerability": 0.6,
+      "preyPerPredator": 1.5,
+      "growthRate": 0.55,
+      "huntWhenFull": 0.3,                   // caches surplus kills against the winter
+      "lifecycle": { "lifespanDays": 1500, "gestationDays": 52, "litterSizeMin": 5, "litterSizeMax": 8, "breedingMonths": [5], "juvenileMortality": 0.55 }
     },
 
     // ===================== HYENA (denning pack predator) =====================

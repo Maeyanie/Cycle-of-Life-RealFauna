@@ -1,0 +1,129 @@
+// Cycle of Life: Realistic Fauna — Feverstone Wilds (feverstonewilds).
+//
+// A mixed bag: real megafauna (bison, giraffe, ostrich, wild horses), fantasy beasts (cockatrice,
+// hellboar, faunling, direwolf), minor critters (scorpion, spider, toad, geode crab), mineral
+// GOLEMS, and a set of FISH. The last two groups are excluded; everything else is managed.
+//
+// EXCLUSIONS, and why:
+//   * golem-* — not fauna. They are mineral constructs that neither breed nor eat; running them
+//     through a population model (births, forage, starvation, dens) is meaningless. They are tagged
+//     "animal" so nothing auto-excludes them, hence the explicit list. Same call as the vsvillage /
+//     rustboundmagic exclusions: structure-and-spell spawns are not a wild population.
+//   * the fish (buromenfish, discus, eel, ghostfish, orca, shark-*, stingray) — aquatic. They carry
+//     no habitat tags at all, so the tag-based aquatic filter cannot see them, and if we managed them
+//     we would veto their in-water spawns and then fail to place our own (we only place on land),
+//     erasing them outright. Exactly the bairdicrab case in primitivesurvival.json.
+//
+// Note the tamed variants (bison-tamed, horse-tamed-*) carry no spawn conditions, so they never
+// become species and need no entries. The wild horses share their lifecycle numbers with the
+// Feverstone Horses pack (feverstone-horses.json) so the two mods agree.
+{
+  "exclude": [
+    "feverstonewilds:golem-*",
+    "feverstonewilds:buromenfish",
+    "feverstonewilds:discus",
+    "feverstonewilds:eel",
+    "feverstonewilds:ghostfish",
+    "feverstonewilds:orca",
+    "feverstonewilds:shark-*",
+    "feverstonewilds:stingray"
+  ],
+  "species": {
+
+    // ===================== REAL MEGAFAUNA =====================
+    // American bison: herd grazer, one calf a year, formidable enough that wolves rarely win.
+    "feverstonewilds:bison-wild": {
+      "bodyWeight": 700, "growthRate": 0.18, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 285, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Giraffe: very slow breeder, single calf, almost nothing takes a healthy adult.
+    // NOTE: as of Feverstone Wilds 2.1.2 this entry is inert, through no fault of ours — the mod
+    // gates the giraffe's spawn conditions on "*-male", but its variant axes are gender THEN age,
+    // so the real codes are giraffe-male-adult / giraffe-male-calf and nothing ends in "-male".
+    // The pattern matches no variant, so no giraffe ever spawns. Kept so the tuning is already in
+    // place if the mod fixes the pattern; harmless meanwhile (unknown keys simply no-op).
+    "feverstonewilds:giraffe": {
+      "bodyWeight": 1200, "growthRate": 0.12, "predationVulnerability": 0.2,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 450, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 }
+    },
+    // Ostrich: huge communal clutches, and a kick that kills lions.
+    "feverstonewilds:ostrich": {
+      "bodyWeight": 110, "growthRate": 0.45, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 45, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [5, 6], "juvenileMortality": 0.75 }
+    },
+
+    // ===================== WILD HORSES (five breeds; one baseline, donkey a touch hardier) =========
+    "feverstonewilds:horse-wild-percheron": {
+      "bodyWeight": 900, "growthRate": 0.2, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    "feverstonewilds:horse-wild-shire": {
+      "bodyWeight": 950, "growthRate": 0.2, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    "feverstonewilds:horse-wild-arabian": {
+      "bodyWeight": 450, "growthRate": 0.22, "predationVulnerability": 0.45,
+      "lifecycle": { "lifespanDays": 9500, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    "feverstonewilds:horse-wild-quarter": {
+      "bodyWeight": 500, "growthRate": 0.22, "predationVulnerability": 0.45,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    "feverstonewilds:horse-wild-donkey": {
+      // desert-adapted: longer gestation, lives on rougher forage than a horse
+      "bodyWeight": 250, "growthRate": 0.22, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 365, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+
+    // ===================== FANTASY BEASTS =====================
+    // Direwolf: a bigger, scarcer wolf. Pack hunter, and surplus-kills like its living relatives.
+    "feverstonewilds:direwolf": {
+      "bodyWeight": 90, "growthRate": 0.2, "predationVulnerability": 0.25, "preyPerPredator": 4,
+      "huntWhenFull": 0.15,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 68, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Cockatrice: predatory ambush bird, rare and slow to breed; kills past its appetite.
+    "feverstonewilds:cockatrice": {
+      "bodyWeight": 60, "growthRate": 0.15, "predationVulnerability": 0.3, "preyPerPredator": 3,
+      "huntWhenFull": 0.2,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.6 }
+    },
+    // Hellboar: an infernal wild boar. Prolific, aggressive, omnivorous rooting forager.
+    "feverstonewilds:hellboar": {
+      "bodyWeight": 180, "preyPerPredator": 0,
+      "growthRate": 0.45, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 120, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [3, 4], "juvenileMortality": 0.45 }
+    },
+    // Faunling: small woodland humanoid, modelled as a shy, sparse, long-lived forest forager.
+    "feverstonewilds:faunling": {
+      "bodyWeight": 35, "growthRate": 0.15, "predationVulnerability": 0.5,
+      "isForager": true, "foodCategories": ["Fruit", "Vegetable"],
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 240, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4], "juvenileMortality": 0.4 }
+    },
+
+    // ===================== SMALL FRY =====================
+    // Toad: amphibious, but its spawn blocks include air and grass, so it places safely on land.
+    "feverstonewilds:toad": {
+      "bodyWeight": 0.1, "growthRate": 0.8, "predationVulnerability": 0.95,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+    // Scorpion: long-lived for an arthropod, live-bearing, brood carried on the back.
+    "feverstonewilds:scorpion": {
+      "bodyWeight": 0.03, "growthRate": 0.5, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 200, "litterSizeMin": 3, "litterSizeMax": 8, "breedingMonths": [5, 6], "juvenileMortality": 0.8 }
+    },
+    // Spider: short-lived, one big egg sac, nearly all of it eaten before adulthood.
+    "feverstonewilds:spider": {
+      "bodyWeight": 0.02, "growthRate": 0.9, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 700, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
+    },
+    // Geode crab: mineral-shelled oddity. Slow, armoured, rare. Kept (unlike the golems) because it
+    // is at least an animal that breeds and eats.
+    "feverstonewilds:geodecrab": {
+      "bodyWeight": 3, "growthRate": 0.2, "predationVulnerability": 0.25,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 120, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.7 }
+    }
+
+  }
+}

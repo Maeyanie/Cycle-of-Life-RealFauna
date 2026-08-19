@@ -1,0 +1,71 @@
+// Cycle of Life: Realistic Fauna — Cats (cats).
+//
+// Four small felids in four coat/species variants: house cat, ocelot, serval, and European wildcat.
+//
+// STRUCTURAL NOTE — why every entry appears twice. This mod gives cat-male AND cat-female their own
+// spawn conditions, and it encodes the sex in the entity CODE rather than on a "gender" variant axis.
+// Our species key only collapses axes literally named age/gender/sex, so each cat becomes TWO species
+// (cats:cat-male-serval and cats:cat-female-serval) instead of one. Both still work — a unit's members
+// are sexed internally, so each half breeds and sustains itself — but the pair would otherwise carry
+// DOUBLE the intended density. So carryingCapacity is set to half the population we want per cell on
+// each half, and the two halves add back up to it. Anything else (lifecycle, diet) is simply stated
+// identically on both.
+//
+// All four are true felids, and felids are documented surplus killers — the reason a fox-proof
+// henhouse is not a cat-proof one. They all carry a huntWhenFull floor; the house cat carries the
+// highest, since a well-fed domestic cat is the textbook example of killing for its own sake.
+{
+  "species": {
+
+    // ---- House cat: feral/farmyard. Prolific (several litters a year), short-lived in the wild,
+    // and the most notorious surplus killer of the four. ----
+    "cats:cat-male-house": {
+      "carryingCapacity": 2, "bodyWeight": 4, "growthRate": 0.6, "predationVulnerability": 0.6,
+      "preyPerPredator": 1, "huntWhenFull": 0.35,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
+    },
+    "cats:cat-female-house": {
+      "carryingCapacity": 2, "bodyWeight": 4, "growthRate": 0.6, "predationVulnerability": 0.6,
+      "preyPerPredator": 1, "huntWhenFull": 0.35,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
+    },
+
+    // ---- European wildcat: solitary forest cat, one litter a year, scarcer than the house cat. ----
+    "cats:cat-male-european": {
+      "carryingCapacity": 1.5, "bodyWeight": 6, "growthRate": 0.4, "predationVulnerability": 0.5,
+      "preyPerPredator": 1.5, "huntWhenFull": 0.3,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    "cats:cat-female-european": {
+      "carryingCapacity": 1.5, "bodyWeight": 6, "growthRate": 0.4, "predationVulnerability": 0.5,
+      "preyPerPredator": 1.5, "huntWhenFull": 0.3,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+
+    // ---- Ocelot: neotropical, unusually slow for a small cat — a single kitten, raised long. ----
+    "cats:cat-male-ocelot": {
+      "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.25, "predationVulnerability": 0.4,
+      "preyPerPredator": 2, "huntWhenFull": 0.25,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    "cats:cat-female-ocelot": {
+      "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.25, "predationVulnerability": 0.4,
+      "preyPerPredator": 2, "huntWhenFull": 0.25,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+
+    // ---- Serval: long-legged grassland rodent specialist, the most efficient hunter of the four
+    // and a habitual raider of poultry. ----
+    "cats:cat-male-serval": {
+      "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.35, "predationVulnerability": 0.45,
+      "preyPerPredator": 1.5, "huntWhenFull": 0.3,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    "cats:cat-female-serval": {
+      "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.35, "predationVulnerability": 0.45,
+      "preyPerPredator": 1.5, "huntWhenFull": 0.3,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    }
+
+  }
+}

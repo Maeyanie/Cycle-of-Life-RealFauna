@@ -1,0 +1,143 @@
+// Cycle of Life: Realistic Fauna — The Critter Pack (thecritterpack).
+//
+// Small ambient wildlife: songbirds, waterfowl, ground litter invertebrates, rodents, a hedgehog and
+// a yak. Most follow the vanilla pattern (the male carries the spawn conditions, females and young
+// ride along as companions), so one species per animal.
+//
+// The brown owl needs no entry: it is tagged habitat-air without habitat-land, so the mod's own
+// aquatic/aerial tag filter drops it automatically.
+//
+// TWO STRUCTURAL NOTES:
+//   * The four squirrel colours (brown, darkbrown, black, red) are one animal split across four
+//     species keys by coat. Each gets a quarter of the density we want for "squirrels" so the four
+//     together read as one normal population.
+//   * The "_flying" / "_f" birds (crow_flying, robin_flying, house-sparrow_f, waxwing_f) are the
+//     mod's ambient flyers. They spawn thickly by design (a 0.02-0.035 chance versus 0.0001 for most
+//     things), so they are given fast, cheap r-strategist lifecycles rather than being throttled —
+//     background birdlife should stay background birdlife.
+//
+// Body weights are set throughout: the mod leaves most of them unset, and weight now drives forage
+// demand, grazing range, roaming speed and the satiation reserve pool.
+{
+  "species": {
+
+    // ===================== BIRDS =====================
+    // Crow: long-lived, intelligent, omnivorous, small brood raised with care.
+    "thecritterpack:bird-crow-adult": {
+      "bodyWeight": 0.5, "growthRate": 0.3, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 20, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+    "thecritterpack:crow_flying": {
+      "bodyWeight": 0.5, "growthRate": 0.3, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 20, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+    // Robin: short-lived, two or three broods a season, most of them lost.
+    "thecritterpack:robin_flying": {
+      "bodyWeight": 0.02, "growthRate": 0.9, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 700, "gestationDays": 14, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.75 }
+    },
+    // House sparrow: the archetypal fast-living small bird, several broods a year.
+    "thecritterpack:house-sparrow_f": {
+      "bodyWeight": 0.03, "growthRate": 0.9, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 12, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.75 }
+    },
+    // Waxwing: berry specialist, one brood, irruptive winter wanderer.
+    "thecritterpack:waxwing_f": {
+      "bodyWeight": 0.06, "growthRate": 0.6, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 1400, "gestationDays": 14, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
+    },
+
+    // ===================== WATERFOWL =====================
+    // Mallard: prolific, big clutch, heavy duckling losses.
+    "thecritterpack:mallard-duck-male": {
+      "bodyWeight": 1.1, "growthRate": 0.7, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 28, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.7 }
+    },
+    // Pekin duck: the domesticated form gone feral. Bred for meat, so heavier and less wary,
+    // but it is a poor survivor without a farmyard — kept rare.
+    "thecritterpack:pekin-duck-male": {
+      "carryingCapacity": 2, "bodyWeight": 3.5, "growthRate": 0.5, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 28, "litterSizeMin": 5, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.75 }
+    },
+    // Swans: long-lived, monogamous, tiny brood, and formidable enough to see off a fox.
+    "thecritterpack:mute-swan-male": {
+      "bodyWeight": 11, "growthRate": 0.15, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 7000, "gestationDays": 36, "litterSizeMin": 4, "litterSizeMax": 7, "breedingMonths": [5], "juvenileMortality": 0.55 }
+    },
+    "thecritterpack:blackswan-male": {
+      "bodyWeight": 6, "growthRate": 0.18, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 7000, "gestationDays": 38, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [5], "juvenileMortality": 0.55 }
+    },
+    "thecritterpack:trumpeter-swan-male": {
+      "bodyWeight": 12, "growthRate": 0.15, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 8000, "gestationDays": 33, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [5], "juvenileMortality": 0.55 }
+    },
+
+    // ===================== SMALL MAMMALS =====================
+    // Chipmunk: caches food, hibernates, one or two litters a year.
+    "thecritterpack:chipmunk-male": {
+      "bodyWeight": 0.1, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 31, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
+    },
+    // Field mouse: the fastest-living thing in the pack; the base of half the food web.
+    "thecritterpack:fieldmus": {
+      "bodyWeight": 0.025, "growthRate": 1.2, "predationVulnerability": 0.95,
+      "lifecycle": { "lifespanDays": 500, "gestationDays": 21, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [3, 4, 5, 6, 7, 8], "juvenileMortality": 0.8 }
+    },
+    // Hedgehog: omnivore (insects, eggs, carrion). Spines make it a poor meal, so less preyed on.
+    "thecritterpack:hedgehog-male": {
+      "bodyWeight": 1.0, "preyPerPredator": 0,
+      "growthRate": 0.5, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 35, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
+    },
+    // Squirrels: one animal in four coats — a quarter of the intended density each (see header).
+    "thecritterpack:squirrel-male-red": {
+      "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
+    },
+    "thecritterpack:squirrel-male-brown": {
+      "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
+    },
+    "thecritterpack:squirrel-male-darkbrown": {
+      "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
+    },
+    "thecritterpack:squirrel-male-black": {
+      "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
+    },
+
+    // ===================== LARGE HERBIVORE =====================
+    // Yak: high-altitude grazer, one calf every other year, very long-lived.
+    "thecritterpack:yak-male": {
+      "bodyWeight": 500, "growthRate": 0.15, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 7000, "gestationDays": 260, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.35 }
+    },
+
+    // ===================== INVERTEBRATES =====================
+    // These have no plant diet declared, so they are neither predators nor foragers — pure logistic
+    // populations bounded by K and mortality. Short lives, big broods, heavy losses.
+    "thecritterpack:crab-both": {
+      "bodyWeight": 0.5, "growthRate": 0.5, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [5, 6], "juvenileMortality": 0.85 }
+    },
+    "thecritterpack:isopod-woodlouse": {
+      "bodyWeight": 0.001, "growthRate": 1.0, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 700, "gestationDays": 40, "litterSizeMin": 4, "litterSizeMax": 10, "breedingMonths": [4, 5, 6, 7], "juvenileMortality": 0.85 }
+    },
+    "thecritterpack:isopod-rubberducky": {
+      "bodyWeight": 0.02, "growthRate": 0.7, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 1100, "gestationDays": 50, "litterSizeMin": 3, "litterSizeMax": 8, "breedingMonths": [5, 6], "juvenileMortality": 0.85 }
+    },
+    "thecritterpack:snail-helix": {
+      "bodyWeight": 0.01, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 30, "litterSizeMin": 5, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
+    },
+    "thecritterpack:snail-default": {
+      "bodyWeight": 0.01, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 30, "litterSizeMin": 5, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
+    }
+
+  }
+}

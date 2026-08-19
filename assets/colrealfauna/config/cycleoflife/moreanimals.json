@@ -1,0 +1,40 @@
+// Cycle of Life: Realistic Fauna — More Animals (moreanimals).
+//
+// Four wild galliform game birds. The mod follows the vanilla pattern — only the COCK carries spawn
+// conditions and the hens/chicks ride along as companions — so each bird is one species keyed on the
+// cock, and our spawner composes the hens and poults itself. Nothing to exclude.
+//
+// Ground-nesting gamebirds are r-strategists: short lives, one big clutch a year, brutal chick
+// mortality, and they are everyone's prey (predationVulnerability high). They forage Grain/Fruit,
+// which auto-discovery already reads from creatureDiet, so only the lifecycle needs stating.
+// bodyWeight is set because the mod leaves it at the default: it drives forage demand, grazing
+// range and the satiation reserve pool.
+{
+  "species": {
+
+    // Capercaillie — the giant of the grouse, a cock is 4-5 kg. Boreal forest, lekking, one brood.
+    "moreanimals:capercaillie-cock": {
+      "bodyWeight": 4.5, "growthRate": 0.55, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 3200, "gestationDays": 27, "litterSizeMin": 5, "litterSizeMax": 8, "breedingMonths": [5, 6], "juvenileMortality": 0.65 }
+    },
+
+    // Golden pheasant — small, showy, montane scrub. Smaller clutch than the common pheasant.
+    "moreanimals:goldenpheasant-cock": {
+      "bodyWeight": 0.7, "growthRate": 0.6, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 23, "litterSizeMin": 5, "litterSizeMax": 9, "breedingMonths": [5, 6], "juvenileMortality": 0.65 }
+    },
+
+    // Common pheasant — famously prolific; the classic hedgerow game bird.
+    "moreanimals:pheasant-cock": {
+      "bodyWeight": 1.2, "growthRate": 0.7, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1400, "gestationDays": 24, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
+    },
+
+    // Wild turkey — big, long-lived for a gamebird, and well able to hurt a fox, so less vulnerable.
+    "moreanimals:wildturkey-cock": {
+      "bodyWeight": 7.0, "growthRate": 0.5, "predationVulnerability": 0.75,
+      "lifecycle": { "lifespanDays": 3200, "gestationDays": 28, "litterSizeMin": 8, "litterSizeMax": 13, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
+    }
+
+  }
+}

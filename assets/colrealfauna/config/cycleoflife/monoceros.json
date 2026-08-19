@@ -1,0 +1,29 @@
+// Cycle of Life: Realistic Fauna — Monoceros (ancient unicorns).
+//
+// Fantasy megafauna, so "realistic" here means internally consistent rather than sourced: they are
+// modelled as the large solitary browsing perissodactyls the classical accounts describe — rhino-
+// sized, fiercely defensive (very low predationVulnerability), extremely slow to reproduce, and
+// consequently very rare. Slow lifecycle + tiny litter is what keeps them a genuine event to meet
+// rather than something that fills a valley.
+//
+// Only the WILD forms spawn (feral/tamed have no spawn conditions), so those are the only keys.
+// Territories are opted in via territories.json.
+{
+  "species": {
+
+    // Indian monoceros — Ctesias' original: horse-bodied, browses forest edge.
+    "monoceros:wildmonoceros-indicus": {
+      "bodyWeight": 800, "growthRate": 0.06, "predationVulnerability": 0.05,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 330, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4], "juvenileMortality": 0.3 }
+    },
+
+    // Caledonian monoceros — the northern form; heavier, slower still, hardier range.
+    "monoceros:wildmonoceros-caledonius": {
+      "bodyWeight": 950, "growthRate": 0.05, "predationVulnerability": 0.04,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 350, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4], "juvenileMortality": 0.3 }
+    }
+
+  }
+}
