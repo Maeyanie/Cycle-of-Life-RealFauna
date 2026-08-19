@@ -79,15 +79,18 @@
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 }
     },
     "game:deer-chital": {
+      "bodyWeight": 60,                  // vanilla default 100 kg; chital are 30-75
       "growthRate": 0.35, "predationVulnerability": 0.8,
       "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
     },
     "game:deer-elk": {
+      "bodyWeight": 300,                  // vanilla 450 kg is a big Roosevelt bull; wapiti average 225-320
       // wapiti — large, bugling rut
       "growthRate": 0.25, "predationVulnerability": 0.6,
       "lifecycle": { "lifespanDays": 4700, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 }
     },
     "game:deer-fallow": {
+      "bodyWeight": 60,                  // vanilla default 100 kg; fallow deer are 35-95
       "growthRate": 0.3, "predationVulnerability": 0.8,
       "lifecycle": { "lifespanDays": 4700, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [6], "juvenileMortality": 0.4 }
     },
@@ -129,6 +132,7 @@
       "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [5, 6], "juvenileMortality": 0.5 }
     },
     "game:deer-whitetail": {
+      "bodyWeight": 70,                  // vanilla default 100 kg; whitetail average ~68
       // adaptable, frequently twins
       "growthRate": 0.4, "predationVulnerability": 0.85,
       "lifecycle": { "lifespanDays": 3600, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.45 }
@@ -136,12 +140,13 @@
 
     // ===================== GAZELLE (fast open-plains prey) =====================
     "game:gazelle-thomson": {
+      "bodyWeight": 23,                  // vanilla ships 67 kg; a real Thomson's gazelle is 15-35 (males 20-35, females 15-25)
       "growthRate": 0.5, "predationVulnerability": 0.95,
       "lifecycle": { "lifespanDays": 3600, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 10], "juvenileMortality": 0.5 }
     },
 
     // ===================== WILD GOATS & SHEEP-LIKE (mountain herds, sure-footed = harder to catch) ===
-    "game:goat-angora":    { "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "game:goat-angora":    { "bodyWeight": 45, "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
     "game:goat-ibexalp":   { "growthRate": 0.28, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 5000, "gestationDays": 170, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
     "game:goat-ibexnub":   { "growthRate": 0.3, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 4700, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
     "game:goat-markhor":   { "growthRate": 0.3, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4000, "gestationDays": 165, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
@@ -155,7 +160,7 @@
 
     // ===================== TRUE WILD SHEEP =====================
     "game:sheep-bighorn": { "growthRate": 0.25, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 4300, "gestationDays": 175, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.4 } },
-    "game:sheep-mouflon": { "growthRate": 0.3, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
+    "game:sheep-mouflon": { "bodyWeight": 42, "growthRate": 0.3, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [3, 4], "juvenileMortality": 0.4 } },
 
     // ===================== HARES (r-strategists: short-lived, breed fast and often, heavily preyed on) ==
     "game:hare-arctic": {
@@ -163,6 +168,7 @@
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 50, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6, 7], "juvenileMortality": 0.5 }
     },
     "game:hare-cape": {
+      "bodyWeight": 2,                  // vanilla gives every hare 4 kg; the Cape hare is the small one at 1.5-2.5
       "growthRate": 0.6, "predationVulnerability": 0.9,
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 42, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [3, 4, 5, 6, 7, 8], "juvenileMortality": 0.5 }
     },
@@ -173,16 +179,19 @@
 
     // ===================== PIGS (prolific omnivores) =====================
     "game:pig-eurasian": {
+      "bodyWeight": 80,                  // vanilla gives all three pigs 150 kg; a wild boar averages 50-90
       "preyPerPredator": 0,
       "growthRate": 0.6, "predationVulnerability": 0.5,
       "lifecycle": { "lifespanDays": 3000, "gestationDays": 115, "litterSizeMin": 3, "litterSizeMax": 7, "breedingMonths": [3, 4], "juvenileMortality": 0.4 }
     },
     "game:pig-redriver": {
+      "bodyWeight": 70,                  // red river hog: 45-115
       "preyPerPredator": 0,
       "growthRate": 0.55, "predationVulnerability": 0.6,
       "lifecycle": { "lifespanDays": 5000, "gestationDays": 125, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [3, 4], "juvenileMortality": 0.4 }
     },
     "game:pig-warthog": {
+      "bodyWeight": 80,                  // warthog: 50-150, ~80 typical
       "preyPerPredator": 0,
       "growthRate": 0.5, "predationVulnerability": 0.7,
       "lifecycle": { "lifespanDays": 5000, "gestationDays": 170, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [5], "juvenileMortality": 0.45 }
@@ -190,6 +199,7 @@
 
     // ===================== SMALL OMNIVORES =====================
     "game:raccoon-common": {
+      "bodyWeight": 8,                  // vanilla 15 kg; a wild raccoon is 5-12, typically ~7-8
       "preyPerPredator": 0,
       "growthRate": 0.4, "predationVulnerability": 0.6,
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
@@ -200,6 +210,7 @@
     // in the roster and these entries no-op. They're here so the pack stands alone on a server
     // without FotSA. See fotsa-canids.json for the equivalents.
     "game:wolf-eurasian": {
+      "bodyWeight": 40,                  // vanilla ships 76 kg, the record end; Eurasian wolves average ~39 (32-50)
       "predationVulnerability": 0.3,         // pack animals defend themselves
       "preyPerPredator": 3,
       "growthRate": 0.25,
@@ -214,6 +225,7 @@
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 52, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4], "juvenileMortality": 0.5 }
     },
     "game:fox-arctic": {
+      "bodyWeight": 3.5,                  // vanilla gives both foxes 6 kg; an arctic fox is 3-3.5
       "predationVulnerability": 0.6,
       "preyPerPredator": 1.5,
       "growthRate": 0.55,
@@ -223,6 +235,7 @@
 
     // ===================== HYENA (denning pack predator) =====================
     "game:hyena-spotted": {
+      "bodyWeight": 65,                  // vanilla 81 kg is top-end; spotted hyenas are 40-86, ~65 typical
       "predationVulnerability": 0.3,         // formidable in clans; not easy prey
       "preyPerPredator": 2.5,
       "growthRate": 0.2,

@@ -30,10 +30,11 @@
       "lifecycle": { "lifespanDays": 1400, "gestationDays": 24, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
     },
 
-    // Wild turkey — big, long-lived for a gamebird, and well able to hurt a fox, so less vulnerable.
+    // Wild turkey — big, and well able to hurt a fox, so less vulnerable. Not actually long-lived
+    // though: wild turkeys average 3-5 years (the 10-12 year birds are rare survivors).
     "moreanimals:wildturkey-cock": {
       "bodyWeight": 7.0, "growthRate": 0.5, "predationVulnerability": 0.75,
-      "lifecycle": { "lifespanDays": 3200, "gestationDays": 28, "litterSizeMin": 8, "litterSizeMax": 13, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
+      "lifecycle": { "lifespanDays": 2000, "gestationDays": 28, "litterSizeMin": 8, "litterSizeMax": 13, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
     }
 
   }
