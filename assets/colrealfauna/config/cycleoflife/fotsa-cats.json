@@ -24,71 +24,71 @@
     // ---- Lions: social prides — keep the den ----
     "pantherinae:pantherinae-panthera-leo-normal": {
       "predationVulnerability": 0.04, "preyPerPredator": 6, "growthRate": 0.1, "huntWhenFull": 0.15,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 900, "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-atrox-normal": {
       // American lion — large, likely social
       "predationVulnerability": 0.03, "preyPerPredator": 7, "growthRate": 0.08, "huntWhenFull": 0.15,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 1000, "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [3, 4], "juvenileMortality": 0.5 }
     },
 
     // ---- Solitary big cats — suppress the den ----
     "pantherinae:pantherinae-panthera-tigris-normal": {
       "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "territory": { "placesDen": false }, "huntWhenFull": 0.15,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 105, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 1000, "lifecycle": { "lifespanDays": 5400, "gestationDays": 105, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-spelaea-normal": {
       // cave lion — treat as solitary
       "predationVulnerability": 0.03, "preyPerPredator": 6, "growthRate": 0.08, "territory": { "placesDen": false }, "huntWhenFull": 0.15,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 800, "lifecycle": { "lifespanDays": 5400, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-pardus-normal": {
       // leopard — textbook surplus killer (51 sheep in one pen incident)
       "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "territory": { "placesDen": false }, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 200, "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-pardus-melanistic": {
       "predationVulnerability": 0.04, "preyPerPredator": 4, "growthRate": 0.1, "territory": { "placesDen": false }, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 200, "lifecycle": { "lifespanDays": 5400, "gestationDays": 95, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-onca-normal": {
       // jaguar — opportunistic
       "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "territory": { "placesDen": false }, "huntWhenFull": 0.12,
-      "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 300, "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-onca-melanistic": {
       "predationVulnerability": 0.04, "preyPerPredator": 5, "growthRate": 0.1, "territory": { "placesDen": false }, "huntWhenFull": 0.12,
-      "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 300, "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-panthera-uncia-normal": {
       // snow leopard — sparse, harsh range; infamous for slaughtering whole corrals
       "predationVulnerability": 0.05, "preyPerPredator": 3, "growthRate": 0.1, "territory": { "placesDen": false }, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 120, "lifecycle": { "lifespanDays": 4300, "gestationDays": 100, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-neofelis-diardi-normal": {
       // clouded leopard (Sunda) — small, arboreal
       "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "territory": { "placesDen": false }, "huntWhenFull": 0.1,
-      "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 50, "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "pantherinae:pantherinae-neofelis-nebulosa-normal": {
       "predationVulnerability": 0.06, "preyPerPredator": 3, "growthRate": 0.12, "territory": { "placesDen": false }, "huntWhenFull": 0.1,
-      "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 50, "lifecycle": { "lifespanDays": 4000, "gestationDays": 90, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
 
     // ---- Sabertooths (Machairodontinae): apex megafauna hunters, likely social — keep the den ----
     "machairodontinae:machairodontinae-smilodon-fatalis": {
       "predationVulnerability": 0.03, "preyPerPredator": 7, "growthRate": 0.08,
-      "lifecycle": { "lifespanDays": 7000, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 1200, "lifecycle": { "lifespanDays": 7000, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
     },
     "machairodontinae:machairodontinae-smilodon-populator": {
       // largest sabertooth — preyed on megaherbivores
       "predationVulnerability": 0.02, "preyPerPredator": 9, "growthRate": 0.07,
-      "lifecycle": { "lifespanDays": 7000, "gestationDays": 115, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 2000, "lifecycle": { "lifespanDays": 7000, "gestationDays": 115, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
     },
     "machairodontinae:machairodontinae-homotherium-serum": {
       // scimitar cat — cursorial pack hunter
       "predationVulnerability": 0.03, "preyPerPredator": 7, "growthRate": 0.08,
-      "lifecycle": { "lifespanDays": 6500, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 1000, "lifecycle": { "lifespanDays": 6500, "gestationDays": 110, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.5 }
     }
 
   }

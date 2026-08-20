@@ -94,13 +94,13 @@
     "feverstonewilds:direwolf": {
       "bodyWeight": 90, "growthRate": 0.2, "predationVulnerability": 0.25, "preyPerPredator": 4,
       "huntWhenFull": 0.15,
-      "lifecycle": { "lifespanDays": 3600, "gestationDays": 68, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 600, "lifecycle": { "lifespanDays": 3600, "gestationDays": 68, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     // Cockatrice: predatory ambush bird, rare and slow to breed; kills past its appetite.
     "feverstonewilds:cockatrice": {
       "bodyWeight": 60, "growthRate": 0.15, "predationVulnerability": 0.3, "preyPerPredator": 3,
       "huntWhenFull": 0.2,
-      "lifecycle": { "lifespanDays": 5000, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.6 }
+      "preyMaxBodyWeight": 250, "lifecycle": { "lifespanDays": 5000, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.6 }
     },
     // Hellboar: an infernal wild boar. Prolific, aggressive, omnivorous rooting forager.
     "feverstonewilds:hellboar": {

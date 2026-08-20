@@ -30,36 +30,36 @@
     "cats:cat-male-house": {
       "carryingCapacity": 2, "bodyWeight": 4, "growthRate": 0.6, "predationVulnerability": 0.6,
       "preyPerPredator": 1, "huntWhenFull": 0.35,
-      "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
+      "preyMaxBodyWeight": 2, "preyMinBodyWeight": 0.01, "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
     },
     "cats:cat-female-house": {
       "carryingCapacity": 2, "bodyWeight": 4, "growthRate": 0.6, "predationVulnerability": 0.6,
       "preyPerPredator": 1, "huntWhenFull": 0.35,
-      "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
+      "preyMaxBodyWeight": 2, "preyMinBodyWeight": 0.01, "lifecycle": { "lifespanDays": 1800, "gestationDays": 65, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.55 }
     },
 
     // ---- European wildcat: solitary forest cat, one litter a year, scarcer than the house cat. ----
     "cats:cat-male-european": {
       "carryingCapacity": 1.5, "bodyWeight": 6, "growthRate": 0.4, "predationVulnerability": 0.5,
       "preyPerPredator": 1.5, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 3, "preyMinBodyWeight": 0.01, "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "cats:cat-female-european": {
       "carryingCapacity": 1.5, "bodyWeight": 6, "growthRate": 0.4, "predationVulnerability": 0.5,
       "preyPerPredator": 1.5, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 3, "preyMinBodyWeight": 0.01, "lifecycle": { "lifespanDays": 2900, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
 
     // ---- Ocelot: neotropical, unusually slow for a small cat — a single kitten, raised long. ----
     "cats:cat-male-ocelot": {
       "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.25, "predationVulnerability": 0.4,
       "preyPerPredator": 2, "huntWhenFull": 0.25,
-      "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 15, "preyMinBodyWeight": 0.05, "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "cats:cat-female-ocelot": {
       "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.25, "predationVulnerability": 0.4,
       "preyPerPredator": 2, "huntWhenFull": 0.25,
-      "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 15, "preyMinBodyWeight": 0.05, "lifecycle": { "lifespanDays": 3600, "gestationDays": 82, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
 
     // ---- Serval: long-legged grassland rodent specialist, the most efficient hunter of the four
@@ -67,12 +67,12 @@
     "cats:cat-male-serval": {
       "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.35, "predationVulnerability": 0.45,
       "preyPerPredator": 1.5, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 5, "preyMinBodyWeight": 0.02, "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     },
     "cats:cat-female-serval": {
       "carryingCapacity": 1, "bodyWeight": 12, "growthRate": 0.35, "predationVulnerability": 0.45,
       "preyPerPredator": 1.5, "huntWhenFull": 0.3,
-      "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+      "preyMaxBodyWeight": 5, "preyMinBodyWeight": 0.02, "lifecycle": { "lifespanDays": 3600, "gestationDays": 74, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     }
 
   }
