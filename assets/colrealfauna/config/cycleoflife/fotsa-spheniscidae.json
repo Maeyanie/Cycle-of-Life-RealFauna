@@ -1,0 +1,103 @@
+// Cycle of Life: Realistic Fauna - FotSA penguins (Spheniscidae).
+//
+// Twenty penguins, from the 45 kg emperor to a kilogram-and-a-half little penguin, and including the
+// Waitaha penguin - a New Zealand species known only from subfossil bones, gone by about 1500.
+//
+// The egg entities need no handling: they carry the "egg" tag and the mod's own filter drops them,
+// which accounts for the twenty "-raw" keys this mod would otherwise produce.
+//
+// INHERITED AND GOOD. Weights are per species and mostly accurate. Group sizes are the striking
+// part: 22 with a wide variance, which is the mod correctly modelling penguins as COLONIAL. Combined
+// with the declared cap of 4 that works out well in this model - a colony grown to MaxHerdSize is
+// ~44 birds in the 0.173 km² the founding check covers, which reads as one dense rookery per stretch
+// of coast rather than penguins evenly smeared across a continent. So K is left alone here, unusually
+// for this pack: it is doing the right thing by accident of being a colonial bird.
+//
+// TWO WEIGHT CORRECTIONS. The macaroni penguin is the most numerous penguin alive and the mod ships
+// it at 3 kg against a real 5.5; the Galapagos penguin is the smallest of its genus and ships at 4 kg
+// against a real 2-2.5. Everything else is close enough to leave.
+//
+// DIET: PARKED. The mod declares a single "fish" food tag and no foodCategories, so penguins are
+// currently neither predator nor forager - they have no food ceiling at all, bounded only by K and
+// mortality. They are the flagship case for the planned Fish forage group: a penguin is nothing but
+// a device for converting fish into more penguins, and with fish mods on the way that pool is about
+// to get a real supply side. When that group lands, every species in this file wants
+// "foodCategories": ["Fish"] and nothing else changes.
+//
+// LIFECYCLES are the substance of the file, and penguins are far slower than their numbers suggest.
+// The emperor lays ONE egg and the male incubates it on his feet through the Antarctic winter for
+// two months without eating. The king penguin runs a fourteen-month cycle, so a pair rears at most
+// two chicks in three years. The crested penguins lay two eggs and almost always raise one - the
+// first egg is smaller and usually lost, which is genuine brood reduction rather than bad luck. Only
+// the little penguin behaves like an ordinary seabird, and it is the one that lives seven years
+// instead of twenty.
+//
+// Adults are hard to kill ashore - what eats penguins is leopard seals and sea lions, in water this
+// model does not simulate - so predationVulnerability stays low and the losses sit in juvenile
+// mortality instead, where skuas and giant petrels take eggs and chicks in enormous numbers.
+//
+// No territory entries: a colony IS the unit here, and the group size plus K already keep rookeries
+// apart.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster -
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // ===================== THE GREAT PENGUINS (Aptenodytes) =====================
+    // emperor penguin - the only bird that breeds through the Antarctic winter, the male incubating a single egg on his feet for two months in the dark without eating
+    "spheniscidae:spheniscidae-aptenodytesforsteri": { "growthRate": 0.15, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 7200, "gestationDays": 64, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // king penguin - a fourteen-month breeding cycle, so a pair rears at most two chicks every three years
+    "spheniscidae:spheniscidae-aptenodytespatagonicus": { "growthRate": 0.15, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 7200, "gestationDays": 54, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.65 } },
+
+    // ===================== BRUSH-TAILED PENGUINS (Pygoscelis) =====================
+    // Adelie penguin
+    "spheniscidae:spheniscidae-pygoscelisadeliae": { "growthRate": 0.3, "predationVulnerability": 0.35, "lifecycle": { "lifespanDays": 5400, "gestationDays": 35, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.65 } },
+    // chinstrap penguin
+    "spheniscidae:spheniscidae-pygoscelisantarcticus": { "growthRate": 0.3, "predationVulnerability": 0.35, "lifecycle": { "lifespanDays": 5400, "gestationDays": 35, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.65 } },
+    // gentoo penguin - the fastest swimming bird alive
+    "spheniscidae:spheniscidae-pygoscelispapua": { "growthRate": 0.3, "predationVulnerability": 0.35, "lifecycle": { "lifespanDays": 5400, "gestationDays": 35, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.65 } },
+
+    // ===================== CRESTED PENGUINS (Eudyptes) =====================
+    // Two eggs, one chick: the first egg is smaller and nearly always lost.
+    // southern rockhopper
+    "spheniscidae:spheniscidae-eudypteschrysocome": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // northern rockhopper
+    "spheniscidae:spheniscidae-eudyptesmoseleyi": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // macaroni penguin - the most numerous penguin on earth; the mod ships it at 3 kg against a real 5.5
+    "spheniscidae:spheniscidae-eudypteschrysolophus": { "bodyWeight": 5.5, "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Fiordland crested penguin
+    "spheniscidae:spheniscidae-eudyptespachyrhynchus": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Snares penguin
+    "spheniscidae:spheniscidae-eudyptesrobustus": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // royal penguin
+    "spheniscidae:spheniscidae-eudyptesschlegeli": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // erect-crested penguin
+    "spheniscidae:spheniscidae-eudyptessclateri": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Waitaha penguin - a New Zealand species known only from subfossil bones, gone by about 1500 and replaced on its own beaches by the yellow-eyed penguin
+    "spheniscidae:spheniscidae-eudypteswarhami": { "growthRate": 0.28, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 5400, "gestationDays": 34, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+
+    // ===================== LITTLE PENGUINS (Eudyptula) =====================
+    // little penguin - a kilogram and a half, and the only penguin that can raise two broods in a season
+    "spheniscidae:spheniscidae-eudyptulaminor": { "growthRate": 0.5, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 2500, "gestationDays": 36, "litterSizeMin": 2, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Australian little penguin
+    "spheniscidae:spheniscidae-eudyptulanovaehollandiae": { "growthRate": 0.5, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 2500, "gestationDays": 36, "litterSizeMin": 2, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+
+    // ===================== YELLOW-EYED PENGUIN =====================
+    // yellow-eyed penguin - solitary by penguin standards, nesting out of sight of its neighbours in coastal forest
+    "spheniscidae:spheniscidae-megadyptesantipodes": { "growthRate": 0.25, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 7200, "gestationDays": 43, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+
+    // ===================== BANDED PENGUINS (Spheniscus) =====================
+    // African penguin
+    "spheniscidae:spheniscidae-spheniscusdemersus": { "growthRate": 0.35, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 5400, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Humboldt penguin
+    "spheniscidae:spheniscidae-spheniscushumboldti": { "growthRate": 0.35, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 5400, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Magellanic penguin
+    "spheniscidae:spheniscidae-spheniscusmagellanicus": { "growthRate": 0.35, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 5400, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Galapagos penguin - the only penguin north of the equator, and the smallest of its genus; the mod ships 4 kg against a real 2-2.5
+    "spheniscidae:spheniscidae-spheniscusmendiculus": { "bodyWeight": 2.2, "growthRate": 0.35, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 5400, "gestationDays": 40, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } }
+
+  }
+}
