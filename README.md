@@ -16,6 +16,14 @@ maturation). Combined with realistic carrying capacities and predation, that mea
 don't bounce back instantly** — overhunting an area has consequences. This is intentional: hunt
 sustainably, or face local depletion.
 
+## Where the numbers come from
+
+[SOURCES.md](SOURCES.md) records the evidence base: how to convert an overlay value back to
+real-world units (game-days to years, and `carryingCapacity` to animals per km²), and the sources
+consulted wherever a figure was contested, surprising, or used to override a mod author's own value.
+Most values rest on ordinary uncontested reference biology and are not cited individually; the ones
+worth checking are.
+
 ## Swapping packs
 
 This is one opinion of how the world's animals should behave. Everyone's will differ, and none are
