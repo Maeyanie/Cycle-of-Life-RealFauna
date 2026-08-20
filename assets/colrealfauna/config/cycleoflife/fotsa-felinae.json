@@ -1,0 +1,81 @@
+// Cycle of Life: Realistic Fauna — FotSA small cats (Felinae).
+//
+// As of 0.2.14 the mod ships four mid-sized ambush cats: the caracal and three lynxes. Felinae is the
+// subfamily of everything that is not a big cat, so pumas, cheetahs, wildcats, ocelots, servals and
+// the rest presumably follow, and will want adding here — the Pantherinae are handled separately in
+// fotsa-cats.json.
+//
+// Weights are inherited and accurate (caracal 12-15 kg, Canada and Iberian lynx 10-14, the Eurasian
+// lynx 18-24 as the largest of the genus), K is already 1 — right for solitary cats that in life run
+// well under one per km² — group sizes of a female with kittens and a solitary male are correct, and
+// the declared diet of egg/fish/insect/meat has no plant categories, which properly keeps them out of
+// the forage model. Spawn blocks include air, so placement is safe.
+//
+// THE PREY LIST IS THE WHOLE JOB, and without it these cats are inert. The mod writes a good hunt
+// list — chicken, deer, fox, goat, hare, piglets, small ground birds — but every pattern is written
+// without a domain, so each resolves against the mod's own "felinae:" domain and matches nothing.
+// The prey list comes out empty. And unlike the Tasmanian devil or Thylacoleo, these cats carry NO
+// "predator" tag, so even the tagged-predator fallback cannot rescue them: they end up neither
+// predator nor forager, which means four obligate carnivores with no prey, no food ceiling, and no
+// part in the ecology at all.
+//
+// Mass bands fix it, and they suit this family unusually well, because lynxes are defined by what
+// size of thing they hunt:
+//
+//   Canada lynx    0.3-6 kg   A snowshoe hare specialist — the textbook predator-prey cycle, where
+//                             lynx numbers follow hare numbers with a lag of a year or two. A narrow
+//                             band is the honest way to say "this animal lives on one kind of prey".
+//   Iberian lynx   0.3-5 kg   Narrower still: rabbits are around nine tenths of its diet, and its
+//                             collapse to the rarest cat in the world followed its rabbits' collapse.
+//   Eurasian lynx  0.5-40 kg  The outlier — big enough to take roe deer and chamois at or above its
+//                             own weight, so it gets a band several times its own mass.
+//   Caracal        0.2-25 kg  A generalist: hyraxes, hares, birds taken out of the air on the leap,
+//                             and small antelope.
+//
+// SURPLUS KILLING. Felids are the family this behaviour is most documented in, and the caracal is one
+// of the starker cases on record — two of them killed 22 sheep in a single night in Cape Province and
+// ate part of the buttock of one. Lynx have been recorded surplus-killing sheep in Norway. So the
+// caracal carries the same 0.3 floor as the leopard and the snow leopard, and the lynxes a modest
+// one. See SOURCES.md.
+//
+// Territories are automatic: these become predators at the mass-band step, and Cycle of Life gives a
+// predator a home range sized from its body weight.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // Eurasian lynx: the largest lynx, and the only one that regularly kills prey heavier than itself.
+    "felinae:felinae-lynxlynx": {
+      "preyMaxBodyWeight": 40, "preyMinBodyWeight": 0.5, "preyPerPredator": 2.5,
+      "huntWhenFull": 0.15, "growthRate": 0.3, "predationVulnerability": 0.25,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 }
+    },
+
+    // Canada lynx: a snowshoe hare specialist, with the population cycle to match.
+    "felinae:felinae-lynxcanadensis": {
+      "preyMaxBodyWeight": 6, "preyMinBodyWeight": 0.3, "preyPerPredator": 2,
+      "huntWhenFull": 0.15, "growthRate": 0.35, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 68, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+
+    // Iberian lynx: rabbits are roughly nine tenths of the diet, and it became the rarest cat alive
+    // when they went. The narrowest prey band in the pack, and deliberately so.
+    "felinae:felinae-lynxpardinus": {
+      "preyMaxBodyWeight": 5, "preyMinBodyWeight": 0.3, "preyPerPredator": 2,
+      "huntWhenFull": 0.15, "growthRate": 0.28, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+
+    // Caracal: a generalist that takes birds out of the air on the leap — and a documented surplus
+    // killer, hence the highest floor of the four.
+    "felinae:felinae-caracalcaracal": {
+      "preyMaxBodyWeight": 25, "preyMinBodyWeight": 0.2, "preyPerPredator": 2,
+      "huntWhenFull": 0.3, "growthRate": 0.35, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    }
+
+  }
+}

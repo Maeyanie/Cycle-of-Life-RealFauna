@@ -59,6 +59,9 @@ Used to decide which predators keep killing on a full stomach, and how strongly.
   — the origin of the term, from work on spotted hyenas and red foxes.
 - [Surplus killing: the myth of mustelid "bloodthirst"](https://www.genuinemustelids.org/articles/surplus-killing/)
   — caching as the reason, which is why the arctic fox carries the same floor as the red.
+- The same Wikipedia article supplies the two felid cases behind `fotsa-felinae.json`: two caracals in
+  Cape Province killing 22 sheep in one night and eating part of the buttock of one, and lynx recorded
+  surplus-killing sheep in Norway. Hence the caracal's 0.3 floor and a modest one on the lynxes.
 
 ### Body masses — vanilla weight corrections
 Vanilla Vintage Story declares one weight per genus *file*, so several species inherit a figure meant
