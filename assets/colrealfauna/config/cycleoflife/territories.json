@@ -173,7 +173,18 @@
     "dinornithidae:apterygidae-apteryxhaastii":             { "territory": { "enabled": true, "radiusChunks": 4 } },
     "dinornithidae:apterygidae-apteryxowenii":              { "territory": { "enabled": true, "radiusChunks": 4 } },
     "dinornithidae:rallidae-porphyriohochstetteri":         { "territory": { "enabled": true, "radiusChunks": 4 } },
-    "dinornithidae:rallidae-porphyriomantelli":             { "territory": { "enabled": true, "radiusChunks": 4 } }
+    "dinornithidae:rallidae-porphyriomantelli":             { "territory": { "enabled": true, "radiusChunks": 4 } },
+
+    // ===================== FotSA rhinoceroses (Rhinocerotidae) =====================
+    // Real rhinos hold and mark home ranges — a white rhino bull's territory is a defended patch,
+    // and the browsers keep to well-worn ranges — so all six are opted in. Spacing by size, just
+    // below the elephants.
+    "rhinocerotidae:rhinocerotidae-ceratotheriumsimum":      { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "rhinocerotidae:rhinocerotidae-rhinocerosunicornis":     { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "rhinocerotidae:rhinocerotidae-coelodontaantiquitatis":  { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "rhinocerotidae:rhinocerotidae-dicerosbicornis":         { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "rhinocerotidae:rhinocerotidae-rhinocerossondaicus":     { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "rhinocerotidae:rhinocerotidae-dicerorhinussumatrensis": { "territory": { "enabled": true, "radiusChunks": 5 } }
 
   }
 }

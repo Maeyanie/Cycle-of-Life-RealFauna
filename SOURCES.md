@@ -86,6 +86,20 @@ Used to override the mod's own `Fruit/Vegetable` browser diet. Informs `fotsa-ce
   Irish molar enamel indicating grass and forbs supplemented with browse, the Irish late-glacial
   population being the most graze-dominated.
 
+### Rhinoceros feeding — the grazer/browser split
+Used to split the mod's uniform Fruit/Grain/Vegetable across all six rhinos. Informs
+`fotsa-rhinocerotidae.json`.
+
+- [Grazers versus browsers — International Rhino Foundation](https://rhinos.org/blog/oppositeday-grazers-versus-browsers/)
+  and [White rhinoceros — National Geographic](https://www.nationalgeographic.com/animals/mammals/facts/white-rhinoceros)
+  — the white rhino feeds almost exclusively on grass and its wide square lip crops it; the black
+  rhino's hooked, prehensile lip strips leaves and fruit from twigs. Their older names, square-lipped
+  and hook-lipped, encode the difference.
+- [Browsers, grazers or mix-feeders? Diet of *Stephanorhinus kirchbergensis* and *Coelodonta
+  antiquitatis*](https://www.sciencedirect.com/science/article/abs/pii/S1040618220305048) — δ¹³C/δ¹⁵N
+  isotope and mesowear work placing the woolly rhinoceros as mainly a grazer of steppe grasses,
+  forbs, lichens and mosses, with seasonal browse on top.
+
 ### New Zealand flightless birds — extreme life histories
 Informs `fotsa-dinornithidae.json`, where the lifecycle values are the whole point of the file.
 

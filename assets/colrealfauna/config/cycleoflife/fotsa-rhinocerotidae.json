@@ -1,0 +1,78 @@
+// Cycle of Life: Realistic Fauna — FotSA rhinoceroses (Rhinocerotidae).
+//
+// Six rhinos: the five living species plus the woolly rhinoceros. Another well-built FotSA mod —
+// per-sex weights across all six and accurate (a 600 kg Sumatran female up to a 2300 kg white rhino
+// bull), maxQuantityByGroup 1 on every species so K needs no correction, land-only spawn blocks so
+// nothing needs excluding, and per-species climate gating. Group sizes are right too: the white,
+// Indian and woolly rhinos get cow parties of four, the black, Javan and Sumatran get one or two,
+// and every bull is solitary — which is exactly the social split among real rhinos.
+//
+// ONE CHANGE: THE DIET. The mod gives all six Fruit/Grain/Vegetable, which flattens the most famous
+// feeding dichotomy in mammalogy. White and black rhinos are the textbook grazer/browser pair, and
+// the difference is written into their faces: the white rhino's wide SQUARE lip crops short grass
+// and it feeds almost exclusively on grasses, while the black rhino's HOOKED, prehensile upper lip
+// strips leaves and fruit off twigs. Their old names — square-lipped and hook-lipped rhinoceros —
+// say it outright. So they are split here:
+//
+//   GRAZERS  (Grain + Vegetable): white, Indian, woolly. The Indian rhino is a tall-grass grazer,
+//            and isotope and mesowear work on Coelodonta finds it was mainly a grazer of steppe
+//            grasses, forbs, lichens and mosses, with seasonal browse on top.
+//   BROWSERS (Fruit + Vegetable): black, Javan, Sumatran. The Sumatran in particular eats a great
+//            deal of fruit.
+//
+// The rest of the file is LIFECYCLE, which the mod leaves to defaults, and rhinos are nearly as slow
+// as elephants: a fifteen-to-eighteen month gestation, one calf, and a calving interval of two and a
+// half to five years, which the low growthRate carries. Adults are effectively unkillable by
+// anything in this game — hence vulnerabilities of 0.05-0.15, the Sumatran highest only because at
+// 600-800 kg it is by far the smallest.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== GRAZERS =====================
+    // White rhinoceros: the second-largest land animal alive, the most social rhino, and a pure
+    // grass-cropper.
+    "rhinocerotidae:rhinocerotidae-ceratotheriumsimum": {
+      "foodCategories": ["Grain", "Vegetable"],
+      "growthRate": 0.15, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 14400, "gestationDays": 500, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Greater one-horned (Indian) rhinoceros: a tall-grass grazer of floodplain grassland.
+    "rhinocerotidae:rhinocerotidae-rhinocerosunicornis": {
+      "foodCategories": ["Grain", "Vegetable"],
+      "growthRate": 0.15, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 14400, "gestationDays": 480, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Woolly rhinoceros: a cold-steppe grazer, and the only rhino here built for snow.
+    "rhinocerotidae:rhinocerotidae-coelodontaantiquitatis": {
+      "foodCategories": ["Grain", "Vegetable"],
+      "growthRate": 0.14, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 14400, "gestationDays": 490, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+
+    // ===================== BROWSERS =====================
+    // Black rhinoceros: hook-lipped, solitary, bad-tempered, and a pure browser of twigs and leaves.
+    "rhinocerotidae:rhinocerotidae-dicerosbicornis": {
+      "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.16, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 470, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Javan rhinoceros: a solitary lowland-forest browser, and the rarest large mammal on earth.
+    "rhinocerotidae:rhinocerotidae-rhinocerossondaicus": {
+      "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.15, "predationVulnerability": 0.1,
+      "lifecycle": { "lifespanDays": 12500, "gestationDays": 470, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+    // Sumatran rhinoceros: the smallest and hairiest, a fruit-heavy forest browser, and the closest
+    // living relative of the woolly rhino.
+    "rhinocerotidae:rhinocerotidae-dicerorhinussumatrensis": {
+      "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.18, "predationVulnerability": 0.15,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 470, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    }
+
+  }
+}
