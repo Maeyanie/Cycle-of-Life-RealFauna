@@ -1,0 +1,88 @@
+// Cycle of Life: Realistic Fauna — FotSA carnivorous marsupials (Thylacinidae Plus).
+//
+// As of 0.1.7 the mod ships two dasyurids and no thylacine yet: the Tasmanian devil and
+// Sarcophilus laniarius, its larger extinct relative. The file is named for the whole group, so the
+// thylacine, the quolls and the rest presumably arrive later and will want adding here — the same
+// pattern as Cervinae, which currently ships only the giant deer.
+//
+// Weights are inherited and exactly right (devil males 8 kg, females 6, and laniarius about half
+// again as heavy), group sizes of ~3 females to a solitary male suit an animal that forages alone
+// but congregates at carcasses, and the diet declares bone/egg/fish/insect/meat with no plant
+// categories, which correctly keeps devils out of the forage model.
+//
+// TWO CHANGES:
+//
+// 1. AN EXPLICIT PREY LIST, and this one matters. The mod writes a careful, sensible hunt list —
+//    hares, chickens, fawns, piglets, small ground birds, and a long roll of carcasses — but every
+//    pattern in it is written WITHOUT a domain, so each resolves against the mod's own
+//    "thylacinidae:" domain and matches nothing. The prey list therefore comes out empty, and
+//    because the devil is tagged "predator" and eats no plants, the tagged-predator fallback then
+//    hands it EVERY huntable species in the game instead: mammoths, rhinoceroses, elephants and all.
+//    An 8 kg marsupial with the standing prey base of a lion would also never go hungry, which
+//    quietly removes it from the ecology. So the list below replaces it, kept deliberately to small
+//    prey. Keys for mods you do not run are simply inert, so this degrades cleanly.
+//
+//    Worth recording that the mod's list is the RIGHT list — half of it is carcasses, because the
+//    Tasmanian devil is first and foremost a scavenger. This model has no scavenging: there is no
+//    way to eat a carcass, so live small prey has to stand in for carrion. If a scavenging mechanic
+//    ever lands, devils are the species that wants it most.
+//
+// 2. K, 2 -> 1. Two per 0.173 km² is ~12 animals/km²; wild devil densities run nearer 0.5-2/km².
+//
+// No huntWhenFull floor, deliberately. Devils gorge — up to 40% of body weight at a sitting — and
+// the mod already gates their hunting on its own "saturated" emotion state, which is the same idea
+// as our satiation model. A full devil stopping is exactly right.
+//
+// No territory entry either: devil home ranges are large but overlap heavily, so they are not
+// territorial in the sense this model means, and with K=1 a radius below the founding radius would
+// change nothing anyway.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // Tasmanian devil: the largest carnivorous marsupial since the thylacine went, with the strongest
+    // bite for its size of any living mammal — an adaptation for eating bone, not for killing big
+    // things. Marsupial breeding: a three-week pregnancy, then four months in the pouch, which is the
+    // interval the gestation figure below actually represents. Once a year, up to four young.
+    "thylacinidae:dasyuridae-sarcophilusharrisii": {
+      "carryingCapacity": 1, "preyPerPredator": 1,
+      "growthRate": 0.35, "predationVulnerability": 0.4,
+      "preySpeciesCodes": [
+        "game:hare-arctic", "game:hare-cape", "game:hare-european",
+        "game:chicken", "game:raccoon-common",
+        "thecritterpack:fieldmus", "thecritterpack:chipmunk-male", "thecritterpack:hedgehog-male",
+        "thecritterpack:squirrel-male-red", "thecritterpack:squirrel-male-brown",
+        "thecritterpack:squirrel-male-darkbrown", "thecritterpack:squirrel-male-black",
+        "moreanimals:pheasant-cock", "moreanimals:goldenpheasant-cock",
+        "moreanimals:capercaillie-cock", "moreanimals:wildturkey-cock",
+        "fowlmod:duck-mallard", "fowlmod:duck-pekin", "fowlmod:duck-blue",
+        "casuariidae:rallidae-tribonyxmortierii"
+      ],
+      "lifecycle": { "lifespanDays": 2000, "gestationDays": 105, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4], "juvenileMortality": 0.5 }
+    },
+
+    // Sarcophilus laniarius: the larger Pleistocene devil, roughly half again the weight of the
+    // living one. Bigger, slower to replace itself, and harder to trouble.
+    "thylacinidae:dasyuridae-sarcophiluslaniarius": {
+      "carryingCapacity": 1, "preyPerPredator": 1.5,
+      "growthRate": 0.3, "predationVulnerability": 0.35,
+      "preySpeciesCodes": [
+        "game:hare-arctic", "game:hare-cape", "game:hare-european",
+        "game:chicken", "game:raccoon-common",
+        "game:deer-pudu", "game:goat-sirohi", "game:pig-eurasian",
+        "thecritterpack:fieldmus", "thecritterpack:chipmunk-male", "thecritterpack:hedgehog-male",
+        "thecritterpack:squirrel-male-red", "thecritterpack:squirrel-male-brown",
+        "thecritterpack:squirrel-male-darkbrown", "thecritterpack:squirrel-male-black",
+        "moreanimals:pheasant-cock", "moreanimals:goldenpheasant-cock",
+        "moreanimals:capercaillie-cock", "moreanimals:wildturkey-cock",
+        "fowlmod:duck-mallard", "fowlmod:duck-pekin", "fowlmod:duck-blue",
+        "casuariidae:rallidae-tribonyxmortierii"
+      ],
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 110, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4], "juvenileMortality": 0.5 }
+    }
+
+  }
+}
