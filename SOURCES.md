@@ -100,6 +100,17 @@ Used to split the mod's uniform Fruit/Grain/Vegetable across all six rhinos. Inf
   isotope and mesowear work placing the woolly rhinoceros as mainly a grazer of steppe grasses,
   forbs, lichens and mosses, with seasonal browse on top.
 
+### Australian flightless birds — cassowary diet, nativehen mass
+Used to override mod values in `fotsa-casuariidae.json`.
+
+- [Southern cassowary diet — Birds of the World](https://birdsoftheworld.org/bow/species/soucas1/cur/foodhabits)
+  and [Save the Cassowary — Rainforest Rescue](https://www.rainforestrescue.org.au/explore-the-rainforest/save-the-cassowary/ecology-habitat/)
+  — overwhelmingly frugivorous, fallen fruit forming the bulk of the diet across 240+ plant species,
+  swallowed whole and passed intact. A keystone seed disperser for large-seeded rainforest trees that
+  have no other disperser. The mod's Grain (grass) category was dropped on that basis.
+- [Tasmanian nativehen — Australian Museum](https://australian.museum/learn/animals/birds/tasmanian-native-hen/)
+  — 725–1260 g. The mod ships 0.28 kg, roughly three and a half times light; corrected to 1.0.
+
 ### New Zealand flightless birds — extreme life histories
 Informs `fotsa-dinornithidae.json`, where the lifecycle values are the whole point of the file.
 

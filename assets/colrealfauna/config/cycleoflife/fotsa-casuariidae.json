@@ -1,0 +1,113 @@
+// Cycle of Life: Realistic Fauna — FotSA Australian flightless birds (Casuariidae Plus).
+//
+// Eight species: three cassowaries, the emu and its extinct Tasmanian form, the giant mihirung
+// Genyornis, the Cape Barren goose, and the Tasmanian nativehen.
+//
+// The nest and egg entities need no handling, exactly as in the New Zealand pack — they carry the
+// "nest" and "egg" tags (and the carcass its own), which the mod's tag filter drops as non-fauna.
+// That accounts for 33 of the 41 keys this mod produces, leaving the 8 adults tuned here.
+//
+// Inherited and good: per-sex weights with the REVERSE dimorphism these birds actually have — the
+// cassowary hen at 58 kg against a 31 kg cock, and the same in the emu. That is not a quirk of the
+// mod, it is the biology: in both families the female is larger, courts several males, and leaves
+// each of them to incubate the clutch and raise the chicks alone. Group sizes are right too:
+// cassowaries at 1.5 (solitary outside breeding), emus at 13.5 (loose nomadic flocks), Cape Barren
+// geese at 23 (they flock heavily outside the breeding season).
+//
+// CHANGES:
+//
+// 1. CASSOWARY DIET — drop Grain. The mod gives the cassowaries Fruit/Grain/Vegetable, but they are
+//    overwhelmingly FRUGIVORES: fallen fruit is the bulk of the diet, taken from over 240 plant
+//    species, swallowed whole and passed intact. They are the keystone seed dispersers of Australian
+//    tropical rainforest, and the large-seeded trees that depend on them have no other disperser.
+//    Grain is this model's grass category and a rainforest fruit-eater has no business in it, so the
+//    three cassowaries get Fruit/Vegetable. The emu keeps all three — it genuinely is a generalist.
+//
+// 2. CASSOWARY AND EMU K, 4 -> 1. Four per 0.173 km² is ~23/km². Cassowaries run 0.5-2/km² in good
+//    rainforest and emus less than that over their nomadic range, so both floor at 1. Genyornis
+//    already declares 1 and is left alone; the goose and nativehen keep 4, which suits them — both
+//    are locally abundant, and the nativehen is common enough in Tasmania to be treated as a pest.
+//
+// 3. CAPE BARREN GOOSE gets Vegetable/Grain and isForager. The mod declares no diet at all for it,
+//    which would leave it outside the forage model entirely — wrong for a bird that grazes tussock
+//    grass and pasture almost exclusively. Same correction as the Cnemiornis geese in the NZ pack.
+//
+// 4. TASMANIAN NATIVEHEN weight 0.28 -> 1.0 kg. The real bird is 725-1260 g, so the mod is about
+//    three and a half times light. Its diet also gains Grain: it is a grazer, not a fruit-eater.
+//
+// LIFECYCLES are otherwise the bulk of the file. Cassowaries are slow — a fifty-day incubation, a
+// clutch of three to five, decades of life, and adults that essentially nothing hunts (the inner toe
+// carries a dagger claw, hence vulnerabilities of 0.15). Emus are the opposite end of the ratite
+// spectrum: a big clutch, fast turnover, fifteen years.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== CASSOWARIES =====================
+    // Solitary rainforest frugivores. The hen mates with several cocks and leaves each to incubate;
+    // the cock alone broods for about fifty days and then rears the chicks for nine months.
+    "casuariidae:casuariidae-casuarius": {
+      "carryingCapacity": 1, "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.25, "predationVulnerability": 0.15,
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 52, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+    "casuariidae:casuariidae-unappendiculatus": {
+      "carryingCapacity": 1, "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.25, "predationVulnerability": 0.15,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 51, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+    // Dwarf cassowary: a montane forest bird at a third the weight, and correspondingly quicker.
+    "casuariidae:casuariidae-bennetti": {
+      "carryingCapacity": 1, "foodCategories": ["Fruit", "Vegetable"],
+      "growthRate": 0.3, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 49, "litterSizeMin": 3, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+
+    // ===================== EMUS =====================
+    // Nomadic generalists that will walk hundreds of kilometres after rain — which is why they get no
+    // territory entry, unlike the cassowaries. Big clutch, fast turnover, and the cock incubates for
+    // eight weeks without eating or drinking.
+    "casuariidae:casuariidae-novaehollandiae": {
+      "carryingCapacity": 1,
+      "growthRate": 0.45, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 56, "litterSizeMin": 5, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.7 }
+    },
+    // Tasmanian emu: an island form, slightly smaller, hunted out in the nineteenth century.
+    "casuariidae:casuariidae-novaehollandiaediemenensis": {
+      "carryingCapacity": 1,
+      "growthRate": 0.45, "predationVulnerability": 0.55,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 56, "litterSizeMin": 5, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.7 }
+    },
+
+    // ===================== MIHIRUNG =====================
+    // Genyornis newtoni: a 230 kg flightless giant, closer kin to waterfowl than to the ratites it
+    // lived alongside. Its diet is genuinely disputed — the old "demon duck of doom" carnivore
+    // reading is out of favour and the jaw suggests a plant eater — so the mod's Vegetable-only diet
+    // is left alone rather than guessed at. K=1 is already declared and correct for an animal this
+    // size.
+    "casuariidae:dromornithidae-genyornisnewtoni": {
+      "growthRate": 0.15, "predationVulnerability": 0.15,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 60, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+
+    // ===================== OTHER AUSTRALIAN GROUND BIRDS =====================
+    // Cape Barren goose: an island grazer that barely touches water, and one of the rarest geese in
+    // the world. Flocks heavily outside the breeding season.
+    "casuariidae:anatidae-cereopsisnovaehollandiae": {
+      "isForager": true, "foodCategories": ["Vegetable", "Grain"],
+      "growthRate": 0.35, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 35, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.6 }
+    },
+    // Tasmanian nativehen: a flightless rail that breeds communally in small groups and grazes like
+    // a tiny goose. Abundant enough in Tasmania to be considered a pest, so it keeps its higher K.
+    "casuariidae:rallidae-tribonyxmortierii": {
+      "bodyWeight": 1.0, "foodCategories": ["Vegetable", "Grain"],
+      "growthRate": 0.7, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 5, "litterSizeMax": 8, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 }
+    }
+
+  }
+}

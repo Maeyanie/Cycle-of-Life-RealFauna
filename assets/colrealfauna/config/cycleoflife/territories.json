@@ -184,7 +184,18 @@
     "rhinocerotidae:rhinocerotidae-coelodontaantiquitatis":  { "territory": { "enabled": true, "radiusChunks": 7 } },
     "rhinocerotidae:rhinocerotidae-dicerosbicornis":         { "territory": { "enabled": true, "radiusChunks": 6 } },
     "rhinocerotidae:rhinocerotidae-rhinocerossondaicus":     { "territory": { "enabled": true, "radiusChunks": 6 } },
-    "rhinocerotidae:rhinocerotidae-dicerorhinussumatrensis": { "territory": { "enabled": true, "radiusChunks": 5 } }
+    "rhinocerotidae:rhinocerotidae-dicerorhinussumatrensis": { "territory": { "enabled": true, "radiusChunks": 5 } },
+
+    // ===================== FotSA Australian flightless birds (Casuariidae Plus) =====================
+    // Cassowaries hold and defend rainforest home ranges, and Genyornis is large enough to want
+    // spacing. The EMUS are deliberately left out: they are nomadic, following rain across hundreds
+    // of kilometres rather than holding ground, so a fixed territory would misrepresent them. The
+    // Cape Barren goose and the nativehen are left out too — both flock and both are locally
+    // abundant, like the hares and chickens above.
+    "casuariidae:dromornithidae-genyornisnewtoni": { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "casuariidae:casuariidae-casuarius":           { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "casuariidae:casuariidae-unappendiculatus":    { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "casuariidae:casuariidae-bennetti":            { "territory": { "enabled": true, "radiusChunks": 3 } }
 
   }
 }

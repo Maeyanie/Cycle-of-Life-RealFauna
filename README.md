@@ -46,6 +46,7 @@ assets/colrealfauna/config/cycleoflife/
   fotsa-elephantidae.json    # Fauna of the Stone Age: Elephantidae (elephants, mammoths)
   fotsa-dinornithidae.json   # Fauna of the Stone Age: Dinornithiformes Plus (NZ flightless birds)
   fotsa-rhinocerotidae.json  # Fauna of the Stone Age: Rhinocerotidae (rhinoceroses)
+  fotsa-casuariidae.json     # Fauna of the Stone Age: Casuariidae Plus (Australian flightless birds)
   feverstone-horses.json     # Feverstone's Horses
   feverstonewilds.json       # Feverstone Wilds (excludes golems + fish)
   pegasus.json               # Pegasus
@@ -67,7 +68,7 @@ exclusions in `feverstonewilds.json` are deliberately belt-and-braces.
 
 | Verified against a live roster | Derived from the mod's entity JSON only |
 |---|---|
-| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae, FotSA Cervinae, FotSA Elephantidae, FotSA Dinornithiformes, FotSA Rhinocerotidae |
+| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae, FotSA Cervinae, FotSA Elephantidae, FotSA Dinornithiformes, FotSA Rhinocerotidae, FotSA Casuariidae |
 
 The right-hand column covers mods the pack author does not run. Their keys were computed by
 replicating Cycle of Life's own key derivation (domain + base code + non-demographic variants,
