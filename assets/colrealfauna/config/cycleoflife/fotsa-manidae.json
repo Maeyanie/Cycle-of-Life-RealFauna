@@ -1,0 +1,113 @@
+// Cycle of Life: Realistic Fauna — FotSA pangolins (Manidae).
+//
+// Nine pangolins: the four Asian and four African species, plus the "Asian mystery pangolin" — a
+// ninth lineage identified in 2023 from trafficked scales and not yet known from a living animal,
+// which is a lovely thing for a mod to include.
+//
+// This one needs more correcting than most FotSA mods, on three counts.
+//
+// 1. BODY WEIGHTS ARE INCONSISTENT, and look like a units mix-up. The mod gives the Indian pangolin
+//    10-14 and the Philippine 5-6, which are sensible kilograms. It then gives the giant pangolin
+//    600-800, the Sunda 1100-1400 and the Chinese 1600-2100 — figures that are absurd as kilograms
+//    and still wrong as grams (a giant pangolin is 30-40 kg, not 0.8). Three more species —
+//    Temminck's, black-bellied and white-bellied — carry no weight entry at all and so fall through
+//    to the model's 25 kg default, which is roughly ten times a tree pangolin. So all nine are set
+//    here from published masses, in kilograms.
+//
+// 2. K, 12 -> 1. The declared group cap of 12 reads as ~69 animals per km². Pangolins are solitary,
+//    nocturnal and sparse: the white-bellied is the most numerous at a few per km² in good forest
+//    and the ground and giant pangolins are far rarer, so every one floors at 1.
+//
+// 3. isPredator: false, explicitly — and this one is defensive rather than corrective. The mod gives
+//    pangolins a seekentity listing bears, wolves, hyenas, every big cat, the player and the hostile
+//    mobs. That is plainly a threat-awareness or flee task rather than a hunt (a 2 kg scaly anteater
+//    does not stalk bears), and it does not currently fire: those patterns are written without a
+//    domain, so they resolve against the mod's own "manidae:" domain, match nothing, and leave the
+//    prey list empty. But the gate it uses is "whenNotInEmotionState", which is not the field the
+//    damage-gate skip looks at, so the moment anyone adds a "game:" prefix to those patterns the
+//    pangolin becomes a predator of bears. One field of insurance is cheaper than that surprise.
+//
+// What IS right and inherited: the diet declares only an "insect" food tag and no plant categories,
+// which correctly leaves pangolins outside the forage model — they eat ants and termites and nothing
+// else. Group sizes of ~1 are correct for a solitary animal. Spawn blocks are land-only, and the
+// per-species climate gating is sensible.
+//
+// Pangolins are slow: one pup a year at most, carried on the mother's tail for months. That, more
+// than anything, is why they are the most trafficked mammal on earth — they cannot replace losses.
+// The armour earns a low predationVulnerability: a threatened pangolin rolls into a ball that only a
+// lion, tiger or hyena can open.
+//
+// NOTE gestation figures for this family are poorly documented and vary widely between sources
+// (published values for the Chinese pangolin alone range from about six months to over ten). The
+// values below sit in the middle of the reported range rather than pretending to a precision the
+// literature does not have.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== AFRICAN PANGOLINS =====================
+    // Giant pangolin: the largest, a ground-dwelling termite specialist of central African forest.
+    "manidae:manidae-gigantea": {
+      "carryingCapacity": 1, "bodyWeight": 33, "isPredator": false,
+      "growthRate": 0.18, "predationVulnerability": 0.2,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Temminck's (ground) pangolin: the African savanna species, and the one that walks on its hind legs.
+    "manidae:manidae-temminckii": {
+      "carryingCapacity": 1, "bodyWeight": 12, "isPredator": false,
+      "growthRate": 0.2, "predationVulnerability": 0.25,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 140, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // White-bellied (tree) pangolin: the most numerous pangolin, and an agile climber.
+    "manidae:manidae-tricuspis": {
+      "carryingCapacity": 1, "bodyWeight": 2, "isPredator": false,
+      "growthRate": 0.25, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.55 }
+    },
+    // Black-bellied (long-tailed) pangolin: the smallest, almost entirely arboreal, and the only
+    // pangolin that is active by day.
+    "manidae:manidae-tetradactyla": {
+      "carryingCapacity": 1, "bodyWeight": 2.5, "isPredator": false,
+      "growthRate": 0.25, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.55 }
+    },
+
+    // ===================== ASIAN PANGOLINS =====================
+    // Indian pangolin: the largest Asian species. The mod's own weight for this one was already right.
+    "manidae:manidae-crassicaudata": {
+      "carryingCapacity": 1, "bodyWeight": 13, "isPredator": false,
+      "growthRate": 0.2, "predationVulnerability": 0.25,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 175, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Sunda pangolin.
+    "manidae:manidae-javanica": {
+      "carryingCapacity": 1, "bodyWeight": 7, "isPredator": false,
+      "growthRate": 0.22, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 160, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Chinese pangolin: the northernmost species, and the one that digs deep winter burrows.
+    "manidae:manidae-pentadactyla": {
+      "carryingCapacity": 1, "bodyWeight": 4, "isPredator": false,
+      "growthRate": 0.22, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Philippine pangolin: a Palawan endemic, and the smallest of the Asian four.
+    "manidae:manidae-culionensis": {
+      "carryingCapacity": 1, "bodyWeight": 2.2, "isPredator": false,
+      "growthRate": 0.25, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 6000, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.55 }
+    },
+    // Asian mystery pangolin: known only from confiscated scales, genetically distinct from all eight
+    // named species and never yet seen alive. Nothing is published about its mass or biology, so it is
+    // modelled on its nearest relatives — the Sunda and Chinese pangolins — and kept rare.
+    "manidae:manidae-mysteria": {
+      "carryingCapacity": 1, "bodyWeight": 5, "isPredator": false,
+      "growthRate": 0.2, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 170, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.55 }
+    }
+
+  }
+}
