@@ -19,8 +19,10 @@
 //    because the devil is tagged "predator" and eats no plants, the tagged-predator fallback then
 //    hands it EVERY huntable species in the game instead: mammoths, rhinoceroses, elephants and all.
 //    An 8 kg marsupial with the standing prey base of a lion would also never go hungry, which
-//    quietly removes it from the ecology. So the list below replaces it, kept deliberately to small
-//    prey. Keys for mods you do not run are simply inert, so this degrades cleanly.
+//    quietly removes it from the ecology. So the prey list is set here from a MASS BAND instead:
+//    everything between 20 g and 12 kg, which is a devil's real range of live prey and picks up
+//    species from mods this pack has never heard of. The lower bound matters as much as the upper —
+//    without it a devil would be modelled chasing six-gram wrens.
 //
 //    Worth recording that the mod's list is the RIGHT list — half of it is carcasses, because the
 //    Tasmanian devil is first and foremost a scavenger. This model has no scavenging: there is no
@@ -50,17 +52,7 @@
     "thylacinidae:dasyuridae-sarcophilusharrisii": {
       "carryingCapacity": 1, "preyPerPredator": 1,
       "growthRate": 0.35, "predationVulnerability": 0.4,
-      "preySpeciesCodes": [
-        "game:hare-arctic", "game:hare-cape", "game:hare-european",
-        "game:chicken", "game:raccoon-common",
-        "thecritterpack:fieldmus", "thecritterpack:chipmunk-male", "thecritterpack:hedgehog-male",
-        "thecritterpack:squirrel-male-red", "thecritterpack:squirrel-male-brown",
-        "thecritterpack:squirrel-male-darkbrown", "thecritterpack:squirrel-male-black",
-        "moreanimals:pheasant-cock", "moreanimals:goldenpheasant-cock",
-        "moreanimals:capercaillie-cock", "moreanimals:wildturkey-cock",
-        "fowlmod:duck-mallard", "fowlmod:duck-pekin", "fowlmod:duck-blue",
-        "casuariidae:rallidae-tribonyxmortierii"
-      ],
+      "preyMaxBodyWeight": 12, "preyMinBodyWeight": 0.02,
       "lifecycle": { "lifespanDays": 2000, "gestationDays": 105, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4], "juvenileMortality": 0.5 }
     },
 
@@ -69,18 +61,7 @@
     "thylacinidae:dasyuridae-sarcophiluslaniarius": {
       "carryingCapacity": 1, "preyPerPredator": 1.5,
       "growthRate": 0.3, "predationVulnerability": 0.35,
-      "preySpeciesCodes": [
-        "game:hare-arctic", "game:hare-cape", "game:hare-european",
-        "game:chicken", "game:raccoon-common",
-        "game:deer-pudu", "game:goat-sirohi", "game:pig-eurasian",
-        "thecritterpack:fieldmus", "thecritterpack:chipmunk-male", "thecritterpack:hedgehog-male",
-        "thecritterpack:squirrel-male-red", "thecritterpack:squirrel-male-brown",
-        "thecritterpack:squirrel-male-darkbrown", "thecritterpack:squirrel-male-black",
-        "moreanimals:pheasant-cock", "moreanimals:goldenpheasant-cock",
-        "moreanimals:capercaillie-cock", "moreanimals:wildturkey-cock",
-        "fowlmod:duck-mallard", "fowlmod:duck-pekin", "fowlmod:duck-blue",
-        "casuariidae:rallidae-tribonyxmortierii"
-      ],
+      "preyMaxBodyWeight": 18, "preyMinBodyWeight": 0.05,
       "lifecycle": { "lifespanDays": 2200, "gestationDays": 110, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4], "juvenileMortality": 0.5 }
     }
 

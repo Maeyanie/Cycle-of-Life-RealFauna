@@ -24,15 +24,19 @@
 //    against this mod's own "vombatidae:" domain. The only ones that match are the entries from this
 //    same mod — so as written, the marsupial lion hunts wombats and Zygomaturus and nothing else at
 //    all. That is not nonsense (it genuinely took both), but six sparse prey species is a thin base
-//    for a 120 kg predator, and it would hover at the edge of starvation. The list below restores a
-//    workable base from vanilla, which is present on every server, and keeps this mod's own species.
+//    for a 120 kg predator, and it would hover at the edge of starvation.
 //
-//    Two things the model cannot express, noted so nobody thinks they were missed: prey is per
-//    SPECIES, not per age, so the author's baby-only megafauna entries cannot be reproduced — those
-//    are simply left out rather than letting a marsupial lion pull down an adult mammoth. And if you
-//    run the other FotSA families, their herbivores are worth adding here by hand; they were left out
-//    because listing every bovine and cervid would triple the size of this file for prey that may not
-//    be installed.
+//    Rather than transcribe the author's list into hundreds of exact keys — which would have to be
+//    revisited every time anyone installs another animal mod, and in practice never would be — this
+//    uses a MASS BAND: everything up to 200 kg is prey, whatever mod it came from, plus Zygomaturus
+//    named explicitly because at half a tonne it sits above the band and Thylacoleo genuinely took
+//    it. Apex-tagged carnivores are skipped automatically, so it does not start hunting lions.
+//
+//    200 kg is deliberately generous for a 120 kg cat — it is roughly the upper limit of what large
+//    ambush predators manage — and the breadth is defensible for a fauna that has coexisted long
+//    enough to have worked out who eats whom. One thing the model still cannot express: prey is per
+//    SPECIES, not per age, so the author's baby-only elephant and rhino entries have no equivalent.
+//    Better omitted than letting a marsupial lion pull down an adult mammoth.
 //
 // Wombats are marsupials, so the gestation figures below represent the whole cycle to independence —
 // three weeks in utero and then six to nine months in a backward-facing pouch — rather than the
@@ -86,22 +90,8 @@
     // the mod already gates its hunting on its own "saturated" state.
     "vombatidae:thylacoleonidae-thylacoleocarnifex": {
       "preyPerPredator": 4, "growthRate": 0.2, "predationVulnerability": 0.15,
-      "preySpeciesCodes": [
-        "vombatidae:vombatidae-vombatusursinus", "vombatidae:vombatidae-lasiorhinuslatifrons",
-        "vombatidae:vombatidae-lasiorhinuskrefftii", "vombatidae:vombatidae-vombatushacketti",
-        "vombatidae:vombatidae-phascolonusgigas",
-        "vombatidae:diprotodontidae-zygomaturustrilobus",
-        "game:deer-whitetail", "game:deer-caribou", "game:deer-chital", "game:deer-elk",
-        "game:deer-fallow", "game:deer-guemal", "game:deer-marsh", "game:deer-moose",
-        "game:deer-pampas", "game:deer-pudu", "game:deer-redbrocket", "game:deer-taruca",
-        "game:deer-water", "game:gazelle-thomson",
-        "game:goat-angora", "game:goat-ibexalp", "game:goat-ibexnub", "game:goat-markhor",
-        "game:goat-mountain", "game:goat-muskox", "game:goat-nubian", "game:goat-sirohi",
-        "game:goat-takingold", "game:goat-turdag", "game:goat-valais",
-        "game:sheep-bighorn", "game:sheep-mouflon",
-        "game:pig-eurasian", "game:pig-redriver", "game:pig-warthog",
-        "game:hare-arctic", "game:hare-cape", "game:hare-european", "game:raccoon-common"
-      ],
+      "preyMaxBodyWeight": 200,
+      "preySpeciesCodes": ["vombatidae:diprotodontidae-zygomaturustrilobus"],
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
     }
 
