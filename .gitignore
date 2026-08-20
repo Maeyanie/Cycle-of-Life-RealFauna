@@ -1,0 +1,3 @@
+# build artifacts — the packaged mod, rebuilt from assets/ + modinfo.json
+colrealfauna_*.zip
+cycleoflife_*.zip
