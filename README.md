@@ -34,6 +34,7 @@ assets/colrealfauna/config/cycleoflife/
   fotsa-canids.json          # Fauna of the Stone Age: Caninae
   fotsa-cervids.json         # Fauna of the Stone Age: Capreolinae
   fotsa-bovinae.json         # Fauna of the Stone Age: Bovinae (cattle, buffalo, antelope)
+  fotsa-cervinae.json        # Fauna of the Stone Age: Cervinae (Old World deer)
   feverstone-horses.json     # Feverstone's Horses
   feverstonewilds.json       # Feverstone Wilds (excludes golems + fish)
   pegasus.json               # Pegasus
@@ -55,7 +56,7 @@ exclusions in `feverstonewilds.json` are deliberately belt-and-braces.
 
 | Verified against a live roster | Derived from the mod's entity JSON only |
 |---|---|
-| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae |
+| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae, FotSA Cervinae |
 
 The right-hand column covers mods the pack author does not run. Their keys were computed by
 replicating Cycle of Life's own key derivation (domain + base code + non-demographic variants,

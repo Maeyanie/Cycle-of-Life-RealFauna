@@ -124,7 +124,12 @@
     "bovinae:bovinae-tragelaphusimberbis":     { "territory": { "enabled": true, "radiusChunks": 3 } },
     "bovinae:bovinae-tragelaphusscriptus":     { "territory": { "enabled": true, "radiusChunks": 3 } },
     "bovinae:bovinae-tragelaphussylvaticus":   { "territory": { "enabled": true, "radiusChunks": 3 } },
-    "bovinae:bovinae-tetracerusquadricornis":  { "territory": { "enabled": true, "radiusChunks": 3 } }
+    "bovinae:bovinae-tetracerusquadricornis":  { "territory": { "enabled": true, "radiusChunks": 3 } },
+
+    // ===================== FotSA Old World deer (Cervinae) =====================
+    // The giant deer is bigger and far rarer than a moose (radius 6 above), so it spaces wider.
+    // With K floored at 1 this radius is what actually keeps the herds apart.
+    "cervinae:cervidae-cervini-megalocerosgiganteus": { "territory": { "enabled": true, "radiusChunks": 7 } }
 
   }
 }

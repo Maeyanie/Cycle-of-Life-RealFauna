@@ -1,0 +1,52 @@
+// Cycle of Life: Realistic Fauna — FotSA Old World deer (Cervinae).
+//
+// As of 0.1.14 this mod ships exactly one species: Megaloceros giganteus, the giant deer or "Irish
+// elk" — the largest deer that ever lived, a 500-600 kg animal carrying 3.5 m of antler, and a
+// genuine Holocene survivor (it outlasted the Pleistocene by thousands of years, which is what earns
+// it a place in this mod). The file is structured for the whole subfamily, so red deer, sika,
+// fallow, muntjac and the rest will presumably arrive in later versions and want adding here.
+//
+// The mod gets the important things right. Body weights are per-sex and accurate to the published
+// estimates (female 500, male 600), so they are inherited untouched, and unlike its sibling Bovinae
+// it does declare a maxQuantityByGroup. Spawn blocks are air/soil/sand/gravel/snow/grass with no
+// water, so nothing needs excluding. Climate gating is already tight: -4 to 10 C, high ground,
+// partly wooded, with a 1e-05 runtime chance and a 100-block player standoff. This is meant to be a
+// rare animal and it is.
+//
+// TWO CHANGES, both toward the published biology:
+//
+// 1. DIET. The mod gives it Fruit/Vegetable — a woodland browser's signature. The evidence puts it
+//    at the other end: dental mesowear and microwear across Middle-to-Late Pleistocene populations
+//    show generalised mixed feeding tending toward GRAZING, and stable isotopes (d13C/d18O) from
+//    Irish molar enamel indicate a diet of grass and forbs supplemented with browse — the Irish
+//    late-glacial population being the most graze-dominated of all. So Grain (this model's grass
+//    category) is added and kept first, with Vegetable for forbs and Fruit for the browse
+//    supplement. That also puts it in proper competition with the other open-country grazers
+//    instead of with the woodland browsers.
+//
+// 2. CARRYING CAPACITY. The mod's group cap of 4 reads as 4 animals per 0.173 km² — the area the
+//    founding check covers — which is ~23 per km². That is red deer density for an animal three
+//    times a red deer's mass; a 500-600 kg deer of open woodland belongs nearer 1-3 per km², which
+//    rounds to the floor of 1. Worth saying plainly that this barely changes anything on its own: a
+//    single herd grown to MaxHerdSize (14, from the mod's own group size of ~7) already exceeds any
+//    K this small, so the real spacing between herds comes from the territory radius set in
+//    territories.json, not from K. The number is corrected because it should read true, not because
+//    it is doing heavy lifting.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // Giant deer. Long-lived, single calf, slow to replace itself — and big enough, with enough
+    // antler, that a wolf pack thinks twice, so it sits close to the moose on vulnerability.
+    "cervinae:cervidae-cervini-megalocerosgiganteus": {
+      "carryingCapacity": 1,
+      "foodCategories": ["Grain", "Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.45,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 250, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5], "juvenileMortality": 0.45 }
+    }
+
+  }
+}
