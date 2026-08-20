@@ -195,7 +195,14 @@
     "casuariidae:dromornithidae-genyornisnewtoni": { "territory": { "enabled": true, "radiusChunks": 6 } },
     "casuariidae:casuariidae-casuarius":           { "territory": { "enabled": true, "radiusChunks": 4 } },
     "casuariidae:casuariidae-unappendiculatus":    { "territory": { "enabled": true, "radiusChunks": 4 } },
-    "casuariidae:casuariidae-bennetti":            { "territory": { "enabled": true, "radiusChunks": 3 } }
+    "casuariidae:casuariidae-bennetti":            { "territory": { "enabled": true, "radiusChunks": 3 } },
+
+    // ===================== FotSA wombats and relatives (Vombatidae Plus) =====================
+    // Only the two large herbivores are opted in. The wombats are left out: they hold burrows rather
+    // than range, and at K=1-2 a radius below the founding radius would change nothing. Thylacoleo
+    // needs no entry at all — predators are given a territory automatically, sized from body weight.
+    "vombatidae:diprotodontidae-zygomaturustrilobus": { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "vombatidae:vombatidae-phascolonusgigas":         { "territory": { "enabled": true, "radiusChunks": 4 } }
 
   }
 }

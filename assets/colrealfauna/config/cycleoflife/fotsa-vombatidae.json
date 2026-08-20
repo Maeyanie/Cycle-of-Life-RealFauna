@@ -1,0 +1,109 @@
+// Cycle of Life: Realistic Fauna — FotSA wombats and relatives (Vombatidae Plus).
+//
+// Seven species and three very different animals: five wombats, the rhino-sized diprotodontid
+// Zygomaturus, and Thylacoleo carnifex — the marsupial lion, an apex predator with the strongest
+// bite for its size of any mammal known and a slicing premolar like a pair of bolt-cutters.
+//
+// Weights are inherited and good throughout: wombats at 25-35 kg, the giant wombat Phascolonus at
+// 200, Zygomaturus at 500-700, and Thylacoleo at 110-120. Diets are right too — Grain/Vegetable for
+// the grazing wombats and Zygomaturus, and nothing declared for Thylacoleo, which correctly keeps a
+// carnivore out of the forage model. Group sizes distinguish the wombats properly: the common wombat
+// is solitary while the hairy-nosed ones live several to a warren, which the mod encodes as a group
+// of ~5 for Lasiorhinus and 1 for Vombatus ursinus.
+//
+// TWO CHANGES:
+//
+// 1. WOMBAT K, 5 -> 1 (2 for the hairy-nosed). Five per 0.173 km² is ~29 animals/km². Common wombats
+//    run 0.3-1/km²; the hairy-nosed species reach a few per km² where warren country is good, which
+//    earns them 2. Zygomaturus and Thylacoleo already declare 1 and are left alone.
+//
+// 2. AN EXPLICIT PREY LIST FOR THYLACOLEO. The mod writes an excellent one — deer, gazelle, goats,
+//    sheep, pigs, bovines, cervids, moa, casuariids, wombats and diprotodonts, and with the nice
+//    restraint of listing only "elephantidae-baby-*" and "rhinocerotidae-baby-*" for the megafauna.
+//    But like every other FotSA hunt list it is written without domains, so each pattern resolves
+//    against this mod's own "vombatidae:" domain. The only ones that match are the entries from this
+//    same mod — so as written, the marsupial lion hunts wombats and Zygomaturus and nothing else at
+//    all. That is not nonsense (it genuinely took both), but six sparse prey species is a thin base
+//    for a 120 kg predator, and it would hover at the edge of starvation. The list below restores a
+//    workable base from vanilla, which is present on every server, and keeps this mod's own species.
+//
+//    Two things the model cannot express, noted so nobody thinks they were missed: prey is per
+//    SPECIES, not per age, so the author's baby-only megafauna entries cannot be reproduced — those
+//    are simply left out rather than letting a marsupial lion pull down an adult mammoth. And if you
+//    run the other FotSA families, their herbivores are worth adding here by hand; they were left out
+//    because listing every bovine and cervid would triple the size of this file for prey that may not
+//    be installed.
+//
+// Wombats are marsupials, so the gestation figures below represent the whole cycle to independence —
+// three weeks in utero and then six to nine months in a backward-facing pouch — rather than the
+// three weeks alone, because that cycle is what actually limits how often a female can breed.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== WOMBATS =====================
+    // Burrowing grazers with a rump of cartilage they use to crush anything that follows them down a
+    // tunnel — hence a vulnerability well below what a 30 kg herbivore would otherwise carry.
+    "vombatidae:vombatidae-vombatusursinus": {
+      "carryingCapacity": 1, "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Southern hairy-nosed wombat: colonial, several to a warren, and the densest of the family.
+    "vombatidae:vombatidae-lasiorhinuslatifrons": {
+      "carryingCapacity": 2, "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Northern hairy-nosed wombat: the largest living wombat, and one of the rarest mammals on earth.
+    "vombatidae:vombatidae-lasiorhinuskrefftii": {
+      "carryingCapacity": 2, "growthRate": 0.22, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 200, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Hackett's wombat: an extinct Pleistocene species, a little larger than the living ones.
+    "vombatidae:vombatidae-vombatushacketti": {
+      "carryingCapacity": 1, "growthRate": 0.22, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 210, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    },
+    // Giant wombat: 200 kg, the largest burrowing mammal that has ever lived.
+    "vombatidae:vombatidae-phascolonusgigas": {
+      "carryingCapacity": 1, "growthRate": 0.15, "predationVulnerability": 0.25,
+      "lifecycle": { "lifespanDays": 6500, "gestationDays": 260, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 }
+    },
+
+    // ===================== DIPROTODONTID =====================
+    // Zygomaturus: a half-tonne marsupial of swamp and woodland edge, built something like a rhino
+    // and about as slow to replace itself.
+    "vombatidae:diprotodontidae-zygomaturustrilobus": {
+      "growthRate": 0.15, "predationVulnerability": 0.2,
+      "lifecycle": { "lifespanDays": 8000, "gestationDays": 300, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+
+    // ===================== MARSUPIAL LION =====================
+    // Thylacoleo carnifex: 120 kg, solitary, ambush-hunting, and pound for pound the hardest bite of
+    // any mammal ever measured. No huntWhenFull floor — it was a cacher, not a surplus killer, and
+    // the mod already gates its hunting on its own "saturated" state.
+    "vombatidae:thylacoleonidae-thylacoleocarnifex": {
+      "preyPerPredator": 4, "growthRate": 0.2, "predationVulnerability": 0.15,
+      "preySpeciesCodes": [
+        "vombatidae:vombatidae-vombatusursinus", "vombatidae:vombatidae-lasiorhinuslatifrons",
+        "vombatidae:vombatidae-lasiorhinuskrefftii", "vombatidae:vombatidae-vombatushacketti",
+        "vombatidae:vombatidae-phascolonusgigas",
+        "vombatidae:diprotodontidae-zygomaturustrilobus",
+        "game:deer-whitetail", "game:deer-caribou", "game:deer-chital", "game:deer-elk",
+        "game:deer-fallow", "game:deer-guemal", "game:deer-marsh", "game:deer-moose",
+        "game:deer-pampas", "game:deer-pudu", "game:deer-redbrocket", "game:deer-taruca",
+        "game:deer-water", "game:gazelle-thomson",
+        "game:goat-angora", "game:goat-ibexalp", "game:goat-ibexnub", "game:goat-markhor",
+        "game:goat-mountain", "game:goat-muskox", "game:goat-nubian", "game:goat-sirohi",
+        "game:goat-takingold", "game:goat-turdag", "game:goat-valais",
+        "game:sheep-bighorn", "game:sheep-mouflon",
+        "game:pig-eurasian", "game:pig-redriver", "game:pig-warthog",
+        "game:hare-arctic", "game:hare-cape", "game:hare-european", "game:raccoon-common"
+      ],
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 150, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 }
+    }
+
+  }
+}
