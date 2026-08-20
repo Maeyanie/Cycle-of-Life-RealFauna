@@ -94,7 +94,37 @@
     // ===================== Feverstone wild horses =====================
     "feverstonehorses:horse-wild-quarter": { "territory": { "enabled": true, "radiusChunks": 5 } },
     "feverstonehorses:horse-wild-shire":   { "territory": { "enabled": true, "radiusChunks": 5 } },
-    "feverstonehorses:horse-wild-donkey":  { "territory": { "enabled": true, "radiusChunks": 5 } }
+    "feverstonehorses:horse-wild-donkey":  { "territory": { "enabled": true, "radiusChunks": 5 } },
+
+    // ===================== FotSA cattle, buffalo & antelope (Bovinae) =====================
+    // Radius scales with size, on the same scale as the cervids above (moose 6, roe deer 4). Without
+    // these the bovines hold no home range at all and grow to K in every suitable cell.
+    "bovinae:bovinae-syncerusantiquus":        { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "bovinae:bovinae-bubalusarnee":            { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "bovinae:bovinae-bosprimigeniusprimigenius": { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "bovinae:bovinae-synceruscaffer":          { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "bovinae:bovinae-taurotragusderbianus":    { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "bovinae:bovinae-taurotragusoryx":         { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "bovinae:bovinae-bubalusmephistopheles":   { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "bovinae:bovinae-bubalusmurrensis":        { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "bovinae:bovinae-syncerusnanus":           { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "bovinae:bovinae-bubalusbrevicornis":      { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "bovinae:bovinae-tragelaphuseurycerus":    { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "bovinae:bovinae-bubalusmindorensis":      { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-bubalusdepressicornis":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-bubalusquarlesi":         { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-bubalusgrovesi":          { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-bubaluscebuensis":        { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-tragelaphusbuxtoni":      { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-tragelaphusstrepsiceros": { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-boselaphustragocamelus":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-pseudoryxnghetinhensis":  { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "bovinae:bovinae-tragelaphusspekii":       { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "bovinae:bovinae-tragelaphusangasii":      { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "bovinae:bovinae-tragelaphusimberbis":     { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "bovinae:bovinae-tragelaphusscriptus":     { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "bovinae:bovinae-tragelaphussylvaticus":   { "territory": { "enabled": true, "radiusChunks": 3 } },
+    "bovinae:bovinae-tetracerusquadricornis":  { "territory": { "enabled": true, "radiusChunks": 3 } }
 
   }
 }

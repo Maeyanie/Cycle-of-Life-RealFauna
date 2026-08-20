@@ -1,0 +1,87 @@
+// Cycle of Life: Realistic Fauna — FotSA cattle, buffalo & antelope (Bovinae).
+//
+// 26 Holocene bovines: the aurochs, the wild buffaloes (including a shelf of extinct dwarf and giant
+// forms), the elands, the spiral-horned tragelaphine antelopes, and the saola. Diets come free — the
+// mod declares creatureDietByType, which resolves per species, so the tragelaphines and elands are
+// discovered as Fruit/Grain/Vegetable browsers and the buffalo as Grain/Vegetable grazers. Body
+// weights come free too, and they are excellent: per-species AND per-sex, from a 20 kg four-horned
+// antelope to a 1200 kg giant buffalo. Nothing to exclude — every spawn block is air/soil/sand/grass
+// with no water in it, so even the swamp-dwelling sitatunga places safely on land.
+//
+// THE ONE THING THAT DOES NEED FIXING: carryingCapacity. Unlike its sibling FotSA mods, this one
+// declares no maxQuantity and no maxQuantityByGroup, so K falls back to the VS default of 20 PER
+// SPAWNABLE VARIANT — and since both the cow and the bull carry spawn conditions, that is summed to
+// K=40 for every species. Forty aurochs per cell is not a herd, it is a feedlot. (For comparison
+// FotSA Capreolinae declares maxQuantityByGroup 2, which is where its K=2 comes from, and this pack
+// overrides K for none of the other FotSA families because it does not need to.) K is therefore set
+// explicitly here, scaled by body size: the megafauna sit at the FotSA norm of 2, and the small
+// antelope are allowed to be genuinely common.
+//
+// Territories are opted in separately, in territories.json — without that these would have no home
+// range at all and would spread evenly to K across every suitable cell.
+//
+// Lifecycles: bovines are slow. One calf, a gestation of eight to eleven months, and a long life.
+// Only the nilgai and the four-horned antelope regularly twin. predationVulnerability scales
+// inversely with size and temper — a Cape buffalo kills lions, a bushbuck is eaten by everything.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== AUROCHS =====================
+    // The wild ox: 800 kg bulls, ancestor of every cow. Cattle-like gestation, one calf, long-lived.
+    "bovinae:bovinae-bosprimigeniusprimigenius": { "carryingCapacity": 2, "growthRate": 0.18, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 7200, "gestationDays": 283, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+
+    // ===================== TRUE BUFFALO (Bubalus, Syncerus) =====================
+    // Big, herd-forming, and dangerous — a healthy adult buffalo is close to unkillable for anything
+    // but a lion pride, hence the very low vulnerability on the large ones. Gestation runs longer
+    // than cattle (ten to eleven months in the water buffaloes).
+    "bovinae:bovinae-bubalusarnee":          { "carryingCapacity": 2, "growthRate": 0.16, "predationVulnerability": 0.25, "lifecycle": { "lifespanDays": 9000, "gestationDays": 320, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-syncerusantiquus":      { "carryingCapacity": 2, "growthRate": 0.12, "predationVulnerability": 0.2, "lifecycle": { "lifespanDays": 9000, "gestationDays": 345, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-synceruscaffer":        { "carryingCapacity": 2, "growthRate": 0.18, "predationVulnerability": 0.25, "lifecycle": { "lifespanDays": 7200, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-bubalusmephistopheles": { "carryingCapacity": 3, "growthRate": 0.18, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 7200, "gestationDays": 320, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-bubalusmurrensis":      { "carryingCapacity": 3, "growthRate": 0.18, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 7200, "gestationDays": 320, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-syncerusnanus":         { "carryingCapacity": 3, "growthRate": 0.2, "predationVulnerability": 0.35, "lifecycle": { "lifespanDays": 7200, "gestationDays": 340, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-bubalusbrevicornis":    { "carryingCapacity": 3, "growthRate": 0.2, "predationVulnerability": 0.35, "lifecycle": { "lifespanDays": 7000, "gestationDays": 310, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+    "bovinae:bovinae-bubalusmindorensis":    { "carryingCapacity": 3, "growthRate": 0.2, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 7000, "gestationDays": 300, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 } },
+
+    // ---- Anoa and the dwarf island buffaloes: buffalo biology in a 100-225 kg body. Long-lived
+    // for their size, still only one calf, and solitary or in very small groups rather than herds. ----
+    "bovinae:bovinae-bubalusdepressicornis": { "carryingCapacity": 4, "growthRate": 0.22, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 7000, "gestationDays": 300, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+    "bovinae:bovinae-bubalusquarlesi":       { "carryingCapacity": 4, "growthRate": 0.22, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 7000, "gestationDays": 300, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+    "bovinae:bovinae-bubalusgrovesi":        { "carryingCapacity": 4, "growthRate": 0.22, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 7000, "gestationDays": 300, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+    "bovinae:bovinae-bubaluscebuensis":      { "carryingCapacity": 4, "growthRate": 0.25, "predationVulnerability": 0.55, "lifecycle": { "lifespanDays": 6500, "gestationDays": 290, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+
+    // ===================== ELANDS (Taurotragus) =====================
+    // The largest antelope alive — eland bulls outweigh a horse — but far more nervous than a
+    // buffalo, and they run rather than fight, so they are taken more often than their size suggests.
+    "bovinae:bovinae-taurotragusderbianus": { "carryingCapacity": 2, "growthRate": 0.2, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 6500, "gestationDays": 270, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+    "bovinae:bovinae-taurotragusoryx":      { "carryingCapacity": 2, "growthRate": 0.22, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 6500, "gestationDays": 270, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 } },
+
+    // ===================== SPIRAL-HORNED ANTELOPE (Tragelaphus) =====================
+    // Browsers, mostly solitary or in very small parties, one calf hidden for its first weeks.
+    "bovinae:bovinae-tragelaphuseurycerus":    { "carryingCapacity": 3, "growthRate": 0.25, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 6500, "gestationDays": 285, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    "bovinae:bovinae-tragelaphusbuxtoni":      { "carryingCapacity": 4, "growthRate": 0.25, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 5400, "gestationDays": 275, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    "bovinae:bovinae-tragelaphusstrepsiceros": { "carryingCapacity": 4, "growthRate": 0.28, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 5400, "gestationDays": 255, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // Sitatunga: the swamp antelope. Splayed hooves for reed beds — the mod spawns it on land like
+    // the rest, so it is treated as an ordinary browser here, just a well-hidden one.
+    "bovinae:bovinae-tragelaphusspekii":       { "carryingCapacity": 5, "growthRate": 0.3, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 5000, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    "bovinae:bovinae-tragelaphusangasii":      { "carryingCapacity": 6, "growthRate": 0.32, "predationVulnerability": 0.75, "lifecycle": { "lifespanDays": 4300, "gestationDays": 225, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    "bovinae:bovinae-tragelaphusimberbis":     { "carryingCapacity": 6, "growthRate": 0.32, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // The two bushbucks: small, solitary, and the staple prey of every mid-sized African predator.
+    "bovinae:bovinae-tragelaphusscriptus":     { "carryingCapacity": 6, "growthRate": 0.38, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 4300, "gestationDays": 180, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    "bovinae:bovinae-tragelaphussylvaticus":   { "carryingCapacity": 6, "growthRate": 0.38, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 4300, "gestationDays": 180, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+
+    // ===================== ODD ONES OUT =====================
+    // Nilgai: the big Asian antelope, and one of the very few bovines that routinely twins.
+    "bovinae:bovinae-boselaphustragocamelus":  { "carryingCapacity": 4, "growthRate": 0.35, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 4500, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // Four-horned antelope: 20 kg, the smallest bovine here, twins often, and short-lived to match.
+    "bovinae:bovinae-tetracerusquadricornis":  { "carryingCapacity": 6, "growthRate": 0.45, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 3600, "gestationDays": 245, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    // Saola: barely known to science and one of the rarest large mammals alive. Kept at the K of a
+    // megafaunal buffalo despite weighing 90 kg — the rarity is the point, not the size.
+    "bovinae:bovinae-pseudoryxnghetinhensis":  { "carryingCapacity": 2, "growthRate": 0.15, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 4300, "gestationDays": 230, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } }
+
+  }
+}
