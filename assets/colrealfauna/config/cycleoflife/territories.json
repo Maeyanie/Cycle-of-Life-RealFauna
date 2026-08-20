@@ -129,7 +129,20 @@
     // ===================== FotSA Old World deer (Cervinae) =====================
     // The giant deer is bigger and far rarer than a moose (radius 6 above), so it spaces wider.
     // With K floored at 1 this radius is what actually keeps the herds apart.
-    "cervinae:cervidae-cervini-megalocerosgiganteus": { "territory": { "enabled": true, "radiusChunks": 7 } }
+    "cervinae:cervidae-cervini-megalocerosgiganteus": { "territory": { "enabled": true, "radiusChunks": 7 } },
+
+    // ===================== FotSA elephants & mammoths (Elephantidae) =====================
+    // The widest-ranging animals in the pack — real elephant home ranges run to hundreds of km², so
+    // these sit above everything else on the scale. The island dwarfs are the exception: an endemic
+    // confined to one island does not range far, so they space tightly.
+    "elephantidae:elephantidae-mammuthuscolumbi":         { "territory": { "enabled": true, "radiusChunks": 8 } },
+    "elephantidae:elephantidae-loxodontaafricana":        { "territory": { "enabled": true, "radiusChunks": 8 } },
+    "elephantidae:elephantidae-mammuthusprimigenius":     { "territory": { "enabled": true, "radiusChunks": 8 } },
+    "elephantidae:elephantidae-elephasmaximus":           { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "elephantidae:elephantidae-elephasmaximusborneensis": { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "elephantidae:elephantidae-loxodontacyclotis":        { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "elephantidae:elephantidae-mammuthusexilis":          { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "elephantidae:elephantidae-palaeoloxodoncypriotes":   { "territory": { "enabled": true, "radiusChunks": 4 } }
 
   }
 }

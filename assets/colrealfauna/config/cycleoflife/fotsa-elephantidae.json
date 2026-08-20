@@ -1,0 +1,93 @@
+// Cycle of Life: Realistic Fauna — FotSA elephants & mammoths (Elephantidae).
+//
+// Eight proboscideans: the three living elephants plus the Borneo pygmy, the woolly and Columbian
+// mammoths, and two island dwarfs — the pygmy mammoth of the Channel Islands and the Cyprus dwarf
+// elephant, which at 170 kg is about two per cent of its mainland ancestor's mass.
+//
+// This is the best-behaved mod the pack has taken on, and almost everything is inherited untouched:
+//   * carryingCapacity is ALREADY RIGHT. Every species declares maxQuantityByGroup 1, giving K=1 —
+//     about 6 animals per km², which is exactly where wild elephants sit (0.5-2/km² in good
+//     habitat). No override, unlike its sibling Bovinae which declares no cap at all and falls back
+//     to K=40. This is the first mod in the pack that needed no K correction.
+//   * Body weights are per-species AND per-sex and match published figures across two orders of
+//     magnitude, from the 170 kg Cyprus dwarf to a 9500 kg Columbian mammoth bull.
+//   * Diet is Fruit/Grain/Vegetable — correct for a bulk mixed feeder that both grazes and browses.
+//   * Group sizes are matriarchal and correct: cows in parties of 10-14, bulls in twos and threes.
+//   * Climate gating is per species and sensible (woolly mammoth -20 to 10 C, Columbian 0 to 23,
+//     Asian 14 to 40, Cyprus dwarf 15 to 20), and spawn blocks are land-only, so nothing is excluded.
+//
+// So this file is almost entirely LIFECYCLE, which the mod leaves to defaults, and which for
+// elephants is extreme: a 22-month gestation (the longest of any mammal), a single calf, half a
+// century of life, and a calving interval of four to five years. The low growthRate is what carries
+// that interval — the model's breeding cooldown is the gestation figure, so growthRate is doing the
+// work of representing how rarely a cow actually raises a calf to term. Adults are effectively
+// immune to predation (only calves are taken), hence vulnerabilities of 0.04-0.08; the two island
+// dwarfs are the exception, since a 170 kg elephant is very much catchable.
+//
+// A SIDE EFFECT WORTH KNOWING ABOUT, because mega-herbivores are where it first becomes visible:
+// forage SUPPLY in this model is calibrated as the sum of carryingCapacity x bodyWeight over the
+// foragers of a realm. One African elephant species at K=1 therefore contributes 1 x 3000 = 3000 to
+// that sum, while the entire vanilla deer species at K=12 contributes 12 x 70 = 840 — so a single
+// elephant adds roughly three and a half times as much "food supply" to its realm as all the deer
+// do. Adding two or three proboscideans to a realm can therefore noticeably slacken forage pressure
+// on every other grazer and browser sharing Grain/Fruit/Vegetable there. That is a quirk of deriving
+// supply from K rather than from the land, not something this file can fix from the overlay side.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== LIVING ELEPHANTS =====================
+    // African bush elephant: the largest land animal alive, and nothing hunts a healthy adult.
+    "elephantidae:elephantidae-loxodontaafricana": {
+      "growthRate": 0.15, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 18000, "gestationDays": 660, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // African forest elephant: smaller, slower still — it matures later than any other elephant.
+    "elephantidae:elephantidae-loxodontacyclotis": {
+      "growthRate": 0.13, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 18000, "gestationDays": 660, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Asian elephant.
+    "elephantidae:elephantidae-elephasmaximus": {
+      "growthRate": 0.15, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 17000, "gestationDays": 640, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+    // Borneo pygmy elephant: an insular Asian elephant, smaller and a little quicker to replace itself.
+    "elephantidae:elephantidae-elephasmaximusborneensis": {
+      "growthRate": 0.16, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 16000, "gestationDays": 640, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.35 }
+    },
+
+    // ===================== MAMMOTHS =====================
+    // Woolly mammoth: tusk growth records suggest a lifespan much like a modern elephant's. Calves
+    // in a cold climate lose more of their first year, hence the higher juvenile mortality.
+    "elephantidae:elephantidae-mammuthusprimigenius": {
+      "growthRate": 0.15, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 18000, "gestationDays": 660, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+    // Columbian mammoth: the biggest animal in this pack at 9.5 tonnes, and the slowest breeder.
+    "elephantidae:elephantidae-mammuthuscolumbi": {
+      "growthRate": 0.12, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 20000, "gestationDays": 680, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+
+    // ===================== ISLAND DWARFS =====================
+    // Island dwarfing is the same story twice: shrink on a predator-free island, breed faster, die
+    // younger. Both are given shorter lives, quicker turnover and — since they are back in a world
+    // that has predators here — a vulnerability a full-sized elephant would never carry.
+    "elephantidae:elephantidae-mammuthusexilis": {
+      "growthRate": 0.2, "predationVulnerability": 0.2,
+      "lifecycle": { "lifespanDays": 12500, "gestationDays": 600, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.4 }
+    },
+    // Cyprus dwarf elephant: 170 kg, roughly the size of a large pig, and the smallest elephant that
+    // ever lived. Fast for a proboscidean and genuinely huntable.
+    "elephantidae:elephantidae-palaeoloxodoncypriotes": {
+      "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 540, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.45 }
+    }
+
+  }
+}
