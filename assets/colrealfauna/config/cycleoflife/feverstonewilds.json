@@ -116,25 +116,32 @@
     },
 
     // ===================== SMALL FRY =====================
+    // None of these four declare a diet, so they need one stated here or they eat nothing at all
+    // and are bounded only by K. Insect is the small-invertebrate forage pool: a real, contested
+    // ceiling shared with every other insectivore in the realm.
     // Toad: amphibious, but its spawn blocks include air and grass, so it places safely on land.
     "feverstonewilds:toad": {
       "bodyWeight": 0.1, "growthRate": 0.8, "predationVulnerability": 0.95,
+      "isForager": true, "foodCategories": ["Insect"],
       "lifecycle": { "lifespanDays": 3600, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
     // Scorpion: long-lived for an arthropod, live-bearing, brood carried on the back.
     "feverstonewilds:scorpion": {
       "bodyWeight": 0.03, "growthRate": 0.5, "predationVulnerability": 0.7,
+      "isForager": true, "foodCategories": ["Insect"],
       "lifecycle": { "lifespanDays": 2200, "gestationDays": 200, "litterSizeMin": 3, "litterSizeMax": 8, "breedingMonths": [5, 6], "juvenileMortality": 0.8 }
     },
     // Spider: short-lived, one big egg sac, nearly all of it eaten before adulthood.
     "feverstonewilds:spider": {
       "bodyWeight": 0.02, "growthRate": 0.9, "predationVulnerability": 0.8,
+      "isForager": true, "foodCategories": ["Insect"],
       "lifecycle": { "lifespanDays": 700, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
     },
     // Geode crab: mineral-shelled oddity. Slow, armoured, rare. Kept (unlike the golems) because it
     // is at least an animal that breeds and eats.
     "feverstonewilds:geodecrab": {
       "bodyWeight": 3, "growthRate": 0.2, "predationVulnerability": 0.25,
+      "isForager": true, "foodCategories": ["Insect", "Meat"],
       "lifecycle": { "lifespanDays": 5000, "gestationDays": 120, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [5], "juvenileMortality": 0.7 }
     }
 

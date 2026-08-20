@@ -85,65 +85,86 @@
     // Chipmunk: caches food, hibernates, one or two litters a year.
     "thecritterpack:chipmunk-male": {
       "bodyWeight": 0.1, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "isForager": true, "foodCategories": ["Grain", "Fruit", "Insect"],
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 31, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
     },
     // Field mouse: the fastest-living thing in the pack; the base of half the food web.
     "thecritterpack:fieldmus": {
       "bodyWeight": 0.025, "growthRate": 1.2, "predationVulnerability": 0.95,
+      // the mod declares Vegetable; restated because an overlay list replaces rather than adds
+      "isForager": true, "foodCategories": ["Vegetable", "Insect"],
       "lifecycle": { "lifespanDays": 500, "gestationDays": 21, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [3, 4, 5, 6, 7, 8], "juvenileMortality": 0.8 }
     },
     // Hedgehog: omnivore (insects, eggs, carrion). Spines make it a poor meal, so less preyed on.
     "thecritterpack:hedgehog-male": {
       "bodyWeight": 1.0, "preyPerPredator": 0,
       "growthRate": 0.5, "predationVulnerability": 0.4,
+      // the mod declares fruit/egg/meat food tags, of which only the animal ones map; Insect added
+      "isForager": true, "foodCategories": ["Insect", "Meat", "Fruit"],
       "lifecycle": { "lifespanDays": 2200, "gestationDays": 35, "litterSizeMin": 3, "litterSizeMax": 5, "breedingMonths": [5, 6], "juvenileMortality": 0.7 }
     },
     // Squirrels: one animal in four coats — a quarter of the intended density each (see header).
     "thecritterpack:squirrel-male-red": {
       "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "isForager": true, "foodCategories": ["Grain", "Fruit"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
     },
     "thecritterpack:squirrel-male-brown": {
       "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "isForager": true, "foodCategories": ["Grain", "Fruit"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
     },
     "thecritterpack:squirrel-male-darkbrown": {
       "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "isForager": true, "foodCategories": ["Grain", "Fruit"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
     },
     "thecritterpack:squirrel-male-black": {
       "carryingCapacity": 1.5, "bodyWeight": 0.3, "growthRate": 0.7, "predationVulnerability": 0.85,
+      "isForager": true, "foodCategories": ["Grain", "Fruit"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 38, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 7], "juvenileMortality": 0.7 }
     },
 
     // ===================== LARGE HERBIVORE =====================
     // Yak: high-altitude grazer, one calf every other year, very long-lived.
+    // The mod declares only a grass food TAG and no food category, which resolves to nothing at all,
+    // so the category is stated here. Vegetable alone, not Grain: the mod skips every cereal by name
+    // (rice, spelt, rye, amaranth and the rest), and a yak on high pasture eats grass and sedge.
     "thecritterpack:yak-male": {
       "bodyWeight": 500, "growthRate": 0.15, "predationVulnerability": 0.35,
+      "isForager": true, "foodCategories": ["Vegetable"],
       "lifecycle": { "lifespanDays": 7000, "gestationDays": 260, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [5, 6], "juvenileMortality": 0.35 }
     },
 
     // ===================== INVERTEBRATES =====================
-    // These have no plant diet declared, so they are neither predators nor foragers — pure logistic
-    // populations bounded by K and mortality. Short lives, big broods, heavy losses.
+    // None of these declares a diet. Until the Insect/Meat/Fish pools existed they were neither
+    // predators nor foragers — pure logistic populations bounded by K and mortality. Now they draw
+    // on real pools: the snails and woodlice on Vegetable, since they are detritivores living on
+    // decaying plant litter, and the crab on the scavenger side of Meat plus Insect. Short lives,
+    // big broods and heavy losses either way.
     "thecritterpack:crab-both": {
       "bodyWeight": 0.5, "growthRate": 0.5, "predationVulnerability": 0.6,
+      "isForager": true, "foodCategories": ["Meat", "Insect"],
       "lifecycle": { "lifespanDays": 2200, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [5, 6], "juvenileMortality": 0.85 }
     },
     "thecritterpack:isopod-woodlouse": {
       "bodyWeight": 0.001, "growthRate": 1.0, "predationVulnerability": 0.9,
+      "isForager": true, "foodCategories": ["Vegetable"],
       "lifecycle": { "lifespanDays": 700, "gestationDays": 40, "litterSizeMin": 4, "litterSizeMax": 10, "breedingMonths": [4, 5, 6, 7], "juvenileMortality": 0.85 }
     },
     "thecritterpack:isopod-rubberducky": {
       "bodyWeight": 0.02, "growthRate": 0.7, "predationVulnerability": 0.8,
+      "isForager": true, "foodCategories": ["Vegetable"],
       "lifecycle": { "lifespanDays": 1100, "gestationDays": 50, "litterSizeMin": 3, "litterSizeMax": 8, "breedingMonths": [5, 6], "juvenileMortality": 0.85 }
     },
     "thecritterpack:snail-helix": {
       "bodyWeight": 0.01, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "isForager": true, "foodCategories": ["Vegetable"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 30, "litterSizeMin": 5, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
     },
     "thecritterpack:snail-default": {
       "bodyWeight": 0.01, "growthRate": 0.8, "predationVulnerability": 0.9,
+      "isForager": true, "foodCategories": ["Vegetable"],
       "lifecycle": { "lifespanDays": 1800, "gestationDays": 30, "litterSizeMin": 5, "litterSizeMax": 12, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.9 }
     }
 

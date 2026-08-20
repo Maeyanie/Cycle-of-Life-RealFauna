@@ -8,7 +8,9 @@
 // mod's spawner, which keeps rolling until every qualifying desert chunk fills — so they'd become
 // COMMON there, not absent. So we MANAGE them and keep them rare ourselves (their maxQuantity 1 -> K=1).
 // They're left non-predators: untagged, and a viper "hunting" the whole huntable herbivore list would
-// be nonsense. Rare ambient desert fauna, nothing more.
+// be nonsense. Rare ambient desert fauna, nothing more. They do eat, though: the snakes and the
+// crab draw on the Meat/Insect pools, which stand in for the small prey the simulation does not
+// model as populations, and the rat on seeds and greens. None of them has an unbounded supply.
 //
 // The bairdi crab + bioluminescent jellies ARE excluded — they're aquatic (insideBlockCodes water-*).
 // We place on land, so managing them would veto the mod's water spawns and then fail to place our own,
@@ -24,27 +26,32 @@
     // ---- Snakes (rare desert ambient, capped at K=1) ----
     "primitivesurvival:pitviper": {
       "growthRate": 0.4, "predationVulnerability": 0.6,
+      "isForager": true, "foodCategories": ["Meat", "Insect"],
       "lifecycle": { "lifespanDays": 2500, "gestationDays": 100, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [6, 7], "juvenileMortality": 0.6 }
     },
     "primitivesurvival:chainviper": {
       "growthRate": 0.4, "predationVulnerability": 0.6,
+      "isForager": true, "foodCategories": ["Meat", "Insect"],
       "lifecycle": { "lifespanDays": 2500, "gestationDays": 100, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [6, 7], "juvenileMortality": 0.6 }
     },
     "primitivesurvival:coachwhip": {
       // non-venomous, fast egg-layer
       "growthRate": 0.45, "predationVulnerability": 0.6,
+      "isForager": true, "foodCategories": ["Meat", "Insect"],
       "lifecycle": { "lifespanDays": 2500, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [6], "juvenileMortality": 0.65 }
     },
 
     // ---- Black rat (rare, prolific but capped at K=1) ----
     "primitivesurvival:blackrat": {
       "growthRate": 0.6, "predationVulnerability": 0.8,
+      "isForager": true, "foodCategories": ["Grain", "Vegetable", "Insect"],
       "lifecycle": { "lifespanDays": 900, "gestationDays": 22, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5, 6, 7, 8], "juvenileMortality": 0.6 }
     },
 
     // ---- Land crab (terrestrial population) ----
     "primitivesurvival:landcrab": {
       "growthRate": 0.4, "predationVulnerability": 0.6,    // small, but shelled
+      "isForager": true, "foodCategories": ["Meat", "Insect", "Vegetable"],
       "lifecycle": { "lifespanDays": 1500, "gestationDays": 40, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [5, 6], "juvenileMortality": 0.6 }
     }
   }

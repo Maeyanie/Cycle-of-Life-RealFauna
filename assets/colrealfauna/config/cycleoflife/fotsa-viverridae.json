@@ -22,15 +22,17 @@
 //    the exception - genuinely common, often living alongside people, and dense enough in fruiting
 //    forest to justify 2.
 //
-// 2. THE CARNIVOROUS ONES STOP BEING FRUIT FORAGERS. The mod gives most of the family Fruit, which
-//    is right for the palm civets, the binturong, the omnivorous Viverra civets and Nandinia - all
-//    genuine fruit-eaters and seed dispersers. It is not right for the GENETS, which live on rodents,
-//    birds and insects and take fruit only incidentally; nor for the banded palm civet, which despite
-//    its name eats invertebrates; nor for the otter civet, which catches fish and frogs. Those
-//    seventeen get isForager false, which leaves them as pure population dynamics - the same
-//    treatment this pack already gives vipers, pangolins, kiwi and adzebills, all animals whose real
-//    food (insects, worms, rodents) this model does not track. Better to represent that honestly than
-//    to file a rodent-hunter under fruit.
+// 2. DIETS NOW COME OUT RIGHT ON THEIR OWN, and this file no longer fights them. The mod declares
+//    Fruit + Protein for most of the family and Protein alone for the carnivores, and Cycle of Life
+//    0.15.16 reads that properly: Protein maps to the Meat pool, and the animal food TAGS these
+//    entities carry (insect, meat, fish) map to Insect, Meat and Fish. So a genet resolves to
+//    Fruit/Insect/Meat/Fish and forages accordingly - mostly animal food with fruit on the side,
+//    which is what a genet actually is.
+//
+//    Earlier versions of this file set isForager false on the fifteen genets, the banded palm civet
+//    and the otter civet, because the only categories that existed were plants and filing a
+//    rodent-hunter under Fruit was worse than filing it nowhere. That is no longer true, and those
+//    markers are gone: they now have a real, contested food ceiling instead of none at all.
 //
 // No territory entries. These are small solitary animals with home ranges rather than defended
 // ground, and at K=1 a radius below the founding radius would change nothing in any case.
@@ -45,35 +47,35 @@
     // ===================== GENETS (Genetta) =====================
     // Small, spotted, nocturnal and carnivorous. Fifteen species, one baseline.
     // common genet - the one that reached Europe, and the most widespread of the family
-    "viverridae:viverridae-genettagenetta": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettagenetta": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // rusty-spotted genet
-    "viverridae:viverridae-genettamaculata": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettamaculata": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Cape genet
-    "viverridae:viverridae-genettatigrina": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettatigrina": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // pardine genet
-    "viverridae:viverridae-genettapardina": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettapardina": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // servaline genet
-    "viverridae:viverridae-genettaservalina": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettaservalina": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // king genet
-    "viverridae:viverridae-genettapoensis": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettapoensis": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // giant forest genet - the largest genet
-    "viverridae:viverridae-genettavictoriae": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettavictoriae": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Angolan genet
-    "viverridae:viverridae-genettaangolensis": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettaangolensis": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Abyssinian genet
-    "viverridae:viverridae-genettaabyssinica": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettaabyssinica": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Hausa genet
-    "viverridae:viverridae-genettathierryi": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettathierryi": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // crested servaline genet - known from very few specimens
-    "viverridae:viverridae-genettacristata": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettacristata": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Bourlon's genet - described only in 2003
-    "viverridae:viverridae-genettabourloni": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettabourloni": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Johnston's genet
-    "viverridae:viverridae-genettajohnstoni": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettajohnstoni": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // the Sumatran/'plesictoid' genet
-    "viverridae:viverridae-genettaplesictoides": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettaplesictoides": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // aquatic genet - a fish-catcher that hunts by feel in Congo streams
-    "viverridae:viverridae-genettapiscivora": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-genettapiscivora": { "carryingCapacity": 1, "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 3600, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
 
     // ===================== OYANS (Poiana) =====================
     // central African oyan - 700 g, and one of the smallest carnivores in Africa
@@ -118,7 +120,7 @@
 
     // ===================== INVERTEBRATE SPECIALISTS =====================
     // banded palm civet - despite the name it lives on invertebrates, not fruit
-    "viverridae:viverridae-hemigalusderbyanus": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.45, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 3600, "gestationDays": 65, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-hemigalusderbyanus": { "carryingCapacity": 1, "growthRate": 0.45, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 3600, "gestationDays": 65, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Hose's civet - the mod already declares it carnivorous
     "viverridae:viverridae-diplogalehosei": { "carryingCapacity": 1, "growthRate": 0.45, "predationVulnerability": 0.65, "lifecycle": { "lifespanDays": 3600, "gestationDays": 65, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
     // Owston's civet - an earthworm specialist that does also take fruit, so its Fruit category stands
@@ -126,7 +128,7 @@
 
     // ===================== OTTER CIVET =====================
     // otter civet - semi-aquatic, with closable nostrils, and a hunter of fish, crustaceans and frogs
-    "viverridae:viverridae-cynogalebennettii": { "carryingCapacity": 1, "isForager": false, "growthRate": 0.45, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 3600, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    "viverridae:viverridae-cynogalebennettii": { "carryingCapacity": 1, "growthRate": 0.45, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 3600, "gestationDays": 65, "litterSizeMin": 2, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
 
     // ===================== AFRICAN PALM CIVET (Nandiniidae) =====================
     // African palm civet - not a viverrid at all but the sole member of Nandiniidae, and almost entirely frugivorous
