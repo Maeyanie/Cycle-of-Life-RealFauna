@@ -50,6 +50,7 @@ assets/colrealfauna/config/cycleoflife/
   fotsa-manidae.json         # Fauna of the Stone Age: Manidae (pangolins)
   fotsa-thylacinidae.json    # Fauna of the Stone Age: Thylacinidae Plus (carnivorous marsupials)
   fotsa-viverridae.json      # Fauna of the Stone Age: Viverridae Plus (civets, genets, binturong)
+  fotsa-meiolaniidae.json    # Fauna of the Stone Age: Meiolaniidae (horned turtles)
   feverstone-horses.json     # Feverstone's Horses
   feverstonewilds.json       # Feverstone Wilds (excludes golems + fish)
   pegasus.json               # Pegasus
@@ -71,7 +72,7 @@ exclusions in `feverstonewilds.json` are deliberately belt-and-braces.
 
 | Verified against a live roster | Derived from the mod's entity JSON only |
 |---|---|
-| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae, FotSA Cervinae, FotSA Elephantidae, FotSA Dinornithiformes, FotSA Rhinocerotidae, FotSA Casuariidae, FotSA Manidae, FotSA Thylacinidae, FotSA Viverridae |
+| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl, FotSA Bovinae, FotSA Cervinae, FotSA Elephantidae, FotSA Dinornithiformes, FotSA Rhinocerotidae, FotSA Casuariidae, FotSA Manidae, FotSA Thylacinidae, FotSA Viverridae, FotSA Meiolaniidae |
 
 The right-hand column covers mods the pack author does not run. Their keys were computed by
 replicating Cycle of Life's own key derivation (domain + base code + non-demographic variants,

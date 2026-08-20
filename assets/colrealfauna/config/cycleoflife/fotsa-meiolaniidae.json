@@ -1,0 +1,44 @@
+// Cycle of Life: Realistic Fauna — FotSA horned turtles (Meiolaniidae).
+//
+// As of 0.1.11 the mod ships one species: Ninjemys oweni, an Australian horned turtle of about
+// 200 kg, with a horned skull and an armoured club tail. Meiolaniids were not tortoises but a much
+// older branch of the turtle tree that outlasted almost everything else on it — the last of them,
+// on New Caledonia and Vanuatu, were still alive around three thousand years ago and were eaten by
+// the first people to reach those islands, which is what earns the family a place in this mod. The
+// file is structured for the whole group, so the Lord Howe and island species presumably follow.
+//
+// The egg entity needs no handling: it carries the "egg" tag, so the mod's own tag filter drops it
+// as non-fauna, exactly as with the New Zealand and Australian bird packs.
+//
+// Inherited and fine: a 200 kg body weight, a solitary group size of 1, a Vegetable diet with grass
+// and forb food tags (browsing herbivore — right for the family), tight climate gating at 16-22 C,
+// and land-only spawn blocks.
+//
+// ONE CHANGE: K, 4 -> 1. Four per 0.173 km² reads as ~23 animals per km², which is island-tortoise
+// density — the sort of figure Aldabra reaches with no predators at all. Ninjemys lived on mainland
+// Australia alongside Megalania and marsupial lions, so it belongs with the sparse mainland
+// chelonians at 1-5 per km², which rounds to the floor. This also keeps it consistent with the giant
+// tortoises in hieronymus-reptiles.json, which sit at 1 for the same reason.
+//
+// Lifecycle is the rest of the file, and it is the slowest thing in the pack after the Galapagos
+// tortoise: decades to mature, a life measured in human generations, a small clutch buried and
+// abandoned, and hatchling mortality so high that almost none reach the shell that makes an adult
+// untouchable. The predationVulnerability of 0.08 is the lowest of any herbivore here — lower even
+// than the tortoises, because this animal came with horns and a club.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // Ninjemys oweni — "Owen's ninja turtle", named for the Teenage Mutant Ninja Turtles by a
+    // palaeontologist who evidently enjoyed his work.
+    "meiolaniidae:meiolaniidae-ninjemysoweni": {
+      "carryingCapacity": 1,
+      "growthRate": 0.06, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 25000, "gestationDays": 150, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [5, 6], "juvenileMortality": 0.9 }
+    }
+
+  }
+}
