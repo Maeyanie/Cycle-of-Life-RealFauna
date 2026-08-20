@@ -41,6 +41,7 @@ assets/colrealfauna/config/cycleoflife/
   cats.json                  # Cats (house/ocelot/serval/European wildcat)
   thecritterpack.json        # The Critter Pack (songbirds, waterfowl, small mammals, inverts)
   hieronymus-reptiles.json   # Hieronymus Reptiles Collection (~164 species; see its header)
+  fowlmod.json               # Sonya's Quality Fowl (ducks)
   primitivesurvival.json     # Primitive Survival
 ```
 
@@ -53,7 +54,7 @@ exclusions in `feverstonewilds.json` are deliberately belt-and-braces.
 
 | Verified against a live roster | Derived from the mod's entity JSON only |
 |---|---|
-| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles |
+| vanilla, FotSA (cats/canids/cervids), Feverstone Horses, Pegasus, Primitive Survival, territories | Feverstone Wilds, More Animals, Cats, The Critter Pack, Monoceros, Hieronymus Reptiles, Sonya's Quality Fowl |
 
 The right-hand column covers mods the pack author does not run. Their keys were computed by
 replicating Cycle of Life's own key derivation (domain + base code + non-demographic variants,

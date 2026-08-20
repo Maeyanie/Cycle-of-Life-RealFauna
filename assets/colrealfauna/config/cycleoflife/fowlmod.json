@@ -1,0 +1,53 @@
+// Cycle of Life: Realistic Fauna — Sonya's Quality Fowl (fowlmod).
+//
+// Three ducks: the wild mallard plus two domestic breeds gone feral (pekin, and a blue-plumage
+// breed). Nothing to exclude and nothing structurally awkward — the mod follows the vanilla pattern
+// exactly, giving spawn conditions only to the DRAKE and listing the hen and duckling as companions,
+// so each duck is one species keyed on the drake and our spawner composes the rest.
+//
+// Despite being waterfowl these are safe to manage: their spawn blocks are "game:air" plus reed and
+// tule/papyrus plants, with no water block anywhere, so they nest on the shore rather than in the
+// water. (That is the check that matters — a species that can only spawn INSIDE water gets erased if
+// we manage it, since we place on land. See the excluded fish in feverstonewilds.json.)
+//
+// The mod ships every duck at ~1.2 kg, which is right for a mallard and about a third of a pekin, so
+// bodyWeight is stated per breed. Values for mallard and pekin deliberately match the duck entries in
+// thecritterpack.json, so the same animal behaves the same whichever mod supplies it.
+//
+// "blue" is not identified as a species anywhere in the mod — both language files just call it a
+// "Blue duck"/"Голубая утка", and its textures sit beside the pekin's — so it is read here as a
+// domestic blue plumage breed (Blue Swedish and similar), not the New Zealand blue duck / whio. If
+// the author meant the whio, this wants very different numbers: a rare, territorial, fast-water
+// specialist with a two-egg clutch.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // Mallard — the wild one. Big clutch, most ducklings lost in the first weeks, and prey for
+    // everything: the mod even patches wolf, bear and fox to hunt ducks.
+    "fowlmod:duck-mallard": {
+      "bodyWeight": 1.1, "growthRate": 0.7, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 28, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.7 }
+    },
+
+    // Pekin — the domesticated meat breed gone feral. Heavy, white, and effectively flightless;
+    // broodiness has been bred out of it, so it is a poor mother and a poor survivor away from a
+    // farmyard. Kept scarce and fragile: low K, high predation vulnerability, high duckling loss.
+    "fowlmod:duck-pekin": {
+      "carryingCapacity": 2, "bodyWeight": 3.5, "growthRate": 0.5, "predationVulnerability": 0.9,
+      "lifecycle": { "lifespanDays": 1800, "gestationDays": 28, "litterSizeMin": 5, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.75 }
+    },
+
+    // Blue — the other domestic breed. Lighter than a pekin and still able to fly a little, and it
+    // keeps more of its brooding instinct, so it sits between the pekin and the wild mallard on
+    // every axis.
+    "fowlmod:duck-blue": {
+      "carryingCapacity": 3, "bodyWeight": 2.5, "growthRate": 0.55, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 2000, "gestationDays": 28, "litterSizeMin": 6, "litterSizeMax": 11, "breedingMonths": [4, 5], "juvenileMortality": 0.72 }
+    }
+
+  }
+}
