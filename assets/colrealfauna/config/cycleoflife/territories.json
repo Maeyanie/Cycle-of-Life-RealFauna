@@ -142,7 +142,38 @@
     "elephantidae:elephantidae-elephasmaximusborneensis": { "territory": { "enabled": true, "radiusChunks": 7 } },
     "elephantidae:elephantidae-loxodontacyclotis":        { "territory": { "enabled": true, "radiusChunks": 7 } },
     "elephantidae:elephantidae-mammuthusexilis":          { "territory": { "enabled": true, "radiusChunks": 5 } },
-    "elephantidae:elephantidae-palaeoloxodoncypriotes":   { "territory": { "enabled": true, "radiusChunks": 4 } }
+    "elephantidae:elephantidae-palaeoloxodoncypriotes":   { "territory": { "enabled": true, "radiusChunks": 4 } },
+
+    // ===================== FotSA New Zealand flightless birds =====================
+    // The moa get spacing by size, and the kiwi, takahe and kakapo are opted in because they are
+    // genuinely territorial animals rather than because they are large — kiwi pairs defend a patch
+    // for life. The small rails, teals and wrens are deliberately left out, like the hares and
+    // chickens above: they overlap freely.
+    // NOTE these radii are partly forward-looking. With K=1 on the moa and adzebills the carrying
+    // capacity already allows only one unit per radius-6 area, so anything at or below 6 is
+    // currently redundant — but the radius is where the intended spacing SHOULD live if K is
+    // retired in favour of territory and food, so it is written out properly now.
+    "dinornithidae:dinornithidae-dinornisrobustus":         { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "dinornithidae:dinornithidae-dinornisnovaezealandiae":  { "territory": { "enabled": true, "radiusChunks": 7 } },
+    "dinornithidae:emeidae-pachyorniselephantopus":         { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "dinornithidae:emeidae-euryapteryxcurtus":              { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "dinornithidae:emeidae-pachyornisaustralis":            { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "dinornithidae:emeidae-emeuscrassus":                   { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "dinornithidae:megalapterygidae-megalapteryxdidinus":   { "territory": { "enabled": true, "radiusChunks": 6 } },
+    "dinornithidae:emeidae-anomalopteryxdidiformis":        { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:emeidae-pachyornisgeranoides":           { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:aptornithidae-aptornisdefossor":         { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:aptornithidae-aptornisotidiformis":      { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:anatidae-cnemiorniscalcitrans":          { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:anatidae-cnemiornisgracilis":            { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:strigopidae-strigopshabroptila":         { "territory": { "enabled": true, "radiusChunks": 5 } },
+    "dinornithidae:apterygidae-apteryxaustralis":           { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:apterygidae-apteryxmantelli":            { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:apterygidae-apteryxrowi":                { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:apterygidae-apteryxhaastii":             { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:apterygidae-apteryxowenii":              { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:rallidae-porphyriohochstetteri":         { "territory": { "enabled": true, "radiusChunks": 4 } },
+    "dinornithidae:rallidae-porphyriomantelli":             { "territory": { "enabled": true, "radiusChunks": 4 } }
 
   }
 }

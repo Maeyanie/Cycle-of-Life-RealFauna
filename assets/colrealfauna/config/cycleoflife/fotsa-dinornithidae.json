@@ -1,0 +1,163 @@
+// Cycle of Life: Realistic Fauna - FotSA New Zealand flightless birds (Dinornithiformes Plus).
+//
+// The single strangest fauna in the pack: 42 species across ten families from a land that had no
+// land mammals at all, so birds took every role. Nine moa, five kiwi, two adzebills, six waterfowl
+// (including two flightless grazing geese the size of small sheep), eleven rails, the kakapo, an
+// owlet-nightjar, and seven New Zealand wrens down to a six-gram rifleman.
+//
+// NEST AND EGG ENTITIES NEED NO HANDLING. Every family ships a nest -> egg -> bird chain, and the
+// nest and egg entities carry the "nest" and "egg" entity tags, which the mod's own tag filter
+// already drops as non-fauna (along with the moa carcass). That removes 169 of the 211 keys this
+// mod would otherwise produce, leaving exactly the 42 adults tuned here. If a future version stops
+// tagging them, they would need explicit exclusion or a chainSeed marker instead.
+//
+// WHAT IS INHERITED. Body weights are per-sex on the moa, kiwi and kakapo and are good - the moa
+// dimorphism in particular is correct and remarkable, with Dinornis hens at 200 kg against 70 kg
+// cocks. Diets are right where they are declared: the moa and kakapo browse Fruit/Grain/Vegetable,
+// the rails are omnivores, and the wrens, kiwi, owlet-nightjar and adzebills are deliberately given
+// NO plant diet, which correctly leaves them outside the forage model - they ate invertebrates.
+// Group caps are sensible almost everywhere.
+//
+// WHAT IS CHANGED, and why:
+//   * WREN WEIGHTS. The mod puts the wrens at 0.07-0.5 kg; the real birds are 6-50 grams, so every
+//     one is roughly ten times too heavy. Corrected per species. They are not foragers, so this
+//     mostly affects their satiation reserve and roaming, but it should still read true.
+//   * THE TWO CNEMIORNIS GEESE get Vegetable/Grain and isForager. They were terrestrial grazing
+//     geese - that is the whole point of them - and with no declared diet they would sit outside
+//     the forage model entirely, which for a 15-18 kg grazer is the one thing it should be in.
+//   * KAKAPO K 4 -> 1. Four per 0.173 km² is about 23 per km², far denser than kakapo ever were.
+//
+// LIFECYCLES are the bulk of this file, and New Zealand birds are extreme even by this pack's
+// standards. Moa took about a decade to reach adult size - up to nine growth rings have been
+// counted in their leg bones, exceptionally slow for any bird, and one of the reasons they could
+// not absorb hunting. Kiwi incubate for 70-80 days, roughly the gestation of a similar-sized
+// mammal, and lay an egg up to a fifth of the female's mass. Kakapo live 60-90 years, breed only
+// when the rimu masts every two to four years, and males do not breed until their teens.
+//
+// A NOTE ON THAT SLOW MATURATION: it is expressed through low growthRate, NOT through
+// lifecycle.maturityDays. Maturity is auto-discovered from the entity's own grow chain, and raising
+// it to a literal ten years would mean birds that look fully grown are still counted as juveniles,
+// so they would never breed and the population would collapse. The growth rate carries the meaning
+// instead - moa and kakapo simply replace themselves very rarely.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster -
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // ===================== MOA (Dinornithiformes) =====================
+    // Nine species of browsing ratite, from a 200 kg giant to a 20 kg bush moa. Slow to grow, slow
+    // to breed, and with only Haast's eagle to fear - which is exactly why they vanished so fast
+    // once people arrived. Adults of the big species are near-untouchable; the small ones are not.
+    // South Island giant moa - the tallest bird that ever lived, and the extreme of reverse dimorphism: hens three times the weight of cocks
+    "dinornithidae:dinornithidae-dinornisrobustus": { "growthRate": 0.15, "predationVulnerability": 0.15, "lifecycle": { "lifespanDays": 12000, "gestationDays": 80, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // North Island giant moa
+    "dinornithidae:dinornithidae-dinornisnovaezealandiae": { "growthRate": 0.15, "predationVulnerability": 0.15, "lifecycle": { "lifespanDays": 12000, "gestationDays": 80, "litterSizeMin": 1, "litterSizeMax": 1, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // heavy-footed moa - squat and massive rather than tall
+    "dinornithidae:emeidae-pachyorniselephantopus": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // coastal moa
+    "dinornithidae:emeidae-euryapteryxcurtus": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // crested moa - a mountain species, the rarest of the moa in the fossil record
+    "dinornithidae:emeidae-pachyornisaustralis": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // eastern moa
+    "dinornithidae:emeidae-emeuscrassus": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // upland moa - the last moa to go extinct, and the only one known to have lived above the treeline
+    "dinornithidae:megalapterygidae-megalapteryxdidinus": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // little bush moa - a closed-forest browser
+    "dinornithidae:emeidae-anomalopteryxdidiformis": { "growthRate": 0.25, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+    // Mantell's moa
+    "dinornithidae:emeidae-pachyornisgeranoides": { "growthRate": 0.25, "predationVulnerability": 0.45, "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.55 } },
+
+    // ===================== KIWI (Apterygidae) =====================
+    // Nocturnal, burrowing, insectivorous, and the owner of the longest incubation of any bird
+    // relative to size: 70-80 days for an egg up to a fifth of the mother's weight.
+    // southern brown kiwi
+    "dinornithidae:apterygidae-apteryxaustralis": { "growthRate": 0.2, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 12000, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.6 } },
+    // North Island brown kiwi
+    "dinornithidae:apterygidae-apteryxmantelli": { "growthRate": 0.2, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 12000, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.6 } },
+    // Okarito kiwi (rowi)
+    "dinornithidae:apterygidae-apteryxrowi": { "growthRate": 0.2, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 12000, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.6 } },
+    // great spotted kiwi
+    "dinornithidae:apterygidae-apteryxhaastii": { "growthRate": 0.2, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 12000, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.6 } },
+    // little spotted kiwi - the smallest, and the only one to survive the mainland extinctions on offshore islands
+    "dinornithidae:apterygidae-apteryxowenii": { "growthRate": 0.2, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 12000, "gestationDays": 78, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.6 } },
+
+    // ===================== ADZEBILLS (Aptornithidae) =====================
+    // Heavy flightless birds with a pickaxe of a beak. No plant diet is declared and none is added:
+    // these were predators of invertebrates and small vertebrates.
+    // South Island adzebill - a flightless predator of invertebrates and small vertebrates, not a herbivore
+    "dinornithidae:aptornithidae-aptornisdefossor": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 8000, "gestationDays": 50, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // North Island adzebill
+    "dinornithidae:aptornithidae-aptornisotidiformis": { "growthRate": 0.2, "predationVulnerability": 0.3, "lifecycle": { "lifespanDays": 8000, "gestationDays": 50, "litterSizeMin": 1, "litterSizeMax": 2, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+
+    // ===================== WATERFOWL (Anatidae) =====================
+    // Two flightless grazing geese, a terrestrial duck, and three teals. All spawn on land.
+    // South Island goose - a flightless grazing goose the size of a small sheep
+    "dinornithidae:anatidae-cnemiorniscalcitrans": { "foodCategories": ["Vegetable", "Grain"], "isForager": true, "growthRate": 0.3, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 7200, "gestationDays": 30, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // North Island goose
+    "dinornithidae:anatidae-cnemiornisgracilis": { "foodCategories": ["Vegetable", "Grain"], "isForager": true, "growthRate": 0.3, "predationVulnerability": 0.4, "lifecycle": { "lifespanDays": 7200, "gestationDays": 30, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.5 } },
+    // Finsch's duck - a heavy, largely terrestrial duck that had all but given up flight
+    "dinornithidae:anatidae-chenonettafinschi": { "growthRate": 0.5, "predationVulnerability": 0.7, "lifecycle": { "lifespanDays": 4300, "gestationDays": 28, "litterSizeMin": 5, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.65 } },
+    // brown teal (pateke)
+    "dinornithidae:anatidae-anaschlorotis": { "growthRate": 0.55, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 7, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Auckland Islands teal - flightless
+    "dinornithidae:anatidae-anasaucklandica": { "growthRate": 0.55, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 7, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+    // Campbell Island teal - flightless, and once down to a single island population
+    "dinornithidae:anatidae-anasnesiotis": { "growthRate": 0.55, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 3600, "gestationDays": 30, "litterSizeMin": 4, "litterSizeMax": 7, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+
+    // ===================== RAILS (Rallidae) =====================
+    // The family that colonised every island in the Pacific and then repeatedly gave up flight.
+    // Ranges from the 3 kg takahe to a 60 g Chatham rail.
+    // takahe - flightless, slow-breeding, and famously rediscovered in 1948 after fifty years presumed extinct
+    "dinornithidae:rallidae-porphyriohochstetteri": { "growthRate": 0.25, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 7200, "gestationDays": 30, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.6 } },
+    // North Island takahe (moho)
+    "dinornithidae:rallidae-porphyriomantelli": { "growthRate": 0.25, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 7200, "gestationDays": 30, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4, 5], "juvenileMortality": 0.6 } },
+    // weka - flightless, bold, omnivorous and a notorious thief
+    "dinornithidae:rallidae-gallirallusaustralis": { "growthRate": 0.5, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 5400, "gestationDays": 28, "litterSizeMin": 3, "litterSizeMax": 4, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.65 } },
+    // Hawkins's rail - a large flightless Chatham Islands rail
+    "dinornithidae:rallidae-diaphorapteryxhawkinsi": { "growthRate": 0.5, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 5400, "gestationDays": 28, "litterSizeMin": 3, "litterSizeMax": 4, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.65 } },
+    // Lord Howe swamphen (white gallinule)
+    "dinornithidae:rallidae-porphyrioalbus": { "growthRate": 0.5, "predationVulnerability": 0.6, "lifecycle": { "lifespanDays": 5400, "gestationDays": 28, "litterSizeMin": 3, "litterSizeMax": 4, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.65 } },
+    // Hodgens's waterhen
+    "dinornithidae:rallidae-tribonyxhodgenorum": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // Dieffenbach's rail
+    "dinornithidae:rallidae-hypotaenidiadieffenbachii": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // Lord Howe woodhen
+    "dinornithidae:rallidae-hypotaenidiasylvestris": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // buff-banded rail - the one strong flier in this family, and the reason so many island rails exist
+    "dinornithidae:rallidae-hypotaenidiaphilippensis": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // Auckland Islands rail
+    "dinornithidae:rallidae-lewiniamuelleri": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // Chatham rail
+    "dinornithidae:rallidae-cabalusmodestus": { "growthRate": 0.8, "predationVulnerability": 0.85, "lifecycle": { "lifespanDays": 2500, "gestationDays": 22, "litterSizeMin": 4, "litterSizeMax": 6, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+
+    // ===================== KAKAPO (Strigopidae) =====================
+    // kakapo - the world's heaviest parrot, flightless, lek-breeding, and 60 to 90 years old
+    "dinornithidae:strigopidae-strigopshabroptila": { "carryingCapacity": 1, "growthRate": 0.08, "predationVulnerability": 0.5, "lifecycle": { "lifespanDays": 22000, "gestationDays": 30, "litterSizeMin": 1, "litterSizeMax": 3, "breedingMonths": [4], "juvenileMortality": 0.6 } },
+
+    // ===================== OWLET-NIGHTJAR (Aegothelidae) =====================
+    // New Zealand owlet-nightjar - a nocturnal insect-hawker that had become largely terrestrial
+    "dinornithidae:aegothelidae-aegothelesnovaezealandiae": { "growthRate": 0.6, "predationVulnerability": 0.8, "lifecycle": { "lifespanDays": 2900, "gestationDays": 26, "litterSizeMin": 2, "litterSizeMax": 4, "breedingMonths": [4, 5], "juvenileMortality": 0.7 } },
+
+    // ===================== NEW ZEALAND WRENS (Acanthisittidae) =====================
+    // An ancient lineage all its own, sister to every other passerine on earth. Tiny, insectivorous,
+    // and several of them flightless. Weights corrected here - see the header.
+    // rifleman (titipounamu) - New Zealand's smallest bird at six grams
+    "dinornithidae:acanthisittidae-acanthisittachloris": { "bodyWeight": 0.006, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // rock wren - the only alpine passerine in New Zealand
+    "dinornithidae:acanthisittidae-xenicusgilviventris": { "bodyWeight": 0.016, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // bush wren
+    "dinornithidae:acanthisittidae-xenicuslongipes": { "bodyWeight": 0.016, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // Lyall's wren - flightless, and extinct within about two years of its discovery
+    "dinornithidae:acanthisittidae-traversialyalli": { "bodyWeight": 0.02, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // long-billed wren
+    "dinornithidae:acanthisittidae-dendroscansordecurvirostris": { "bodyWeight": 0.03, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // North Island stout-legged wren - flightless
+    "dinornithidae:acanthisittidae-pachyplichasjagmi": { "bodyWeight": 0.05, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } },
+    // South Island stout-legged wren - flightless
+    "dinornithidae:acanthisittidae-pachyplichasyaldwyni": { "bodyWeight": 0.05, "growthRate": 0.8, "predationVulnerability": 0.9, "lifecycle": { "lifespanDays": 2200, "gestationDays": 20, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5, 6], "juvenileMortality": 0.7 } }
+
+  }
+}
