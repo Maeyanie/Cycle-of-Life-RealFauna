@@ -1,0 +1,117 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Sailed Spine (spinosauridae).
+//
+// Six spinosaurids, from a 6.5 tonne Spinosaurus to a 1 tonne Irritator, plus their nests. These are
+// carnivores, so unlike the herbivore mods in this series they need no diet rescuing - and they are
+// detected as predators on their own, from a hunt list that resolves properly. Body weight is the
+// usual correction, and then there is one honest limitation worth writing down.
+//
+// 1. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Too light for Spinosaurus, four times
+//    too heavy for Irritator. Published estimates per species, and the mod hitbox ordering agrees
+//    with them exactly here - 2.5 x 5 down to 2 x 3, in the same sequence.
+//
+// 2. THE FISH PROBLEM, WHICH THIS MOD EXPOSES BETTER THAN ANYTHING ELSE IN THE PACK.
+//
+//    Spinosaurids were piscivores. That is not a guess: the Baryonyx holotype preserved acid-etched
+//    scales of the fish Lepidotes in its stomach, alongside the bones of a juvenile Iguanodon. The
+//    mod models this faithfully, opening its hunt list with "salmon", "sunfish" and "geodecrab-*"
+//    before the land animals.
+//
+//    Cycle of Life cannot currently follow it there. Aquatic species are excluded from the catalog
+//    (we place animals on land, so managing fish would veto their spawns and then fail to place
+//    them), so the fish half of that hunt list resolves to nothing. And the Fish FORAGE pool, which
+//    exists precisely to stand in for prey the simulation does not model, is stripped from anything
+//    classed as a predator - the rule being that a predator prey list already represents the meat it
+//    eats, so drawing on Meat as well would be a second, bottomless supply.
+//
+//    That rule is right for Meat and wrong here: a spinosaurid prey list represents the Iguanodon,
+//    not the Lepidotes. The result is that these six are modelled as purely terrestrial hunters,
+//    which is the least true thing in this pack. Their prey bands are set MODEST for their size to
+//    partly compensate - a 6.5 tonne Spinosaurus rated to take only up to a tonne of land animal,
+//    where an abelisaurid of half the mass reaches three times that - so they are not simply large
+//    theropods with an extra sail.
+//
+// 3. THEY HUNT WHAT THEY CAN CATCH ON LAND, and their own list is kept: it names the sibling Legacy
+//    of the Phanerozoic herbivore groups, gated on "saturated" like the rest of the series, with a
+//    separate rival-predator list gated on "aggressiveondamage" that is correctly read as
+//    retaliation. Mass bands are added on top for servers not running the sibling mods.
+//
+// NESTS ARE CHAIN SEEDS, as elsewhere in the series. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Spinosaurus - 6 to 7.4 tonnes and the largest predatory dinosaur known, longer than
+    // Tyrannosaurus though not as heavily built. The most aquatic of the family by a distance:
+    // paddle-like tail, dense bones, nostrils set far back on the skull. Its prey band is deliberately
+    // MODEST for its size, because the land animals it took were a side dish - see the note on fish
+    // below.
+    "spinosauridae:spinosauridae-spinosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 6500, "isPredator": true,
+      "preyMinBodyWeight": 5, "preyMaxBodyWeight": 1000, "preyPerPredator": 5,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Oxalaia - around 4 tonnes, Brazilian, a close relative of Spinosaurus known from jaw material.
+    // The holotype was destroyed in the 2018 National Museum fire in Rio.
+    "spinosauridae:spinosauridae-oxalaia": {
+      "carryingCapacity": 1, "bodyWeight": 4000, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "growthRate": 0.07, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Suchomimus - about 3.8 tonnes, with a low sail and a crocodile-like snout holding over a hundred
+    // teeth. The name means crocodile mimic, which is the whole animal in two words.
+    "spinosauridae:spinosauridae-suchomimus": {
+      "carryingCapacity": 1, "bodyWeight": 3800, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Baryonyx - roughly 2 tonnes, and the animal that proved what this family ate. Its gut contents
+    // held BOTH acid-etched scales of the fish Lepidotes AND the bones of a juvenile Iguanodon -
+    // direct evidence of piscivory and of terrestrial predation in the same stomach. Its prey band
+    // covers the second half; the first is not something this simulation can currently represent.
+    "spinosauridae:spinosauridae-baryonyx": {
+      "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 2, "preyMaxBodyWeight": 500, "preyPerPredator": 4,
+      "growthRate": 0.09, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Ichthyovenator - about 2 tonnes, Laotian, and named fish hunter. It carried two separate sails
+    // rather than one, with a distinct gap over the hips.
+    "spinosauridae:spinosauridae-ichthyovenator": {
+      "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 2, "preyMaxBodyWeight": 500, "preyPerPredator": 4,
+      "growthRate": 0.09, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Irritator - roughly a tonne and the smallest here, named for the irritation of its describers on
+    // discovering the skull had been altered by fossil dealers before they got it.
+    "spinosauridae:spinosauridae-irritator": {
+      "carryingCapacity": 2, "bodyWeight": 1000, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 300, "preyPerPredator": 3,
+      "growthRate": 0.11, "predationVulnerability": 0.1,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "spinosauridae:spinosauridae-spinosaurus-incubating": { "chainSeed": true },
+    "spinosauridae:spinosauridae-oxalaia-incubating": { "chainSeed": true },
+    "spinosauridae:spinosauridae-suchomimus-incubating": { "chainSeed": true },
+    "spinosauridae:spinosauridae-baryonyx-incubating": { "chainSeed": true },
+    "spinosauridae:spinosauridae-ichthyovenator-incubating": { "chainSeed": true },
+    "spinosauridae:spinosauridae-irritator-incubating": { "chainSeed": true }
+
+  }
+}

@@ -73,6 +73,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-ornithomimosauria.json # Legacy of the Phanerozoic: Horrible Hands (14 ostrich mimics + nests)
   lop-macronaria.json        # Legacy of the Phanerozoic: Long Neck (15 sauropods + nests)
   lop-stegosauria.json       # Legacy of the Phanerozoic: Plated Back (12 stegosaurs + nests)
+  lop-spinosauridae.json     # Legacy of the Phanerozoic: Sailed Spine (6 spinosaurids + nests)
 ```
 
 ### Mods that need no entries
