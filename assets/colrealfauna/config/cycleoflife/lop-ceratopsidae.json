@@ -1,0 +1,215 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Horned Crown (ceratopsidae).
+//
+// Fifteen ceratopsians, from an 8 tonne Triceratops down to a 15 kg Ajkaceratops, plus their nests.
+// The same two corrections as the other herbivore mods in this series, and one addition they earn.
+//
+// 1. THEY EAT NOTHING AS SHIPPED. creatureDiet declares an EMPTY foodCategories list and a single
+//    "fruitmash" tag; plant food tags are deliberately not mapped onto forage categories, so it
+//    resolves to nothing at all. Fifteen herbivores neither predator nor forager, on no food supply,
+//    bounded only by carrying capacity and old age. Third mod in this series with the same shape.
+//    Given Vegetable + Fruit: ceratopsians had shearing tooth batteries suited to tough, fibrous
+//    plants, so Vegetable leads, with Fruit kept because the mod own tag asks for it.
+//
+// 2. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Half what a Triceratops weighed and
+//    over two hundred times what an Ajkaceratops did. Published estimates per species below.
+//
+// 3. HERDS, WHICH THIS FAMILY EARNS MORE THAN ANY OTHER. Ceratopsian BONE BEDS are the strongest
+//    evidence of herding anywhere in the dinosaur record, and they are not evenly distributed, so
+//    the herd sizes here are not uniform either:
+//
+//      CENTROSAURUS and PACHYRHINOSAURUS come from bone beds holding thousands of animals killed in
+//      single events. They take the largest herds in the file.
+//      STYRACOSAURUS is also found in bone beds, and is close behind.
+//      TRICERATOPS, famously, is NOT - it is overwhelmingly found alone, with only one known
+//      juvenile group. It gets a small family party instead, despite being the largest animal here.
+//      TOROSAURUS is rarer still and is modelled as near-solitary.
+//      PROTOCERATOPS is found in groups including juvenile clusters, so it herds despite its size.
+//
+// A CROSS-MOD NOTE: Protoceratops is the animal in the Fighting Dinosaurs specimen, locked with a
+// Velociraptor. The Birds of Prey file gives that raptor a prey band reaching 70 kg - four times its
+// own body weight - specifically so it can reach this animal. The two mods model one fossil between
+// them, which only works because both are tuned against the same masses.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files - "bellalarm" beside "idle" fails the static test.
+// Only INCUBATING nests need entries; mature and empty get triesPerChunk 0, eggs are chance 0.0.
+//
+// Clutches are the largest in this series: Protoceratops nests are known with fifteen eggs or more,
+// and ceratopsian nesting appears to have been colonial, so juvenile mortality carries the load.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Triceratops - 6 to 12 tonnes, and the one animal in the fossil record with direct evidence of
+    // fighting a tyrannosaur and surviving: healed bite marks on horns and frill. Rated among the
+    // hardest things in this pack to kill. Mostly found alone, unlike its bone-bed relatives, so it
+    // gets a small group rather than a herd.
+    "ceratopsidae:ceratopsidae-triceratops": {
+      "carryingCapacity": 1, "bodyWeight": 8000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.08, "predationVulnerability": 0.08,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Torosaurus - around 5 tonnes, with one of the largest skulls of any land animal. Whether it is a
+    // mature Triceratops rather than its own genus has been argued for over a decade; the mod treats
+    // it as separate and so does this. Rare finds, so it is modelled as near-solitary.
+    "ceratopsidae:ceratopsidae-torosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 5000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.09, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Pentaceratops - about 4.5 tonnes, with an enormous frill and, despite the name, three true
+    // horns.
+    "ceratopsidae:ceratopsidae-pentaceratops": {
+      "carryingCapacity": 1, "bodyWeight": 4500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.09, "predationVulnerability": 0.12,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Pachyrhinosaurus - roughly 3 tonnes, with a massive bony boss instead of a nose horn. Known from
+    // some of the densest bone beds of any dinosaur, so it takes one of the largest herds here.
+    "ceratopsidae:ceratopsidae-pachyrhinosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.15,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Nedoceratops - about 3 tonnes, and known from a single skull that may well be a growth stage of
+    // Triceratops. Kept separate because the mod does, with mass set from that reading.
+    "ceratopsidae:ceratopsidae-nedoceratops": {
+      "carryingCapacity": 2, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.15,
+      "herd": { "maxHerdSize": 3, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Centrosaurus - around 2 tonnes. Its Alberta bone beds hold the remains of thousands of animals
+    // killed together, which is the strongest herding evidence in the dinosaur record - so it gets the
+    // largest herd in this file.
+    "ceratopsidae:ceratopsidae-centrosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Styracosaurus - about 2 tonnes, with six long spikes around the frill. Also found in bone beds,
+    // so also strongly gregarious.
+    "ceratopsidae:ceratopsidae-styracosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 10, "preferredHerdSize": 6 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Sinoceratops - roughly 2 tonnes, and the only large ceratopsid known from Asia.
+    "ceratopsidae:ceratopsidae-sinoceratops": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Xenoceratops - about 2 tonnes, and among the oldest known ceratopsids, named from material that
+    // sat in a museum drawer for fifty years.
+    "ceratopsidae:ceratopsidae-xenoceratops": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Machairoceratops - roughly 1.5 tonnes, with two curved, forward-hooking spikes over the frill.
+    "ceratopsidae:ceratopsidae-machairoceratops": {
+      "carryingCapacity": 2, "bodyWeight": 1500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Regaliceratops - about 1.5 tonnes, nicknamed Hellboy, with a crown-like ring of plates.
+    "ceratopsidae:ceratopsidae-regaliceratops": {
+      "carryingCapacity": 2, "bodyWeight": 1500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Nasutoceratops - around 1.5 tonnes, with long forward-curving horns very like a modern cow.
+    "ceratopsidae:ceratopsidae-nasutoceratops": {
+      "carryingCapacity": 2, "bodyWeight": 1500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Leptoceratops - about 70 kg, small, hornless and partly bipedal, and a survivor to the very end
+    // of the Cretaceous alongside its enormous relatives.
+    "ceratopsidae:ceratopsidae-leptoceratops": {
+      "carryingCapacity": 4, "bodyWeight": 70,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.3, "predationVulnerability": 0.6,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 15, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Protoceratops - roughly 60 kg, sheep-sized and hornless. Found in groups including clusters of
+    // juveniles, and the animal in the Fighting Dinosaurs specimen - which is why the Velociraptor in
+    // the Birds of Prey file has a prey band reaching four times its own weight to include it.
+    "ceratopsidae:ceratopsidae-protoceratops": {
+      "carryingCapacity": 5, "bodyWeight": 60,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.32, "predationVulnerability": 0.65,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 55, "litterSizeMin": 10, "litterSizeMax": 18, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Ajkaceratops - about 15 kg, an island dwarf from Cretaceous Europe and the smallest here by far.
+    "ceratopsidae:ceratopsidae-ajkaceratops": {
+      "carryingCapacity": 6, "bodyWeight": 15,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.4, "predationVulnerability": 0.75,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 45, "litterSizeMin": 10, "litterSizeMax": 18, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "ceratopsidae:ceratopsidae-triceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-torosaurus-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-pentaceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-pachyrhinosaurus-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-nedoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-centrosaurus-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-styracosaurus-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-sinoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-xenoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-machairoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-regaliceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-nasutoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-leptoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-protoceratops-incubating": { "chainSeed": true },
+    "ceratopsidae:ceratopsidae-ajkaceratops-incubating": { "chainSeed": true }
+
+  }
+}

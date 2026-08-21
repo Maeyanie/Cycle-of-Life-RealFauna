@@ -119,10 +119,12 @@
     },
 
     // Velociraptor - about 15 kg, turkey-sized and feathered. The Fighting Dinosaurs specimen has one
-    // locked with a Protoceratops of comparable mass, which is what sets the upper bound here.
+    // locked with a Protoceratops, so the upper bound is set at a Protoceratops rather than scaled
+    // from body mass: 70 kg, which is four times the raptor own weight and reaches the animal in the
+    // Horned Crown mod. Grappling something that size is what the fossil actually shows.
     "dromaeosauridae:dromaeosauridae-velociraptor": {
       "carryingCapacity": 2, "bodyWeight": 15, "isPredator": true,
-      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 25, "preyPerPredator": 2.5,
+      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 70, "preyPerPredator": 2.5,
       "growthRate": 0.22, "predationVulnerability": 0.35,
       "lifecycle": { "lifespanDays": 5400, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
