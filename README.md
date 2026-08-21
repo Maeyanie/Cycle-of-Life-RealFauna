@@ -68,6 +68,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-dromaeosauridae.json   # Legacy of the Phanerozoic: Birds of Prey (14 raptors + nests)
   lop-abelisauridae.json     # Legacy of the Phanerozoic: Carnivorous Bull (18 abelisaurids + nests)
   lop-pachycephalosauria.json# Legacy of the Phanerozoic: Domed Head (16 pachycephalosaurs + nests)
+  lop-ankylosauria.json      # Legacy of the Phanerozoic: Fused Body (8 ankylosaurs + nests)
 ```
 
 ### Mods that need no entries
