@@ -11,16 +11,22 @@
 // the declared diet of egg/fish/insect/meat has no plant categories, which properly keeps them out of
 // the forage model. Spawn blocks include air, so placement is safe.
 //
-// THE PREY LIST IS THE WHOLE JOB, and without it these cats are inert. The mod writes a good hunt
-// list — chicken, deer, fox, goat, hare, piglets, small ground birds — but every pattern is written
-// without a domain, so each resolves against the mod's own "felinae:" domain and matches nothing.
-// The prey list comes out empty. And unlike the Tasmanian devil or Thylacoleo, these cats carry NO
-// "predator" tag, so even the tagged-predator fallback cannot rescue them: they end up neither
-// predator nor forager, which means four obligate carnivores with no prey, no food ceiling, and no
-// part in the ecology at all.
+// THE PREY LIST. The mod writes a good hunt list — chicken, deer, fox, goat, hare, piglets, small
+// ground birds — with every pattern written domainless, which is the VANILLA CONVENTION and not a
+// mistake: Vintage Story matches a hunt list against an entity's code PATH and never looks at the
+// domain, and vanilla's own wolf hunts ["deer-*", "gazelle-*", "goat-*"] exactly that way.
 //
-// Mass bands fix it, and they suit this family unusually well, because lynxes are defined by what
-// size of thing they hunt:
+// Earlier versions of this file said the list "matches nothing" and left these cats inert. That was
+// OUR bug, not the mod's — Cycle of Life resolved each pattern against the predator's own domain,
+// which only looked right because a vanilla predator is itself in "game". Fixed in 0.15.25, so the
+// mod's list now resolves and these cats are detected as predators on their own.
+//
+// The mass bands below stay, for the reason they were always the better tool: they reach species
+// from mods this pack has never heard of, and they do not have to be re-edited every time a player
+// installs another animal mod.
+//
+// They also suit this family unusually well, because lynxes are defined by what size of thing they
+// hunt:
 //
 //   Canada lynx    0.3-6 kg   A snowshoe hare specialist — the textbook predator-prey cycle, where
 //                             lynx numbers follow hare numbers with a lag of a year or two. A narrow

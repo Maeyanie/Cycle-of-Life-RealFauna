@@ -13,15 +13,20 @@
 // TWO CHANGES:
 //
 // 1. AN EXPLICIT PREY LIST, and this one matters. The mod writes a careful, sensible hunt list —
-//    hares, chickens, fawns, piglets, small ground birds, and a long roll of carcasses — but every
-//    pattern in it is written WITHOUT a domain, so each resolves against the mod's own
-//    "thylacinidae:" domain and matches nothing. The prey list therefore comes out empty, and
-//    because the devil is tagged "predator" and eats no plants, the tagged-predator fallback then
-//    hands it EVERY huntable species in the game instead: mammoths, rhinoceroses, elephants and all.
-//    An 8 kg marsupial with the standing prey base of a lion would also never go hungry, which
-//    quietly removes it from the ecology. So the prey list is set here from a MASS BAND instead:
-//    everything between 20 g and 12 kg, which is a devil's real range of live prey and picks up
-//    species from mods this pack has never heard of. The lower bound matters as much as the upper —
+//    hares, chickens, fawns, piglets, small ground birds, and a long roll of carcasses — every
+//    pattern written domainless, which is the VANILLA CONVENTION rather than a mistake: the game
+//    matches hunt lists against an entity's code PATH and ignores the domain entirely.
+//
+//    Earlier versions of this file blamed the author for that. The fault was OURS: Cycle of Life
+//    resolved those patterns against the predator's own domain until 0.15.25, so the list came out
+//    empty, and because the devil is tagged "predator" and eats no plants the tagged-predator
+//    fallback then handed it EVERY huntable species in the game — mammoths, rhinoceroses and all.
+//    An 8 kg marsupial with the standing prey base of a lion would never go hungry, which quietly
+//    removed it from the ecology. That failure is gone: the mod's own list resolves now.
+//
+//    The MASS BAND stays anyway, because it is the better instrument: everything between 20 g and
+//    12 kg, which is a devil's real range of live prey and picks up species from mods this pack has
+//    never heard of. The lower bound matters as much as the upper —
 //    without it a devil would be modelled chasing six-gram wrens.
 //
 //    Worth recording that the mod's list is the RIGHT list — half of it is carcasses, because the

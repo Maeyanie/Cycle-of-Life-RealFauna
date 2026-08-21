@@ -21,11 +21,15 @@
 // 3. isPredator: false, explicitly — and this one is defensive rather than corrective. The mod gives
 //    pangolins a seekentity listing bears, wolves, hyenas, every big cat, the player and the hostile
 //    mobs. That is plainly a threat-awareness or flee task rather than a hunt (a 2 kg scaly anteater
-//    does not stalk bears), and it does not currently fire: those patterns are written without a
-//    domain, so they resolve against the mod's own "manidae:" domain, match nothing, and leave the
-//    prey list empty. But the gate it uses is "whenNotInEmotionState", which is not the field the
-//    damage-gate skip looks at, so the moment anyone adds a "game:" prefix to those patterns the
-//    pangolin becomes a predator of bears. One field of insurance is cheaper than that surprise.
+//    does not stalk bears). Those patterns are written domainless, which is the VANILLA CONVENTION,
+//    and since 0.15.25 they resolve properly — so this entry stopped being hypothetical and became
+//    the exact case that fix had to account for. The gate the task uses is "whenNotInEmotionState",
+//    which is NOT the field the damage-gate skip reads, so nothing else here would have caught it.
+//
+//    Cycle of Life now refuses to read a hunt list as hunting unless the creature's own diet says it
+//    eats VERTEBRATES, and a pangolin's declares only "insect" — so the engine holds this line on
+//    its own. The field stays as belt and braces, and as the worked example: pangolins do eat
+//    animals, just ants, which is why the test has to be vertebrates rather than merely meat.
 //
 // What IS right and inherited: the diet declares only an "insect" food tag and no plant categories,
 // which correctly leaves pangolins outside the forage model — they eat ants and termites and nothing

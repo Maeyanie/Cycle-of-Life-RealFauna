@@ -21,11 +21,16 @@
 // 3. THE MONITORS HUNT BY MASS BAND. The mod writes thoughtful hunt lists - big monitors take
 //    chicken/hare/frogs/raccoons, mid ones chicken/hare/frogs, small ones only babies and frogs,
 //    and the genuinely frugivorous Philippine monitors (olivaceus, mabitang, bitatawa) hunt
-//    nothing at all. But every pattern is written WITHOUT a domain, so each resolves against the
-//    the declaring mod own domain - "africanmonitorlizards:" or "asianmonitorlizards:" - and matches
-//    nothing at all. The lists come out empty, and since these entities carry no tags there is no
-//    either - so without this the whole genus would be filed as Vegetable foragers, which is what
-//    the mod declares for feeding purposes but is not what a monitor lizard is.
+//    nothing at all. Those patterns are written domainless, which is the VANILLA CONVENTION and
+//    resolves correctly (earlier versions of this file called it a mod bug; the bug was ours, and
+//    it was fixed in 0.15.25).
+//
+//    The lists still do not make these monitors predators, for a different and better reason: the
+//    mod declares their DIET as foodCategories ["Vegetable"] with plant food tags only, and a hunt
+//    list is only read as hunting when the creature's own diet says it eats vertebrates. Otherwise
+//    every bison that charges a wolf becomes a predator of bears. So by its own data a monitor is
+//    filed as a Vegetable forager - which is what the mod declares for feeding purposes, and is not
+//    what a monitor lizard is.
 //
 //    Each carnivorous monitor therefore gets a MASS BAND scaled to its size, and isForager false
 //    so it is a predator rather than an omnivore drawing on two food supplies at once. The three

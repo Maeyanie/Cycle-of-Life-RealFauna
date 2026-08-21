@@ -20,11 +20,11 @@
 // 2. AN EXPLICIT PREY LIST FOR THYLACOLEO. The mod writes an excellent one — deer, gazelle, goats,
 //    sheep, pigs, bovines, cervids, moa, casuariids, wombats and diprotodonts, and with the nice
 //    restraint of listing only "elephantidae-baby-*" and "rhinocerotidae-baby-*" for the megafauna.
-//    But like every other FotSA hunt list it is written without domains, so each pattern resolves
-//    against this mod's own "vombatidae:" domain. The only ones that match are the entries from this
-//    same mod — so as written, the marsupial lion hunts wombats and Zygomaturus and nothing else at
-//    all. That is not nonsense (it genuinely took both), but six sparse prey species is a thin base
-//    for a 120 kg predator, and it would hover at the edge of starvation.
+//    Like every other FotSA hunt list it is written domainless, which is the VANILLA CONVENTION —
+//    the game matches these against an entity's code PATH and never consults the domain, exactly as
+//    vanilla's own wolf does. Earlier versions of this file said only same-mod entries matched, so
+//    the marsupial lion hunted wombats and Zygomaturus and nothing else. That was OUR resolution
+//    bug, fixed in 0.15.25; the author's list works, and works well.
 //
 //    Rather than transcribe the author's list into hundreds of exact keys — which would have to be
 //    revisited every time anyone installs another animal mod, and in practice never would be — this
