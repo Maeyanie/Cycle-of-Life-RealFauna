@@ -1,0 +1,193 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Tyrant King (tyrannosauridae).
+//
+// Twelve tyrannosaurids, from an 8 tonne Tyrannosaurus to a 500 kg Alioramus, plus their nests. The
+// last of the Legacy of the Phanerozoic set, and structurally the same as the other carnivore mods
+// in it: a proper prey list that resolves, a diet that needs no rescuing, and one flat body weight
+// covering animals sixteen times apart in mass.
+//
+// 1. BODY WEIGHT, FLAT 4000 kg PER ADULT. Half what a Tyrannosaurus weighed, eight times what an
+//    Alioramus did. Published estimates per species, mid-range where sources disagree, with the mod
+//    hitbox ordering breaking ties where the material is a subadult or fragmentary - Alioramus and
+//    Nanuqsaurus both fall in that category.
+//
+// 2. SNOUT SHAPE SETS THE PREY BAND, which is the one thing this family lets us model that the
+//    others did not. Tyrannosaurids split into two builds:
+//
+//      DEEP-SKULLED BONE CRUSHERS - Tyrannosaurus above all, with the strongest bite measured for
+//      any land animal. Their bands reach three times body mass, covering ceratopsians and the
+//      largest hadrosaurs whole.
+//      LONG NARROW SNOUTS - Alioramus and Qianzhousaurus, the so-called Pinocchio tyrannosaurs. A
+//      narrow snout does not crush bone, so their bands are set lower and proportionally narrower:
+//      pursuers of smaller, quicker animals rather than takers of armoured giants.
+//
+// 3. ALBERTOSAURUS GETS THE LARGEST GROUP, on the Dry Island bone bed - at least twenty-six
+//    individuals of mixed ages, juveniles through old adults, buried together. Whether that means
+//    pack hunting or a shared death is still argued, but it is far better evidence of tyrannosaurs
+//    living in company than anything else in the family, and Gorgosaurus and Teratophoneus get
+//    smaller groups on weaker versions of the same. The rest are solitary.
+//
+// 4. NO isForager, as with the carcharodontosaurids. This author gives every carnivore the same diet
+//    block including fish tags, but a tyrannosaur was not a piscivore - the spinosaurids in this
+//    series have stomach contents to prove their case and these do not. Unstated means hunts and
+//    nothing more, the right default for an obligate carnivore.
+//
+// 5. THEY DO NOT HUNT WOLVES OR BEARS, for the same reason as everything else in this series: those
+//    appear only in a retaliation list gated on "aggressiveondamage", never in the prey list gated
+//    on "saturated". A Tyrannosaurus will kill a wolf that attacks it and will not seek one out.
+//
+// NESTS ARE CHAIN SEEDS, as elsewhere in the series. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Tyrannosaurus - about 8 tonnes, and the animal the mod is named for. Its bite is the strongest
+    // measured for any land animal, tens of thousands of newtons, and it is a BONE CRUSHER rather than
+    // a flesh slicer - which is why its prey band reaches three times its own mass and covers the
+    // ceratopsians and the largest hadrosaurs. The healed bite on an Edmontosaurus tail in the sibling
+    // mod is from something like this.
+    "tyrannosauridae:tyrannosauridae-tyrannosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 8000, "isPredator": true,
+      "preyMinBodyWeight": 40, "preyMaxBodyWeight": 24000, "preyPerPredator": 10,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 3, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Zhuchengtyrannus - roughly 6 tonnes, Chinese, and known from a single enormous jaw found in a
+    // quarry that has produced more dinosaur bone than almost anywhere on earth.
+    "tyrannosauridae:tyrannosauridae-zhuchengtyrannus": {
+      "carryingCapacity": 1, "bodyWeight": 6000, "isPredator": true,
+      "preyMinBodyWeight": 30, "preyMaxBodyWeight": 18000, "preyPerPredator": 9,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Tarbosaurus - about 5 tonnes, and the Asian counterpart to Tyrannosaurus, hunting the
+    // Saurolophus and Shangtungosaurus that also appear in the Shovel Mouth mod.
+    "tyrannosauridae:tyrannosauridae-tarbosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 5000, "isPredator": true,
+      "preyMinBodyWeight": 25, "preyMaxBodyWeight": 15000, "preyPerPredator": 9,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Bistahieversor - roughly 2.5 tonnes, New Mexican, and its name means destroyer of the Bisti,
+    // after the badlands it came from.
+    "tyrannosauridae:tyrannosauridae-bistahieversor": {
+      "carryingCapacity": 2, "bodyWeight": 2500, "isPredator": true,
+      "preyMinBodyWeight": 12, "preyMaxBodyWeight": 7500, "preyPerPredator": 7,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Gorgosaurus - about 2.2 tonnes, and one of the best represented tyrannosaurs of all, with dozens
+    // of skeletons spanning juveniles to adults.
+    "tyrannosauridae:tyrannosauridae-gorgosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2200, "isPredator": true,
+      "preyMinBodyWeight": 10, "preyMaxBodyWeight": 6600, "preyPerPredator": 7,
+      "growthRate": 0.09, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Albertosaurus - roughly 2 tonnes, and the best case for GROUP LIVING among tyrannosaurs: the Dry
+    // Island bone bed holds at least twenty-six individuals of mixed ages, from juveniles to old
+    // adults, buried together. Whether that means pack hunting or just a shared death is argued, but
+    // it takes the largest group in this file on the strength of it.
+    "tyrannosauridae:tyrannosauridae-albertosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 10, "preyMaxBodyWeight": 6000, "preyPerPredator": 7,
+      "growthRate": 0.09, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Thanatotheristes - about 2 tonnes, named in 2020, and the oldest tyrannosaurid known from
+    // Canada. The name means reaper of death.
+    "tyrannosauridae:tyrannosauridae-thanatotheristes": {
+      "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 10, "preyMaxBodyWeight": 6000, "preyPerPredator": 7,
+      "growthRate": 0.09, "predationVulnerability": 0.05,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Teratophoneus - roughly 1.5 tonnes, short-snouted and deep-skulled, from Utah.
+    "tyrannosauridae:tyrannosauridae-teratophoneus": {
+      "carryingCapacity": 2, "bodyWeight": 1500, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 4500, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Dynamoterror - about 1.5 tonnes, fragmentary, and named with rather more confidence than the
+    // material supports.
+    "tyrannosauridae:tyrannosauridae-dynamoterror": {
+      "carryingCapacity": 2, "bodyWeight": 1500, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 4500, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Qianzhousaurus - roughly a tonne, and nicknamed Pinocchio rex for a snout half again as long and
+    // much narrower than a typical tyrannosaur. A narrow snout does not crush bone, so its prey band
+    // is set lower and narrower than its mass alone would suggest: a pursuer of smaller, quicker
+    // animals.
+    "tyrannosauridae:tyrannosauridae-qianzhousaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1000, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 2500, "preyPerPredator": 5,
+      "growthRate": 0.12, "predationVulnerability": 0.08,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Nanuqsaurus - about 900 kg, and the POLAR tyrannosaur, living above the Arctic Circle through
+    // months of winter darkness. Its name means polar bear lizard. Estimates of its size have been
+    // revised upward since it was named, so this sits at the lower end deliberately, matching the size
+    // the mod draws it at.
+    "tyrannosauridae:tyrannosauridae-nanuqsaurus": {
+      "carryingCapacity": 2, "bodyWeight": 900, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 2700, "preyPerPredator": 5,
+      "growthRate": 0.12, "predationVulnerability": 0.08,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Alioramus - around 500 kg and the smallest here, another long and narrow snouted form. The
+    // holotype is a subadult, so adult mass is genuinely uncertain; the mod draws it smallest of the
+    // twelve, which settles it.
+    "tyrannosauridae:tyrannosauridae-alioramus": {
+      "carryingCapacity": 3, "bodyWeight": 500, "isPredator": true,
+      "preyMinBodyWeight": 2, "preyMaxBodyWeight": 1250, "preyPerPredator": 4,
+      "growthRate": 0.14, "predationVulnerability": 0.12,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "tyrannosauridae:tyrannosauridae-tyrannosaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-zhuchengtyrannus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-tarbosaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-bistahieversor-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-gorgosaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-albertosaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-thanatotheristes-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-teratophoneus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-dynamoterror-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-qianzhousaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-nanuqsaurus-incubating": { "chainSeed": true },
+    "tyrannosauridae:tyrannosauridae-alioramus-incubating": { "chainSeed": true }
+
+  }
+}
