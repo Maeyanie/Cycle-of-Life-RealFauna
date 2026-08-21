@@ -13,6 +13,28 @@
 // NOT touched here: carryingCapacity. Vanilla deer/goats carry a high per-chunk K (deer K=12) — a
 // density/gameplay lever better tuned by observation than by biology, so it's left alone for now.
 {
+  // Species another mod has RETIRED (spawn chance patched to zero), mapped to what now stands in for
+  // them. FotSA Caninae does this to the vanilla wolf and both foxes, Capreolinae to the moose.
+  //
+  // This is inert unless BOTH sides are true: the successor must be installed (an entry naming a mod
+  // you do not run is dropped at load), and Cycle of Life only acts on it when the server operator
+  // sets ConvertReplacedSpecies. Left off, the animals already in the world are simply named once per
+  // restart in the log.
+  //
+  // Why nominate a successor at all: a retired species cannot be replaced by any other route. The
+  // successor is managed, so vanilla runtime spawns are vetoed; worldgen does not re-run on chunks
+  // that already exist; and units only ever come from adopting a live animal or splitting an existing
+  // unit. Install Caninae on a world someone has already explored and the old wolves die out while
+  // the new ones never arrive inland. Converting is what carries the population across.
+  //
+  // Matched against ENTITY CODES, not species keys, so the patterns carry the variant wildcard.
+  "replace": {
+    "game:wolf-*":       "caninae:caninae-canina-canis-lupus",      // Eurasian wolf is Canis lupus lupus
+    "game:fox-red-*":    "caninae:caninae-vulpini-vulpes-vulpes",
+    "game:fox-arctic-*": "caninae:caninae-vulpini-vulpes-lagopus",
+    "game:deer-moose-*": "capreolinae:cervidae-alceini-alcesalces"
+  },
+
   "species": {
 
     // ===================== BEARS (apex/omnivore, slow breeders, den-raised cubs) =====================
@@ -208,7 +230,8 @@
     // ===================== CANIDS (vanilla wolf + foxes) =====================
     // NOTE: FotSA Caninae REPLACES these — with that mod installed these keys simply never appear
     // in the roster and these entries no-op. They're here so the pack stands alone on a server
-    // without FotSA. See fotsa-canids.json for the equivalents.
+    // without FotSA. See fotsa-canids.json for the equivalents, and the "replace" map at the top of
+    // this file for what happens to wolves and foxes already living in a world when Caninae arrives.
     "game:wolf-eurasian": {
       "bodyWeight": 40,                  // vanilla ships 76 kg, the record end; Eurasian wolves average ~39 (32-50)
       "predationVulnerability": 0.3,         // pack animals defend themselves
