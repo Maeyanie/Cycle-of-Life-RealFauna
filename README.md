@@ -65,6 +65,7 @@ assets/colrealfauna/config/cycleoflife/
   fowlmod.json               # Sonya's Quality Fowl (ducks)
   primitivesurvival.json     # Primitive Survival
   archosaur.json             # ARCHOSAUR! (ferocidon + its nest chain; invented values, see header)
+  lop-dromaeosauridae.json   # Legacy of the Phanerozoic: Birds of Prey (14 raptors + nests)
 ```
 
 ### Mods that need no entries

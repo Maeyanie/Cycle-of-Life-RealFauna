@@ -127,6 +127,46 @@ Informs `fotsa-dinornithidae.json`, where the lifecycle values are the whole poi
 - [Kākāpō breeding — NZ Department of Conservation](https://blog.doc.govt.nz/2025/06/27/kakapo-breeding-season-2026/)
   — 60–90 year lifespan, and breeding only when the rimu masts, every two to four years.
 
+### Dromaeosaurid body masses — Birds of Prey
+
+The mod declares a flat `weightByType` of **1000 kg for every adult**, across a family that really
+spans from a ~300 kg Utahraptor to a ~600 g Rahonavis. Weight is load-bearing in this simulation —
+it drives forage demand, grazing range, territory radius and the satiation reserve — so a 1 kg
+Microraptor rated at a tonne would roam and eat like megafauna. Each species is therefore given a
+published mass estimate, taken mid-range where sources disagree:
+
+| Species | Mass used | Published range / note |
+| --- | --- | --- |
+| *Utahraptor ostrommaysorum* | 300 kg | 280–500 kg; the largest dromaeosaurid known |
+| *Dakotaraptor steini* | 250 kg | 220–350 kg |
+| *Achillobator giganticus* | 250 kg | 250–350 kg |
+| *Austroraptor cabazai* | 250 kg | ~300 kg, but slender and long-snouted |
+| *Deinonychus antirrhopus* | 70 kg | commonly cited ~73 kg |
+| *Adasaurus mongoliensis* | 20 kg | reduced sickle claw |
+| *Dromaeosaurus albertensis* | 15 kg | stouter, more crushing skull |
+| *Velociraptor mongoliensis* | 15 kg | turkey-sized |
+| *Atrociraptor marshalli* | 12 kg | known from little more than jaws |
+| *Pyroraptor olympius* | 12 kg | fragmentary; family-scaled estimate, not measured |
+| *Saurornitholestes langstoni* | 10 kg | |
+| *Buitreraptor gonzalezorum* | 3 kg | long slender snout, small teeth |
+| *Microraptor zhaoianus* | 1 kg | 0.5–1.2 kg, four-winged and arboreal |
+| *Rahonavis ostromi* | 0.6 kg | close enough to birds that its placement is argued |
+
+Three prey bands are set from evidence rather than scaled from mass:
+
+- **Deinonychus** gets an upper bound well above its own mass (200 kg) on the strength of the
+  *Tenontosaurus* association — the closest the fossil record comes to evidence of group predation
+  on much larger prey.
+- **Velociraptor**'s upper bound comes from the Fighting Dinosaurs specimen, locked with a
+  *Protoceratops* of comparable mass.
+- **Microraptor**'s band is unusually well grounded: its diet is read directly from gut contents —
+  birds, fish and small mammals.
+- **Austroraptor** is given a deliberately narrow band despite its size. Conical, unserrated teeth
+  and a long snout read as fish-eating rather than the family's usual slashing bite.
+
+These are estimates from a contested literature, not measurements. They are recorded here so the
+numbers can be argued with rather than merely trusted.
+
 ## Corrections welcome
 
 If a number here is wrong, the fix is usually one value in one file, and the file will say what the

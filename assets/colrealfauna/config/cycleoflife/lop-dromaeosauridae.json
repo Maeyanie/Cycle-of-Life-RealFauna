@@ -1,0 +1,183 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Birds of Prey (dromaeosauridae).
+//
+// Fourteen dromaeosaurids, from a 300 kg Utahraptor down to a 600 g Rahonavis, plus their nests.
+// Two things need doing here, and without either the whole family is inert or absurd.
+//
+// 1. THEY ARE PREDATORS, AND NOTHING WOULD HAVE WORKED THAT OUT. The mod gives them six seekentity
+//    tasks and not one targets wildlife: they seek the PLAYER, the two lure entities, and the hitch
+//    post - all taming and gameplay furniture from dinocore, not prey. There is no entityTags
+//    targeting either, so the huntable-tag path finds nothing, and these entities carry no tags at
+//    all, so the tagged-predator fallback cannot fire. Their diet, meanwhile, is Protein plus meat
+//    and fish food tags, which resolves to Meat and Fish - so left alone, fourteen theropods would
+//    have been filed as FORAGERS grazing the small-prey pools.
+//
+//    Each therefore gets isPredator and a MASS BAND scaled to its own size. The bands are the point
+//    of the file: a dromaeosaurid family spans two and a half orders of magnitude, and a Microraptor
+//    and a Utahraptor should not be eating the same things.
+//
+// 2. BODY WEIGHT, WHICH THE MOD DECLARES AS A FLAT 1000 kg FOR EVERY ADULT. That is roughly right
+//    for none of them and a thousandfold wrong for the smallest. Weight is not cosmetic here - it
+//    drives forage demand, grazing range, territory radius and the satiation reserve - so a 1 kg
+//    Microraptor rated at a tonne would roam like a mammoth and eat like one. Masses below are
+//    published estimates, mid-range where sources disagree, and are listed per species.
+//
+// NESTS ARE CHAIN SEEDS. Nests spawn from worldgen and hatch through the mod own incubating ->
+// mature -> empty chain, which is self-capping. Chain detection requires every spawnable variant to
+// be static and tests that against a known list of stationary AI tasks - these nests carry
+// "bellalarm" beside "idle", so they read as mobile and would otherwise be managed as breeding
+// animals: nests vetoed, nests spawned near players, surplus nests despawned. Marked explicitly.
+//
+// Only the INCUBATING nests need entries: mature and empty get triesPerChunk 0 and are never
+// discovered. Neither are the eggs (runtime chance 0.0 for every type), the lure, or the hitch -
+// the last two have no spawn conditions at all, being player equipment rather than animals.
+//
+// Lifecycles are archosaur-shaped throughout: egg-laying, a spring clutch, and juvenile mortality
+// high enough that a clutch of five leaves fewer than one adult. Larger species live longer, breed
+// more slowly and are harder to kill; the small ones are fast, numerous and eaten by everything.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Utahraptor - the largest dromaeosaurid known. Published estimates run 280-500 kg; 300 is the
+    // conservative middle. Heavy, short-limbed and built for grappling rather than pursuit.
+    "dromaeosauridae:dromaeosauridae-utahraptor": {
+      "carryingCapacity": 1, "bodyWeight": 300, "isPredator": true,
+      "preyMinBodyWeight": 5, "preyMaxBodyWeight": 450, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Dakotaraptor - 220-350 kg, and one of the last dromaeosaurids, living alongside Tyrannosaurus.
+    "dromaeosauridae:dromaeosauridae-dakotaraptor": {
+      "carryingCapacity": 1, "bodyWeight": 250, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 375, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Achillobator - 250-350 kg, unusually robust in the hip and thigh even for its size.
+    "dromaeosauridae:dromaeosauridae-achillobator": {
+      "carryingCapacity": 1, "bodyWeight": 250, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 375, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Austroraptor - long-snouted with conical, unserrated teeth, which reads as FISH-EATING rather
+    // than the usual slashing bite. Same mass as the other giants but a deliberately narrow prey band:
+    // it was not built to take large animals.
+    "dromaeosauridae:dromaeosauridae-austroraptor": {
+      "carryingCapacity": 1, "bodyWeight": 250, "isPredator": true,
+      "preyMinBodyWeight": 1, "preyMaxBodyWeight": 100, "preyPerPredator": 4,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 2, "litterSizeMax": 5, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Deinonychus - about 70 kg, and the animal that rewrote what dinosaurs were thought to be. Its
+    // prey band runs well above its own mass on the strength of the Tenontosaurus association, the
+    // closest thing the fossil record offers to evidence of group predation on much larger prey.
+    "dromaeosauridae:dromaeosauridae-deinonychus": {
+      "carryingCapacity": 1, "bodyWeight": 70, "isPredator": true,
+      "preyMinBodyWeight": 1, "preyMaxBodyWeight": 200, "preyPerPredator": 4,
+      "growthRate": 0.14, "predationVulnerability": 0.15,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Dromaeosaurus - around 15 kg, with a notably stouter, more crushing skull than its relatives.
+    "dromaeosauridae:dromaeosauridae-dromaeosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 15, "isPredator": true,
+      "preyMinBodyWeight": 0.3, "preyMaxBodyWeight": 25, "preyPerPredator": 2.5,
+      "growthRate": 0.22, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Adasaurus - roughly 20 kg, with a reduced sickle claw.
+    "dromaeosauridae:dromaeosauridae-adasaurus": {
+      "carryingCapacity": 2, "bodyWeight": 20, "isPredator": true,
+      "preyMinBodyWeight": 0.3, "preyMaxBodyWeight": 30, "preyPerPredator": 2.5,
+      "growthRate": 0.22, "predationVulnerability": 0.3,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Velociraptor - about 15 kg, turkey-sized and feathered. The Fighting Dinosaurs specimen has one
+    // locked with a Protoceratops of comparable mass, which is what sets the upper bound here.
+    "dromaeosauridae:dromaeosauridae-velociraptor": {
+      "carryingCapacity": 2, "bodyWeight": 15, "isPredator": true,
+      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 25, "preyPerPredator": 2.5,
+      "growthRate": 0.22, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Saurornitholestes - around 10 kg, and the most common small predator of its formation.
+    "dromaeosauridae:dromaeosauridae-saurornitholestes": {
+      "carryingCapacity": 2, "bodyWeight": 10, "isPredator": true,
+      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 15, "preyPerPredator": 2,
+      "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Atrociraptor - roughly 12 kg, short-faced, known from little more than jaws.
+    "dromaeosauridae:dromaeosauridae-atrociraptor": {
+      "carryingCapacity": 2, "bodyWeight": 12, "isPredator": true,
+      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 18, "preyPerPredator": 2,
+      "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Pyroraptor - roughly 12 kg, and fragmentary; the mass is a family-scaled estimate rather than a
+    // measured one.
+    "dromaeosauridae:dromaeosauridae-pyroraptor": {
+      "carryingCapacity": 2, "bodyWeight": 12, "isPredator": true,
+      "preyMinBodyWeight": 0.2, "preyMaxBodyWeight": 18, "preyPerPredator": 2,
+      "growthRate": 0.25, "predationVulnerability": 0.4,
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 45, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Buitreraptor - about 3 kg, with a long slender snout and small teeth suited to small prey.
+    "dromaeosauridae:dromaeosauridae-buitreraptor": {
+      "carryingCapacity": 3, "bodyWeight": 3, "isPredator": true,
+      "preyMinBodyWeight": 0.05, "preyMaxBodyWeight": 4, "preyPerPredator": 1.5,
+      "growthRate": 0.35, "predationVulnerability": 0.55,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 35, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Microraptor - about 1 kg, four-winged and arboreal. Rare among fossils in having its diet read
+    // directly from gut contents: birds, fish and small mammals, which is exactly this prey band.
+    "dromaeosauridae:dromaeosauridae-microraptor": {
+      "carryingCapacity": 4, "bodyWeight": 1, "isPredator": true,
+      "preyMinBodyWeight": 0.01, "preyMaxBodyWeight": 1.5, "preyPerPredator": 1,
+      "growthRate": 0.5, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 35, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Rahonavis - around 600 g, so close to the bird-dinosaur line that its placement is still argued.
+    "dromaeosauridae:dromaeosauridae-rahonavis": {
+      "carryingCapacity": 4, "bodyWeight": 0.6, "isPredator": true,
+      "preyMinBodyWeight": 0.01, "preyMaxBodyWeight": 1, "preyPerPredator": 1,
+      "growthRate": 0.5, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 35, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "dromaeosauridae:dromaeosauridae-utahraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-dakotaraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-achillobator-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-austroraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-deinonychus-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-dromaeosaurus-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-adasaurus-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-velociraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-saurornitholestes-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-atrociraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-pyroraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-buitreraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-microraptor-incubating": { "chainSeed": true },
+    "dromaeosauridae:dromaeosauridae-rahonavis-incubating": { "chainSeed": true }
+
+  }
+}
