@@ -75,6 +75,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-stegosauria.json       # Legacy of the Phanerozoic: Plated Back (12 stegosaurs + nests)
   lop-spinosauridae.json     # Legacy of the Phanerozoic: Sailed Spine (6 spinosaurids + nests)
   lop-therizinosauridae.json # Legacy of the Phanerozoic: Scythe Claws (10 therizinosaurs + nests)
+  lop-carcharodontosauridae.json # LotP: Sharp Tooth (12 carcharodontosaurids + nests)
 ```
 
 ### Mods that need no entries

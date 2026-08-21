@@ -1,0 +1,178 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Sharp Tooth (carcharodontosauridae).
+//
+// Twelve carcharodontosaurids, from a 7 tonne Giganotosaurus to a 150 kg Lajasvenator, plus nests.
+// Carnivores, so no diet rescuing is needed and they detect as predators on their own from a hunt
+// list that resolves. Body weight is the usual correction; the rest of this note is about what they
+// eat, because that question has an answer here and it is not the obvious one.
+//
+// 1. BODY WEIGHT, FLAT 4000 kg PER ADULT. Too light for the three giants, twentyfold too heavy for
+//    Lajasvenator. Published estimates per species, mid-range where sources disagree, with the mod
+//    hitbox ordering breaking ties at the small end where the material is fragmentary.
+//
+// 2. THEY DO NOT EAT WOLVES, AND THAT IS THE MOD OWN DECISION. It is tempting to assume that an
+//    animal this size treats a wolf or a bear as a snack, and physically that is obviously true. But
+//    the mod splits its targets into two lists and the split is deliberate:
+//
+//      A PREY list - pig, gazelle, deer, moose, bison, and the sibling Legacy of the Phanerozoic
+//      herbivore groups - gated on whenNotInEmotionState "saturated", meaning hunt when not full.
+//      A RETALIATION list - wolves, hyenas, bears, direwolves, rival theropods, hostile mobs - gated
+//      on "aggressiveondamage", meaning fight back when hurt.
+//
+//    Wolves and bears appear only in the second. Every carnivore in this series is written the same
+//    way, and Cycle of Life honours it: damage-gated tasks are not read as hunting. Mass bands would
+//    not change it either, since they skip anything tagged apex by design.
+//
+//    So a Giganotosaurus will kill a wolf that attacks it and will not go looking for one. If you
+//    want the other behaviour, explicit preySpeciesCodes union with the band - but note this pack has
+//    consistently declined to feed one apex predator on another, because it puts a food chain on top
+//    of a food chain that the simulation then has to supply twice.
+//
+// 3. PREY BANDS reach three times body mass for the giants, which covers the smaller sauropods and
+//    the juveniles of the large ones without pretending a lone animal pulls down an Argentinosaurus.
+//    MAPUSAURUS is the exception at five times, and it is earned: it is known from a bone bed of at
+//    least seven individuals of mixed ages, read as a group that hunted the Argentinosaurus found in
+//    the same beds. If anything in this pack hunted the largest animal in it, this is the candidate.
+//
+// 4. NO isForager HERE, unlike the spinosaurids. This author gives every carnivore the same diet
+//    block, fish tags included, but a carcharodontosaurid was not a piscivore - the spinosaurids have
+//    stomach contents to prove their case and these do not. Left unstated, they hunt and nothing
+//    more, which is the correct default for an obligate carnivore.
+//
+// NESTS ARE CHAIN SEEDS, as elsewhere in the series. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Giganotosaurus - 6.5 to 8 tonnes, and among the largest land predators that ever lived, slightly
+    // longer than Tyrannosaurus though more lightly built. Its prey band reaches three times its own
+    // mass, which covers the smaller sauropods and the juveniles of the giants - not a full-grown
+    // Argentinosaurus, which no single animal was taking down.
+    "carcharodontosauridae:carcharodontosauridae-giganotosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 7000, "isPredator": true,
+      "preyMinBodyWeight": 30, "preyMaxBodyWeight": 21000, "preyPerPredator": 10,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Carcharodontosaurus - about 6.3 tonnes, the shark-toothed reptile that names the family, with
+    // blade-like serrated teeth built for slicing flesh rather than crushing bone.
+    "carcharodontosauridae:carcharodontosauridae-carcharodontosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 6300, "isPredator": true,
+      "preyMinBodyWeight": 30, "preyMaxBodyWeight": 19000, "preyPerPredator": 10,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Tyrannotitan - around 5 tonnes, an early Argentine member of the family and among the heaviest.
+    "carcharodontosauridae:carcharodontosauridae-tyrannotitan": {
+      "carryingCapacity": 1, "bodyWeight": 5000, "isPredator": true,
+      "preyMinBodyWeight": 25, "preyMaxBodyWeight": 15000, "preyPerPredator": 9,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Mapusaurus - roughly 4 tonnes, and the best case for PACK HUNTING in this family: it is known
+    // from a bone bed holding at least seven individuals of mixed ages together, which has been read
+    // as a group that hunted the sauropod Argentinosaurus found in the same beds. Its prey band is set
+    // wider than its mass alone would allow - five times over - on the strength of that.
+    "carcharodontosauridae:carcharodontosauridae-mapusaurus": {
+      "carryingCapacity": 1, "bodyWeight": 4000, "isPredator": true,
+      "preyMinBodyWeight": 20, "preyMaxBodyWeight": 20000, "preyPerPredator": 9,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Tameryraptor - about 3 tonnes, and named only in 2025, from Egyptian material long filed under
+    // Carcharodontosaurus before it was re-examined. The original fossils were destroyed in 1944.
+    "carcharodontosauridae:carcharodontosauridae-tameryraptor": {
+      "carryingCapacity": 1, "bodyWeight": 3000, "isPredator": true,
+      "preyMinBodyWeight": 15, "preyMaxBodyWeight": 9000, "preyPerPredator": 8,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Ulughbegsaurus - roughly 1.5 tonnes, Uzbek, and evidence that carcharodontosaurids were still
+    // the top predators in Asia later than had been assumed.
+    "carcharodontosauridae:carcharodontosauridae-ulughbegsaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1500, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 4500, "preyPerPredator": 7,
+      "growthRate": 0.09, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Veterupristisaurus - about 1.5 tonnes, and the OLDEST known carcharodontosaurid, from Tanzanian
+    // beds far older than the rest of the family. Known from very little, so the mass is loose.
+    "carcharodontosauridae:carcharodontosauridae-veterupristisaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1500, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 4500, "preyPerPredator": 7,
+      "growthRate": 0.09, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Siamraptor - roughly 1.2 tonnes, Thai, and one of the earliest Asian members.
+    "carcharodontosauridae:carcharodontosauridae-siamraptor": {
+      "carryingCapacity": 2, "bodyWeight": 1200, "isPredator": true,
+      "preyMinBodyWeight": 6, "preyMaxBodyWeight": 3600, "preyPerPredator": 6,
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Shaochilong - about 600 kg, Chinese, and notably small for the family, which is what made it
+    // confusing to classify for decades.
+    "carcharodontosauridae:carcharodontosauridae-shaochilong": {
+      "carryingCapacity": 2, "bodyWeight": 600, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 1800, "preyPerPredator": 5,
+      "growthRate": 0.12, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Concavenator - roughly 400 kg, Spanish, with a strange tall hump over the hips and possible
+    // quill knobs on its forearm, which would make it one of very few non-coelurosaurs with such
+    // structures.
+    "carcharodontosauridae:carcharodontosauridae-concavenator": {
+      "carryingCapacity": 2, "bodyWeight": 400, "isPredator": true,
+      "preyMinBodyWeight": 2, "preyMaxBodyWeight": 1200, "preyPerPredator": 4,
+      "growthRate": 0.14, "predationVulnerability": 0.1,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Lusovenator - about 250 kg, Portuguese, and the oldest carcharodontosaurid known from the
+    // northern hemisphere. The holotype is a subadult, so adult mass is uncertain.
+    "carcharodontosauridae:carcharodontosauridae-lusovenator": {
+      "carryingCapacity": 3, "bodyWeight": 250, "isPredator": true,
+      "preyMinBodyWeight": 1, "preyMaxBodyWeight": 750, "preyPerPredator": 4,
+      "growthRate": 0.16, "predationVulnerability": 0.14,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Lajasvenator - around 150 kg and the smallest here, an early Argentine form. The mod draws it
+    // smallest too, which settles it, since the material is partial.
+    "carcharodontosauridae:carcharodontosauridae-lajasvenator": {
+      "carryingCapacity": 3, "bodyWeight": 150, "isPredator": true,
+      "preyMinBodyWeight": 1, "preyMaxBodyWeight": 450, "preyPerPredator": 3,
+      "growthRate": 0.18, "predationVulnerability": 0.16,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "carcharodontosauridae:carcharodontosauridae-giganotosaurus-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-carcharodontosaurus-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-tyrannotitan-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-mapusaurus-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-tameryraptor-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-ulughbegsaurus-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-veterupristisaurus-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-siamraptor-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-shaochilong-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-concavenator-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-lusovenator-incubating": { "chainSeed": true },
+    "carcharodontosauridae:carcharodontosauridae-lajasvenator-incubating": { "chainSeed": true }
+
+  }
+}
