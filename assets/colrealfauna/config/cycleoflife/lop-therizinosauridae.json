@@ -1,0 +1,161 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Scythe Claws (therizinosauridae).
+//
+// Ten therizinosaurs, from a 5 tonne Therizinosaurus to a 30 kg Neimongosaurus, plus their nests.
+// These are the strangest animals in the whole series: THEROPODS THAT BECAME HERBIVORES - relatives
+// of the raptors and tyrannosaurs that gave up meat, grew broad guts and turned their claws to
+// pulling branches down. That transition is what makes their diets worth setting individually.
+//
+// 1. THEY EAT NOTHING AS SHIPPED. Empty foodCategories, a lone "fruitmash" tag, no forage categories
+//    at all - the seventh mod in this series with that shape. Given Vegetable + Fruit, with two
+//    exceptions that the transition earns:
+//
+//      FALCARIUS gets Insect as well, because it is a therizinosaur caught mid-change: it still has
+//      the teeth and skeletal features of its meat-eating ancestors while already carrying the gut
+//      and hips of a plant eater. Reading it as a pure browser would flatten the single most
+//      interesting thing about it.
+//      JIANCHANGOSAURUS, basal enough to sit near Falcarius, gets the same treatment.
+//
+// 2. BODY WEIGHT, FLAT 4000 kg PER ADULT - too light for Therizinosaurus and over a hundredfold too
+//    heavy for Neimongosaurus. Published estimates per species. At the small end the material is
+//    partial and the estimates are weak, so the mod hitbox ordering breaks the ties, as elsewhere in
+//    this series; where the animal is well known the published figure wins.
+//
+// 3. THE CLAWS. Therizinosaurus had the LONGEST CLAWS OF ANY ANIMAL that has ever lived - up to half
+//    a metre along the curve, on two and a half metre arms. They were near-certainly feeding tools,
+//    for hooking branches down, but nothing carrying them is casually eaten, so its predation
+//    vulnerability sits low for a plant eater. This is the third family in the series where defensive
+//    structures do real work, after the ankylosaur tail clubs and the stegosaur spikes.
+//
+// 4. HERDS follow evidence again. FALCARIUS is known from a bone bed holding THOUSANDS of
+//    individuals at a single site, which is the best herding evidence in the family by a distance,
+//    and it takes the largest herd. The rest get small family groups; nothing else here is found
+//    aggregated.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Therizinosaurus - about 5 tonnes, and the owner of the LONGEST CLAWS OF ANY ANIMAL that has ever
+    // lived: up to half a metre along the curve, on arms two and a half metres long. They were almost
+    // certainly for pulling branches down to feed, but nothing that size is harmless, and its
+    // predation vulnerability is set accordingly low for a plant eater.
+    "therizinosauridae:therizinosauridae-therizinosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 5000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Segnosaurus - roughly 1.3 tonnes, with a distinctive downturned lower jaw and the most
+    // specialised teeth in the family.
+    "therizinosauridae:therizinosauridae-segnosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1300,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Suzhousaurus - about a tonne, Chinese, and one of the largest early therizinosaurs.
+    "therizinosauridae:therizinosauridae-suzhousaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Nothronychus - roughly 400 kg, and the first therizinosaur found outside Asia, which settled a
+    // long argument about where the group belonged.
+    "therizinosauridae:therizinosauridae-nothronychus": {
+      "carryingCapacity": 2, "bodyWeight": 400,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.18, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 55, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Alxasaurus - about 380 kg, and for years the most complete therizinosaur known.
+    "therizinosauridae:therizinosauridae-alxasaurus": {
+      "carryingCapacity": 2, "bodyWeight": 380,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.18, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 55, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Erliansaurus - around 80 kg, known from a partial skeleton, so the mass is loosely constrained
+    // and follows the size the mod draws it at.
+    "therizinosauridae:therizinosauridae-erliansaurus": {
+      "carryingCapacity": 4, "bodyWeight": 80,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.6,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 45, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Falcarius - about 100 kg, and the most interesting animal in this file: a therizinosaur CAUGHT
+    // IN THE ACT of becoming a herbivore. It keeps teeth and features of its meat-eating ancestors
+    // while already showing the gut and hips of a plant eater, so it gets Insect alongside plants
+    // rather than browsing alone. It is also known from a bone bed holding THOUSANDS of individuals,
+    // which is the best herding evidence in the family by a wide margin - hence the largest herd here.
+    "therizinosauridae:therizinosauridae-falcarius": {
+      "carryingCapacity": 4, "bodyWeight": 100,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit", "Insect"],
+      "growthRate": 0.25, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 55, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Beipiaosaurus - roughly 85 kg, and preserved with FEATHERS, including long stiff filaments on
+    // the neck and tail that look like display structures rather than insulation.
+    "therizinosauridae:therizinosauridae-beipiaosaurus": {
+      "carryingCapacity": 4, "bodyWeight": 85,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.6,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 45, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Jianchangosaurus - about 35 kg, basal enough to sit near Falcarius, and given the same omnivore
+    // reading: early in the transition rather than a committed browser.
+    "therizinosauridae:therizinosauridae-jianchangosaurus": {
+      "carryingCapacity": 5, "bodyWeight": 35,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit", "Insect"],
+      "growthRate": 0.35, "predationVulnerability": 0.7,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 45, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Neimongosaurus - around 30 kg and the smallest here. The mod draws it smallest too, which is
+    // what settles it, since the material is partial.
+    "therizinosauridae:therizinosauridae-neimongosaurus": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.35, "predationVulnerability": 0.7,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 45, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "therizinosauridae:therizinosauridae-therizinosaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-segnosaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-suzhousaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-nothronychus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-alxasaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-erliansaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-falcarius-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-beipiaosaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-jianchangosaurus-incubating": { "chainSeed": true },
+    "therizinosauridae:therizinosauridae-neimongosaurus-incubating": { "chainSeed": true }
+
+  }
+}
