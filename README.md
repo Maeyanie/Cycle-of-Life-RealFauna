@@ -64,6 +64,7 @@ assets/colrealfauna/config/cycleoflife/
   hieronymus-reptiles.json   # Hieronymus Reptiles Collection (~164 species; see its header)
   fowlmod.json               # Sonya's Quality Fowl (ducks)
   primitivesurvival.json     # Primitive Survival
+  archosaur.json             # ARCHOSAUR! (ferocidon + its nest chain; invented values, see header)
 ```
 
 ### Mods that need no entries

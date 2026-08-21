@@ -1,0 +1,81 @@
+// Cycle of Life: Realistic Fauna — ARCHOSAUR! (archosaurfixd).
+//
+// One creature, the ferocidon: a 500 kg pack-hunting theropod that spawns in cool wet forest
+// (0-20 C, rain 0.45+, forest 0.5+), hunts in the dark (maxLightLevel 7, block light only), climbs,
+// and nests. It is fictional, so the numbers below are INVENTED — but anchored, and the anchors are
+// written down so they can be argued with. The mod supplies the two that matter most on its own:
+// weight (500 adult, 20 baby) and the climate band, so neither is guessed here.
+//
+// Life history is modelled on large archosaurs generally rather than on any one animal: slow to
+// mature and long-lived like a crocodilian, laying a clutch that mostly does not survive. A 500 kg
+// theropod is around the mass of a big saltwater crocodile, and growth studies on tyrannosaurids
+// put mid-size theropods at roughly a decade to adult size and under thirty years of life, so that
+// is the shape used — 25 years, a spring clutch, and 85% juvenile mortality.
+//
+// THREE CORRECTIONS, all of which this creature needs or it behaves nothing like its own design:
+//
+// 1. IT IS A PREDATOR, and would not have been detected as one. Its hunt list is written without
+//    domains — "bear-*", "wolf-*", "caninae-*", "felinae-adult-*" and so on — so Vintage Story
+//    resolves every pattern against the mod's OWN domain (archosaur:bear-*, and so on) and the whole
+//    list matches nothing. That is a common mistake in animal mods and it fails in both directions;
+//    here it fails toward inertness. Worse, this entity carries NO tags at all, so the tagged-predator
+//    fallback cannot rescue it either, and its food tags (meat, fish, egg) would have made it a
+//    FORAGER: a 500 kg apex theropod grazing the small-prey pool and never hunting anything.
+//    (The mod's list also has "deer-" missing its wildcard and "player" listed twice.)
+//
+// 2. PREY BY MASS BAND, 10-600 kg. Upper bound is a moose, the largest thing on its own wish list;
+//    lower bound keeps it from chasing hares and chickens, which a half-tonne predator would ignore.
+//    NOTE A DELIBERATE DIVERGENCE: the mod wants it hunting bears, wolves and big cats, but mass
+//    bands skip anything tagged apex (ferocious/predator) on purpose, so here it hunts the herbivore
+//    base instead. That is the safer reading — a predator that eats other predators sits on top of a
+//    food chain the simulation would have to feed twice — and it is easily overridden by adding
+//    explicit preySpeciesCodes, which are unioned with the band.
+//
+// 3. THE NEST IS A CHAIN SEED, and would not have been detected as one either. Nests spawn from
+//    worldgen and runtime and hatch into ferocidons through the mod's own incubating -> mature ->
+//    empty chain, which is self-capping and carries placement rules we do not reproduce. Chain
+//    detection requires every spawnable variant to be STATIC, and it tests that against a known list
+//    of stationary AI tasks — the nest has "bellalarm" alongside "idle", so it reads as mobile and
+//    would have been managed as though it were a breeding animal: nests vetoed, nests spawned near
+//    players, surplus nests despawned. Marked explicitly instead: observed, never spawn-controlled.
+//
+// The egg (ferocidon-egg-raw) needs no entry — its runtime chance is 0.0 for every type with no
+// worldgen block, so it is never discovered. Same for tameferocidon, which has no spawn conditions
+// at all: a tamed one is player property and outside the wild simulation entirely.
+//
+// VERIFICATION STATUS: keys derived from the mod's own entity JSON, not read off a live roster —
+// this mod is not installed on the pack author's server. A wrong key is inert (the entry is ignored
+// and the animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+    // ===================== FEROCIDON =====================
+    // K=1: the pack's floor, and right for an apex predator the mod itself spawns at 0.05 tries per
+    // chunk. growthRate and predationVulnerability both sit below the big cats — it is heavier than
+    // any of them and, by its own hunt list, afraid of nothing.
+    "archosaur:ferocidon": {
+      "carryingCapacity": 1,
+      "isPredator": true,
+      "preyMaxBodyWeight": 600, "preyMinBodyWeight": 10,
+      "preyPerPredator": 8,
+      "growthRate": 0.08,
+      "predationVulnerability": 0.02,
+      // A modest sated floor, not zero: it hunts pigs, goats and sheep by design, and a half-tonne
+      // predator in a paddock is the classic surplus-killing scenario. Well under the leopard's 0.3.
+      "huntWhenFull": 0.1,
+      "lifecycle": {
+        "lifespanDays": 9000, "gestationDays": 90,
+        "litterSizeMin": 2, "litterSizeMax": 5,
+        "breedingMonths": [4, 5], "juvenileMortality": 0.85
+      }
+    },
+
+    // ===================== NEST (chain seed) =====================
+    // Observed, never spawn-controlled — see correction 3 above. Nothing else is tuned here: the
+    // mod's own chain decides how many nests there are and what comes out of them.
+    "archosaur:ferocidon-incubating": {
+      "chainSeed": true
+    }
+
+  }
+}
