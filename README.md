@@ -67,6 +67,7 @@ assets/colrealfauna/config/cycleoflife/
   archosaur.json             # ARCHOSAUR! (ferocidon + its nest chain; invented values, see header)
   lop-dromaeosauridae.json   # Legacy of the Phanerozoic: Birds of Prey (14 raptors + nests)
   lop-abelisauridae.json     # Legacy of the Phanerozoic: Carnivorous Bull (18 abelisaurids + nests)
+  lop-pachycephalosauria.json# Legacy of the Phanerozoic: Domed Head (16 pachycephalosaurs + nests)
 ```
 
 ### Mods that need no entries

@@ -1,0 +1,204 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Domed Head (pachycephalosauria).
+//
+// Sixteen pachycephalosaurs, from a 400 kg Pachycephalosaurus down to a 2 kg Wannanosaurus, plus
+// their nests. Same authors and shape as the raptor and abelisaurid files, but the opposite problem:
+// these are PREY, and the two things they need are food and a believable size.
+//
+// 1. THEY EAT NOTHING AT ALL AS SHIPPED. The mod declares creatureDiet with an EMPTY foodCategories
+//    list and a single "fruitmash" food tag. Cycle of Life deliberately does not map plant food tags
+//    onto forage categories - doing so would silently rewrite the plant diets of every pack - so this
+//    resolves to no categories whatsoever. The result is sixteen herbivores that are neither predator
+//    nor forager, drawing on no food supply, bounded only by carrying capacity and old age. Exactly
+//    the shape of the Critter Pack yak and the Cape Barren goose, and the reason that rule is worth
+//    knowing: a mod can look like it declares a diet and still declare nothing we can use.
+//
+//    Fixed with an explicit Vegetable + Fruit diet. Fruit leads because the mod own tag is fruitmash;
+//    Vegetable is added because a pachycephalosaur was a low browser, cropping leaves and shoots, and
+//    fruit alone would tie sixteen species to one narrow pool.
+//
+// 2. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT - the same figure this author uses for
+//    the abelisaurids, and here it is wrong by up to two thousandfold. A Wannanosaurus was about the
+//    size of a cat. Weight drives forage demand, grazing range, territory radius and satiation, so a
+//    2 kg animal rated at four tonnes would eat like a sauropod. Masses are published estimates,
+//    mid-range where sources disagree, and the mod own hitbox ordering agrees with them closely -
+//    Pachycephalosaurus largest by a wide margin, Wannanosaurus smallest.
+//
+// WORTH RECORDING: this mod would have been a live example of a bug fixed the same day it was added.
+// Its members carry TWO seekentity tasks listing wolves, bears, direwolves and the other predators.
+// One is gated on "aggressiveondamage" and is skipped as retaliation. The other is gated on
+// "aggressivearoundentities", which is NOT a damage gate and is not skipped - so once hunt patterns
+// began resolving across domains, sixteen herbivores would have become predators of bears. What
+// stops it is the rule that a hunt list only counts when the creature own diet says it eats
+// vertebrates, and theirs says fruitmash. The overlay below does not weaken that: the test reads the
+// entity declared diet, not the one this file supplies.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files - "bellalarm" beside "idle" fails the static test.
+// Only INCUBATING nests need entries; mature and empty get triesPerChunk 0, and eggs are chance 0.0.
+//
+// Being prey rather than predators, these run the other way from their siblings: high predation
+// vulnerability, fast growth, big clutches, and carrying capacities that rise as body size falls.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Pachycephalosaurus - about 400 kg and by far the largest of the family, with a dome ten
+    // centimetres thick. The mod gives it the biggest hitbox by a wide margin, which agrees.
+    "pachycephalosauria:pachycephalosauria-pachycephalosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 400,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.35,
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Platytholus - roughly 80 kg, and named only in 2023 from a dome that preserved traces of a
+    // keratinous covering, so the classic bare-boned head-butt image may be wrong.
+    "pachycephalosauria:pachycephalosauria-platytholus": {
+      "carryingCapacity": 3, "bodyWeight": 80,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.5,
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 50, "litterSizeMin": 3, "litterSizeMax": 7, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Stegoceras - about 40 kg, and the best known member of the family; most of what is understood
+    // about pachycephalosaur growth comes from its skulls.
+    "pachycephalosauria:pachycephalosauria-stegoceras": {
+      "carryingCapacity": 4, "bodyWeight": 40,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Prenocephale - roughly 40 kg, with a rounded rather than flat-topped dome.
+    "pachycephalosauria:pachycephalosauria-prenocephale": {
+      "carryingCapacity": 4, "bodyWeight": 40,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Hanssuesia - around 35 kg, with a broader, lower dome than its relatives.
+    "pachycephalosauria:pachycephalosauria-hanssuesia": {
+      "carryingCapacity": 4, "bodyWeight": 35,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.6,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Acrotholus - about 30 kg, and one of the oldest known; the mod draws it smaller than published
+    // estimates suggest, so this sits at the low end of the range.
+    "pachycephalosauria:pachycephalosauria-acrotholus": {
+      "carryingCapacity": 4, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.65,
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Sphaerotholus - roughly 30 kg, a small-domed form spread across several species.
+    "pachycephalosauria:pachycephalosauria-sphaerotholus": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.65,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Sinocephale - about 30 kg, and the first pachycephalosaur named from Asia, though it spent
+    // decades regarded as invalid before being revived in 2021.
+    "pachycephalosauria:pachycephalosauria-sinocephale": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.65,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Tylocephale - around 30 kg, with the tallest dome relative to size in the family.
+    "pachycephalosauria:pachycephalosauria-tylocephale": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.65,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Homalocephale - about 20 kg, flat-headed rather than domed, and possibly a juvenile of another
+    // genus rather than a species in its own right.
+    "pachycephalosauria:pachycephalosauria-homalocephale": {
+      "carryingCapacity": 5, "bodyWeight": 20,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.3, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 50, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Goyocephale - roughly 15 kg, flat-headed, and one of the few with preserved fangs in the front
+    // of the jaw.
+    "pachycephalosauria:pachycephalosauria-goyocephale": {
+      "carryingCapacity": 6, "bodyWeight": 15,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.35, "predationVulnerability": 0.7,
+      "lifecycle": { "lifespanDays": 3200, "gestationDays": 40, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Foraminacephale - about 10 kg, named for the many small openings across its dome.
+    "pachycephalosauria:pachycephalosauria-foraminacephale": {
+      "carryingCapacity": 6, "bodyWeight": 10,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.4, "predationVulnerability": 0.75,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 40, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Alaskacephale - roughly 10 kg, known from a single partial skull inside the Arctic Circle.
+    "pachycephalosauria:pachycephalosauria-alaskacephale": {
+      "carryingCapacity": 6, "bodyWeight": 10,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.4, "predationVulnerability": 0.75,
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 40, "litterSizeMin": 4, "litterSizeMax": 8, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Colepiocephale - about 8 kg, and the oldest named pachycephalosaur material.
+    "pachycephalosauria:pachycephalosauria-colepiocephale": {
+      "carryingCapacity": 7, "bodyWeight": 8,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.45, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 2500, "gestationDays": 40, "litterSizeMin": 5, "litterSizeMax": 9, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Amtocephale - around 8 kg, Mongolian, and known from very little.
+    "pachycephalosauria:pachycephalosauria-amtocephale": {
+      "carryingCapacity": 7, "bodyWeight": 8,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.45, "predationVulnerability": 0.8,
+      "lifecycle": { "lifespanDays": 2500, "gestationDays": 40, "litterSizeMin": 5, "litterSizeMax": 9, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Wannanosaurus - about 2 kg and roughly the size of a cat, the smallest of the family by a long
+    // way. The mod agrees, giving it the smallest hitbox of the sixteen.
+    "pachycephalosauria:pachycephalosauria-wannanosaurus": {
+      "carryingCapacity": 8, "bodyWeight": 2,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.6, "predationVulnerability": 0.85,
+      "lifecycle": { "lifespanDays": 2200, "gestationDays": 40, "litterSizeMin": 5, "litterSizeMax": 10, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "pachycephalosauria:pachycephalosauria-pachycephalosaurus-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-platytholus-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-stegoceras-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-prenocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-hanssuesia-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-acrotholus-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-sphaerotholus-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-sinocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-tylocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-homalocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-goyocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-foraminacephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-alaskacephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-colepiocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-amtocephale-incubating": { "chainSeed": true },
+    "pachycephalosauria:pachycephalosauria-wannanosaurus-incubating": { "chainSeed": true }
+
+  }
+}
