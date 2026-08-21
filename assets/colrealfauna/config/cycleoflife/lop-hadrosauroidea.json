@@ -1,0 +1,344 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Shovel Mouth (hadrosauroidea).
+//
+// TWENTY-SEVEN hadrosauroids, the largest single file in this series, from a 14 tonne
+// Shangtungosaurus to a 600 kg Secernosaurus, plus their nests. These are the cattle of the
+// Cretaceous - abundant, herding, and the prey base that everything else in the series eats.
+//
+// 1. THEY EAT NOTHING AS SHIPPED. Eighth mod running with an empty foodCategories list and a lone
+//    "fruitmash" tag. Given Vegetable + Fruit throughout: hadrosaurs had the most sophisticated
+//    chewing apparatus of any dinosaur, dental batteries of hundreds of teeth grinding tough plant
+//    matter, and BRACHYLOPHOSAURUS confirms what that was for - the mummified specimen called
+//    Leonardo preserved stomach contents of ferns, conifers and magnolias. That is the fourth animal
+//    in this series with a diet known directly rather than inferred, after the ankylosaur ferns, the
+//    Deinocheirus fish and the Isaberrysaura cycad seeds.
+//
+// 2. BODY WEIGHT, FLAT 4000 kg PER ADULT - and here the hitboxes are no help at all, since the mod
+//    draws twenty-six of the twenty-seven at an identical 2 x 3. The fossil record does all the work.
+//    Four tonnes happens to be about right for the mid-sized crested forms and is three times too
+//    light for Shangtungosaurus and five times too heavy for Secernosaurus.
+//
+// 3. MAIASAURA IS THE ONE ANIMAL IN THIS PACK WITH LOWERED JUVENILE MORTALITY, and it earns it. The
+//    name means good mother lizard, given for the first solid evidence of dinosaur PARENTAL CARE:
+//    colonial nesting grounds where hatchlings stayed in the nest and were fed. Juvenile mortality is
+//    what that behaviour actually changes, so it is set to 0.7 against the family default of 0.88.
+//    Every other file in this series uses one number for the whole family; this is the exception the
+//    evidence justifies.
+//
+// 4. HERDS. Hadrosaurs are the herding dinosaurs, and the bone beds are enormous. EDMONTOSAURUS is
+//    known from beds holding thousands of individuals and MAIASAURA from nesting colonies of similar
+//    scale; both take the largest herds. Island dwarfs and fragmentary taxa get smaller groups.
+//
+//    Also worth noting on Edmontosaurus: one specimen carries a HEALED TYRANNOSAUR BITE on its tail.
+//    An animal that was attacked by the largest predator of its world and walked away from it.
+//
+// 5. THEY ARE PREY, and nothing here defends itself the way the ankylosaurs, stegosaurs and
+//    ceratopsians do - no clubs, no spikes, no horns. Predation vulnerability runs high across the
+//    file, moderated only by size. This is the food that makes the carnivore mods in this series
+//    viable, and their hunt lists all name hadrosauroidea explicitly.
+//
+// NESTS ARE CHAIN SEEDS, as elsewhere in the series. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Shangtungosaurus - about 14 tonnes and the largest hadrosaur known, at sixteen metres one of the
+    // biggest ornithischians of any kind. The mod gives it the only oversized hitbox in the file.
+    "hadrosauroidea:hadrosauroidea-shangtungosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 14000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Magnapaulia - roughly 9 tonnes, Mexican, and the largest lambeosaur.
+    "hadrosauroidea:hadrosauroidea-magnapaulia": {
+      "carryingCapacity": 2, "bodyWeight": 9000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.11, "predationVulnerability": 0.22,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Charonosaurus - about 8 tonnes, Chinese, and a close relative of Parasaurolophus at twice the
+    // size.
+    "hadrosauroidea:hadrosauroidea-charonosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 8000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.11, "predationVulnerability": 0.22,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Hypsibema - roughly 8 tonnes, fragmentary, and the state dinosaur of Missouri.
+    "hadrosauroidea:hadrosauroidea-hypsibema": {
+      "carryingCapacity": 2, "bodyWeight": 8000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.11, "predationVulnerability": 0.22,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Edmontosaurus - about 7 tonnes, and the most abundant large hadrosaur, known from bone beds
+    // holding thousands of animals. It takes the largest herd here. One specimen carries a HEALED
+    // TYRANNOSAUR BITE on its tail: direct evidence of an animal that was attacked and got away.
+    "hadrosauroidea:hadrosauroidea-edmontosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 7000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Saurolophus - roughly 7 tonnes, and one of very few dinosaur genera known from both Asia and
+    // North America.
+    "hadrosauroidea:hadrosauroidea-saurolophus": {
+      "carryingCapacity": 2, "bodyWeight": 7000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Brachylophosaurus - about 5 tonnes, and the fourth animal in this whole series whose diet is
+    // known DIRECTLY. The mummified specimen called Leonardo preserved its stomach contents: ferns,
+    // conifers and magnolias - a browser taking whatever the understorey offered.
+    "hadrosauroidea:hadrosauroidea-brachylophosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 5000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.13, "predationVulnerability": 0.28,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Barsboldia - roughly 5 tonnes, Mongolian, with unusually tall spines over the hips.
+    "hadrosauroidea:hadrosauroidea-barsboldia": {
+      "carryingCapacity": 2, "bodyWeight": 5000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.13, "predationVulnerability": 0.28,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Olorotitan - about 4 tonnes, Russian, and the most complete lambeosaur outside North America,
+    // with a broad fan-shaped crest.
+    "hadrosauroidea:hadrosauroidea-olorotitan": {
+      "carryingCapacity": 2, "bodyWeight": 4000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Hypacrosaurus - roughly 4 tonnes, and known from embryos through adults, which is how much of
+    // what is understood about hadrosaur growth rates was worked out.
+    "hadrosauroidea:hadrosauroidea-hypacrosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 4000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Maiasaura - about 3.5 tonnes, and THE GOOD MOTHER LIZARD, named for the first solid evidence of
+    // dinosaur PARENTAL CARE: colonial nesting grounds with hatchlings that stayed in the nest and
+    // were fed. It is the one animal in this file with juvenile mortality set below the family default
+    // - 0.7 rather than 0.88 - because looking after the young is exactly what that number measures.
+    // It also takes the largest herd alongside Edmontosaurus, on the strength of those nesting
+    // colonies.
+    "hadrosauroidea:hadrosauroidea-maiasaura": {
+      "carryingCapacity": 3, "bodyWeight": 3500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.16, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.7 }
+    },
+
+    // Parasaurolophus - roughly 3.5 tonnes, and the famous one: its long backswept crest is a hollow
+    // resonating tube, and models of it produce a low foghorn note.
+    "hadrosauroidea:hadrosauroidea-parasaurolophus": {
+      "carryingCapacity": 3, "bodyWeight": 3500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Corythosaurus - about 3.5 tonnes, helmet-crested, and known from specimens preserving skin.
+    "hadrosauroidea:hadrosauroidea-corythosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 3500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Gryposaurus - roughly 3.5 tonnes, with a distinctive arched Roman nose.
+    "hadrosauroidea:hadrosauroidea-gryposaurus": {
+      "carryingCapacity": 3, "bodyWeight": 3500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.3,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Lambeosaurus - about 3 tonnes, hatchet-crested, and the genus that names the crested subfamily.
+    "hadrosauroidea:hadrosauroidea-lambeosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.32,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Hadrosaurus - roughly 3 tonnes, and historically the most important animal here: the first
+    // near-complete dinosaur skeleton ever found, which settled that they walked on two legs.
+    "hadrosauroidea:hadrosauroidea-hadrosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.32,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Acristavus - about 3 tonnes, and crestless, which makes it useful for working out when crests
+    // first appeared in the group.
+    "hadrosauroidea:hadrosauroidea-acristavus": {
+      "carryingCapacity": 3, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.15, "predationVulnerability": 0.32,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Amurosaurus - roughly 2.5 tonnes, Russian, and the best known lambeosaur from the Amur region.
+    "hadrosauroidea:hadrosauroidea-amurosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 2500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.16, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Bonapartesaurus - about 2.5 tonnes, Argentine, with a healed injury to its tail.
+    "hadrosauroidea:hadrosauroidea-bonapartesaurus": {
+      "carryingCapacity": 3, "bodyWeight": 2500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.16, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Tanius - roughly 2.5 tonnes, Chinese, crestless and known from partial material.
+    "hadrosauroidea:hadrosauroidea-tanius": {
+      "carryingCapacity": 3, "bodyWeight": 2500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.16, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Pararhabdodon - about 1.5 tonnes, Spanish, and one of the European lambeosaurs.
+    "hadrosauroidea:hadrosauroidea-pararhabdodon": {
+      "carryingCapacity": 4, "bodyWeight": 1500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.45,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Probactrosaurus - roughly 1.2 tonnes, and a BASAL hadrosauroid rather than a true hadrosaur,
+    // sitting close to the transition from the iguanodonts.
+    "hadrosauroidea:hadrosauroidea-probactrosaurus": {
+      "carryingCapacity": 4, "bodyWeight": 1200,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.45,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Arenysaurus - about 1.2 tonnes, Spanish, and one of the last European dinosaurs.
+    "hadrosauroidea:hadrosauroidea-arenysaurus": {
+      "carryingCapacity": 4, "bodyWeight": 1200,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.45,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Canardia - roughly a tonne, French, and named for the duck that hadrosaurs are always compared
+    // to.
+    "hadrosauroidea:hadrosauroidea-canardia": {
+      "carryingCapacity": 4, "bodyWeight": 1000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.22, "predationVulnerability": 0.5,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Telmatosaurus - about 800 kg, and an ISLAND DWARF from the Hateg archipelago of Cretaceous
+    // Romania, where limited land shrank the local dinosaurs. A hadrosaur the size of a horse.
+    "hadrosauroidea:hadrosauroidea-telmatosaurus": {
+      "carryingCapacity": 4, "bodyWeight": 800,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Kazaklambia - roughly 700 kg, Kazakh, and known from a juvenile, so adult mass is uncertain.
+    "hadrosauroidea:hadrosauroidea-kazaklambia": {
+      "carryingCapacity": 4, "bodyWeight": 700,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Secernosaurus - about 600 kg and the smallest here, the first hadrosaur named from South
+    // America.
+    "hadrosauroidea:hadrosauroidea-secernosaurus": {
+      "carryingCapacity": 5, "bodyWeight": 600,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.6,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 60, "litterSizeMin": 8, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "hadrosauroidea:hadrosauroidea-shangtungosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-magnapaulia-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-charonosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-hypsibema-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-edmontosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-saurolophus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-brachylophosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-barsboldia-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-olorotitan-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-hypacrosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-maiasaura-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-parasaurolophus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-corythosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-gryposaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-lambeosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-hadrosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-acristavus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-amurosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-bonapartesaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-tanius-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-pararhabdodon-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-probactrosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-arenysaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-canardia-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-telmatosaurus-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-kazaklambia-incubating": { "chainSeed": true },
+    "hadrosauroidea:hadrosauroidea-secernosaurus-incubating": { "chainSeed": true }
+
+  }
+}

@@ -76,6 +76,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-spinosauridae.json     # Legacy of the Phanerozoic: Sailed Spine (6 spinosaurids + nests)
   lop-therizinosauridae.json # Legacy of the Phanerozoic: Scythe Claws (10 therizinosaurs + nests)
   lop-carcharodontosauridae.json # LotP: Sharp Tooth (12 carcharodontosaurids + nests)
+  lop-hadrosauroidea.json    # Legacy of the Phanerozoic: Shovel Mouth (27 hadrosaurs + nests)
 ```
 
 ### Mods that need no entries
