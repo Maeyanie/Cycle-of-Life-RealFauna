@@ -1,0 +1,210 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Horrible Hands (ornithomimosauria).
+//
+// Fourteen ornithomimosaurs - the ostrich mimics - from a 6.5 tonne Deinocheirus down to a 3 kg
+// Nqwebasaurus, plus their nests. Same two structural corrections as the other herbivore mods in
+// this series, but this family earns something the others did not: REAL DIETARY VARIATION.
+//
+// 1. THEY EAT NOTHING AS SHIPPED. Fourth mod in the series with an EMPTY foodCategories list and a
+//    lone "fruitmash" tag, which resolves to no forage categories at all, leaving fourteen animals
+//    with no food supply and nothing bounding them but carrying capacity and old age.
+//
+//    Here the fix is not one diet repeated fourteen times. Ornithomimosaurs were OMNIVORES, and the
+//    evidence for what individual genera ate is unusually good:
+//
+//      DEINOCHEIRUS gets Vegetable + Fruit + FISH on direct evidence - its gut contents preserved
+//      fish vertebrae and scales alongside gastroliths and plant matter.
+//      PELECANIMIMUS gets Fish + Insect and NO plants at all. It had around 220 teeth, more than any
+//      other theropod, and a preserved throat pouch; the name means pelican mimic and it is the only
+//      member of this family modelled as a fish eater rather than a browser.
+//      HARPYMIMUS keeps TEETH in the lower jaw, unusual for the group, so it gets Insect alongside
+//      plants - an early form that had not yet given up small animal food.
+//      NQWEBASAURUS, the smallest and most basal, is modelled as an insect-and-plant omnivore.
+//      THE REST are Vegetable + Fruit: toothless beaks, gastroliths, and browsing.
+//
+//    Note this is exactly what the Insect and Fish forage pools were added for. A fish-eating
+//    dinosaur and a penguin now compete for the same pool, which is the correct relationship.
+//
+// 2. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Far too light for Deinocheirus, and
+//    more than a thousandfold too heavy for Nqwebasaurus. Published estimates per species.
+//
+// 3. HERDS follow the evidence again, as with the ceratopsians. SINORNITHOMIMUS has the best case in
+//    the family - around fourteen juveniles died together mired in a drying lake bed, with no adults
+//    among them - and takes the largest herd. Gallimimus and the mid-sized mimics get moderate
+//    groups. Deinocheirus and Paraxenisaurus, both enormous, are modelled as near-solitary.
+//
+// These were fast animals, among the most cursorial dinosaurs known, so predation vulnerability sits
+// lower than raw body mass alone would suggest: a Struthiomimus outruns most things chasing it.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Deinocheirus - the horrible hand itself, and at 6.5 tonnes the largest ornithomimosaur by an
+    // enormous margin. Known for fifty years from nothing but a pair of 2.4 metre arms before complete
+    // material turned up. It gets FISH in its diet on direct evidence: gut contents preserved fish
+    // vertebrae and scales alongside gastroliths and plant matter. A duck-billed, humped omnivore.
+    "ornithomimosauria:ornithomimosauria-deinocheirus": {
+      "carryingCapacity": 1, "bodyWeight": 6500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit", "Fish"],
+      "growthRate": 0.1, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Paraxenisaurus - around a tonne, a North American relative of Deinocheirus and the first
+    // deinocheirid known from the continent.
+    "ornithomimosauria:ornithomimosauria-paraxenisaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.25,
+      "herd": { "maxHerdSize": 2, "preferredHerdSize": 1 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Gallimimus - about 440 kg and the largest of the ostrich-mimic build proper. Toothless beak,
+    // gastroliths, and a comb-like structure in the jaw that has been read as filter feeding.
+    "ornithomimosauria:ornithomimosauria-gallimimus": {
+      "carryingCapacity": 3, "bodyWeight": 440,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.4,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Dzharacursor - roughly 200 kg, named in 2022 from Uzbek material previously assigned elsewhere.
+    "ornithomimosauria:ornithomimosauria-dzharacursor": {
+      "carryingCapacity": 3, "bodyWeight": 200,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.25, "predationVulnerability": 0.5,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Struthiomimus - about 150 kg, long-legged and built for speed, with proportions closer to a
+    // modern ostrich than almost any other dinosaur.
+    "ornithomimosauria:ornithomimosauria-struthiomimus": {
+      "carryingCapacity": 4, "bodyWeight": 150,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.5,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Ornithomimus - roughly 140 kg, and the specimen that first showed feather impressions on an
+    // ornithomimosaur, including what appear to be wing-like arm feathers on adults.
+    "ornithomimosauria:ornithomimosauria-ornithomimus": {
+      "carryingCapacity": 4, "bodyWeight": 140,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.28, "predationVulnerability": 0.5,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5400, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Harpymimus - about 125 kg. Unusually for the group it kept TEETH in the lower jaw, which is why
+    // it gets Insect alongside plants: an early ornithomimosaur that had not yet given up small animal
+    // food. The mod draws it smaller than published estimates; the estimate wins here, as elsewhere.
+    "ornithomimosauria:ornithomimosauria-harpymimus": {
+      "carryingCapacity": 4, "bodyWeight": 125,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit", "Insect"],
+      "growthRate": 0.3, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Garudimimus - around 100 kg, slower-built than its relatives, with a blunt snout.
+    "ornithomimosauria:ornithomimosauria-garudimimus": {
+      "carryingCapacity": 4, "bodyWeight": 100,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.3, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Dromiceiomimus - about 100 kg, and often treated as a species of Ornithomimus rather than its
+    // own genus. Kept separate because the mod does.
+    "ornithomimosauria:ornithomimosauria-dromiceiomimus": {
+      "carryingCapacity": 4, "bodyWeight": 100,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.3, "predationVulnerability": 0.55,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 5000, "gestationDays": 55, "litterSizeMin": 8, "litterSizeMax": 14, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Sinornithomimus - roughly 50 kg, and the best herding evidence in this family: a group of around
+    // fourteen juveniles died mired in a drying lake bed together, with no adults among them. It takes
+    // the largest herd here.
+    "ornithomimosauria:ornithomimosauria-sinornithomimus": {
+      "carryingCapacity": 5, "bodyWeight": 50,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.35, "predationVulnerability": 0.6,
+      "herd": { "maxHerdSize": 12, "preferredHerdSize": 8 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 45, "litterSizeMin": 8, "litterSizeMax": 15, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Pelecanimimus - about 35 kg, and the strangest diet in the family. It had roughly 220 TEETH,
+    // more than any other theropod, and a throat pouch preserved as a soft-tissue impression -
+    // pelican-like, as the name says. Modelled as a FISH EATER rather than a browser, which makes it
+    // the only ornithomimosaur here drawing on no plant pool at all.
+    "ornithomimosauria:ornithomimosauria-pelecanimimus": {
+      "carryingCapacity": 5, "bodyWeight": 35,
+      "isForager": true, "foodCategories": ["Fish", "Insect"],
+      "growthRate": 0.4, "predationVulnerability": 0.65,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 4300, "gestationDays": 45, "litterSizeMin": 8, "litterSizeMax": 15, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Kinnareemimus - around 30 kg, Thai, and known from fragmentary leg and vertebral material.
+    "ornithomimosauria:ornithomimosauria-kinnareemimus": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.4, "predationVulnerability": 0.7,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 45, "litterSizeMin": 8, "litterSizeMax": 15, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Tyrannomimus - about 30 kg, named in 2023 from Japanese material once mistaken for a
+    // tyrannosaur, which is where the name comes from.
+    "ornithomimosauria:ornithomimosauria-tyrannomimus": {
+      "carryingCapacity": 5, "bodyWeight": 30,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.4, "predationVulnerability": 0.7,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 3600, "gestationDays": 45, "litterSizeMin": 8, "litterSizeMax": 15, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Nqwebasaurus - about 3 kg, the smallest and oldest here, and the only African member. Basal
+    // enough that it sits near the base of the group, with gastroliths but also grasping hands, so it
+    // is modelled as an insect-and-plant omnivore rather than a browser.
+    "ornithomimosauria:ornithomimosauria-nqwebasaurus": {
+      "carryingCapacity": 6, "bodyWeight": 3,
+      "isForager": true, "foodCategories": ["Insect", "Vegetable"],
+      "growthRate": 0.5, "predationVulnerability": 0.8,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 2900, "gestationDays": 45, "litterSizeMin": 10, "litterSizeMax": 16, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "ornithomimosauria:ornithomimosauria-deinocheirus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-paraxenisaurus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-gallimimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-dzharacursor-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-struthiomimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-ornithomimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-harpymimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-garudimimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-dromiceiomimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-sinornithomimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-pelecanimimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-kinnareemimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-tyrannomimus-incubating": { "chainSeed": true },
+    "ornithomimosauria:ornithomimosauria-nqwebasaurus-incubating": { "chainSeed": true }
+
+  }
+}
