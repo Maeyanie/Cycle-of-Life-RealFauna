@@ -31,9 +31,13 @@
 //    series have stomach contents to prove their case and these do not. Unstated means hunts and
 //    nothing more, the right default for an obligate carnivore.
 //
-// 5. THEY DO NOT HUNT WOLVES OR BEARS, for the same reason as everything else in this series: those
-//    appear only in a retaliation list gated on "aggressiveondamage", never in the prey list gated
-//    on "saturated". A Tyrannosaurus will kill a wolf that attacks it and will not seek one out.
+// 5. THEY HUNT WOLVES AND BEARS, though not because the mod asks. Like every carnivore in this
+//    series it puts those in a retaliation list gated on "aggressiveondamage", never in the prey list
+//    gated on "saturated", and damage-gated tasks are not read as hunting. What reaches them instead
+//    is INTRAGUILD PREDATION, added in 0.15.27: an apex-tagged animal is prey up to a third of the
+//    hunter own weight. For an 8 tonne Tyrannosaurus that is a ceiling near 2.6 tonnes, covering
+//    bears, lions, tigers and sabertooths comfortably - and, pleasingly, the smaller members of its
+//    own family.
 //
 // NESTS ARE CHAIN SEEDS, as elsewhere in the series. Only INCUBATING nests need entries; mature and
 // empty get triesPerChunk 0, and eggs are runtime chance 0.0.

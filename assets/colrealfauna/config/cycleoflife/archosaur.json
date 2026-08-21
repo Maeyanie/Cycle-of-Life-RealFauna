@@ -28,10 +28,14 @@
 // 2. PREY BY MASS BAND, 10-600 kg, AND ITS OWN LIST DROPPED. Upper bound is a moose, the largest
 //    thing on its wish list; lower bound keeps a half-tonne predator from chasing hares. The mod
 //    wants it eating bears, wolves and big cats too, and now that domainless patterns resolve it
-//    WOULD — so "preySpeciesCodes": [] clears the discovered list and leaves only the band, which
-//    skips anything tagged apex. Deliberate: the creature is not especially large or fearsome by its
-//    own artwork, and a predator that eats other apex predators sits on top of a chain the simulation
-//    would have to feed twice. Delete that line to hand its own list back.
+//    WOULD — so "preySpeciesCodes": [] clears the discovered list and leaves only the band.
+//    Delete that line to hand its own list back.
+//
+//    Since 0.15.27 the band is no longer apex-blind: intraguild predation is gated on a MASS RATIO,
+//    a third of the hunter's own weight by default. At 500 kg that gives the ferocidon an apex
+//    ceiling near 165 kg — a wolf, a hyena, a leopard — and leaves lions, tigers and bears out of
+//    reach. Which is close to the judgement that put this list aside in the first place: it could
+//    probably take a wolf or a smaller big cat, and would not want to bet its life on anything more.
 //
 // 3. THE NEST IS A CHAIN SEED, and would not have been detected as one either. Nests spawn from
 //    worldgen and runtime and hatch into ferocidons through the mod's own incubating -> mature ->

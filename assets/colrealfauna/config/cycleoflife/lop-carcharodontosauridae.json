@@ -9,23 +9,24 @@
 //    Lajasvenator. Published estimates per species, mid-range where sources disagree, with the mod
 //    hitbox ordering breaking ties at the small end where the material is fragmentary.
 //
-// 2. THEY DO NOT EAT WOLVES, AND THAT IS THE MOD OWN DECISION. It is tempting to assume that an
-//    animal this size treats a wolf or a bear as a snack, and physically that is obviously true. But
-//    the mod splits its targets into two lists and the split is deliberate:
+// 2. THEY DO EAT WOLVES - though not because the mod says so. It splits its targets into two lists
+//    and the split is deliberate:
 //
 //      A PREY list - pig, gazelle, deer, moose, bison, and the sibling Legacy of the Phanerozoic
 //      herbivore groups - gated on whenNotInEmotionState "saturated", meaning hunt when not full.
 //      A RETALIATION list - wolves, hyenas, bears, direwolves, rival theropods, hostile mobs - gated
 //      on "aggressiveondamage", meaning fight back when hurt.
 //
-//    Wolves and bears appear only in the second. Every carnivore in this series is written the same
-//    way, and Cycle of Life honours it: damage-gated tasks are not read as hunting. Mass bands would
-//    not change it either, since they skip anything tagged apex by design.
+//    Wolves and bears appear only in the second, in every carnivore mod in this series, and Cycle of
+//    Life honours that: damage-gated tasks are never read as hunting, so the mod own list still does
+//    not send these animals after predators.
 //
-//    So a Giganotosaurus will kill a wolf that attacks it and will not go looking for one. If you
-//    want the other behaviour, explicit preySpeciesCodes union with the band - but note this pack has
-//    consistently declined to feed one apex predator on another, because it puts a food chain on top
-//    of a food chain that the simulation then has to supply twice.
+//    What does is INTRAGUILD PREDATION, added in 0.15.27 and applied by MASS rather than by list. An
+//    apex-tagged animal is fair game up to a third of the hunter own weight, which is about where it
+//    sits in the real world: lions take leopards and hyenas, wolves take foxes, bears take wolves.
+//    For a 7 tonne Giganotosaurus that ceiling is over two tonnes, so bears, big cats and wolves are
+//    all well inside it. The relationship stays one-way by construction - nothing a
+//    carcharodontosaurid can eat is remotely heavy enough to eat one back.
 //
 // 3. PREY BANDS reach three times body mass for the giants, which covers the smaller sauropods and
 //    the juveniles of the large ones without pretending a lone animal pulls down an Argentinosaurus.
