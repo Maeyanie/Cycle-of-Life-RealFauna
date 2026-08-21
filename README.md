@@ -66,6 +66,20 @@ assets/colrealfauna/config/cycleoflife/
   primitivesurvival.json     # Primitive Survival
 ```
 
+### Mods that need no entries
+
+Some requested mods are already invisible to Cycle of Life, so the pack has nothing useful to say
+about them. Recorded here so the reasoning does not have to be re-derived each time someone asks:
+
+| Mod | Why there is no file |
+| --- | --- |
+| **Seikret** (Monster Hunter mount) | Nothing in it spawns naturally. The birds declare no spawn conditions at all, and the egg (`igg`) has a runtime chance of `0.0` for every type with no worldgen block. Eggs are bought from the treasure-hunter trader, so a Seikret is player property, not wildlife. |
+
+Note that an `exclude` entry would achieve nothing for these. `SpeciesCatalog.Build` reads spawn
+conditions **first** and only consults the exclusion list for entities that actually spawn, so a
+creature that never spawns is dropped before exclusions are considered. Such mods are never
+discovered, never adopted, never spawn-vetoed and never despawned — including once tamed or ridden.
+
 ### Verification status
 
 Files are marked below by how their species keys were confirmed. A key that is wrong is *inert*, not
