@@ -1,0 +1,181 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Plated Back (stegosauria).
+//
+// Twelve stegosaurs, from a 5 tonne Dacentrurus to a 300 kg Chungkingosaurus, plus their nests.
+// Sixth mod in this series, so the two structural problems are familiar by now - but this family
+// brings two things worth setting carefully.
+//
+// 1. THEY EAT NOTHING AS SHIPPED: empty foodCategories, a lone "fruitmash" tag, no forage categories
+//    at all. Given Vegetable + Fruit as usual, with ONE EXCEPTION worth the trouble:
+//
+//      ISABERRYSAURA gets Vegetable + GRAIN, because its diet is known DIRECTLY rather than inferred.
+//      Its gut contents preserved CYCAD SEEDS - seeds, not soft fruit - which also makes it the
+//      earliest known seed-dispersing dinosaur. Third animal in this whole series with preserved
+//      stomach contents, after the ankylosaur ferns and the Deinocheirus fish, and all three get
+//      diets set from the evidence rather than from the family.
+//
+// 2. BODY WEIGHT, FLAT 4000 kg PER ADULT - and for once that figure is very nearly RIGHT for the
+//    headline animal, since Stegosaurus itself was about four tonnes. It is still thirteenfold too
+//    heavy for Chungkingosaurus. Published estimates per species; the mod hitbox ordering agrees
+//    with them closely here, largest and smallest both matching.
+//
+// 3. SPIKES, AND WHAT THEY ARE WORTH. As with the ankylosaur tail clubs, predationVulnerability is
+//    where this family's defence lives, and the evidence is unusually direct: STEGOSAURUS TAIL
+//    SPIKES HAVE BEEN FOUND EMBEDDED IN AN ALLOSAURUS VERTEBRA, and Allosaurus bones carry punctures
+//    matching them. These animals fought back and sometimes won.
+//
+//    KENTROSAURUS deserves particular note. At 1.2 tonnes it is a fifth the mass of Dacentrurus, but
+//    it is the spikiest of the family - paired spines from mid-back to tail tip, plus one over each
+//    shoulder - so its vulnerability is set near the far larger Stegosaurus rather than with animals
+//    its own size. Being small does not make it easy prey. GIGANTSPINOSAURUS gets the same treatment
+//    on a smaller scale, with shoulder spines longer than its own shoulder blades.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Dacentrurus - around 5 tonnes and one of the largest stegosaurs, European, and the first of the
+    // whole group ever named.
+    "stegosauria:stegosauria-dacentrurus": {
+      "carryingCapacity": 1, "bodyWeight": 5000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.09, "predationVulnerability": 0.08,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Stegosaurus - about 4 tonnes, and for once the mod flat weight is very nearly right. The
+    // thagomizer is not decoration: Stegosaurus tail spikes have been found EMBEDDED IN AN ALLOSAURUS
+    // vertebra, and Allosaurus bones show punctures matching them. Rated accordingly hard to kill.
+    "stegosauria:stegosauria-stegosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 4000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.09, "predationVulnerability": 0.08,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Wuerhosaurus - roughly 3 tonnes, Chinese, and one of the last stegosaurs, with unusually low and
+    // broad plates.
+    "stegosauria:stegosauria-wuerhosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Hesperosaurus - about 3 tonnes, with shorter, rounder plates than Stegosaurus; one specimen
+    // preserves the keratin sheath that covered them in life.
+    "stegosauria:stegosauria-hesperosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 3000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Tuojiangosaurus - roughly 2.8 tonnes, and the best known Chinese stegosaur.
+    "stegosauria:stegosauria-tuojiangosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2800,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.11, "predationVulnerability": 0.12,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Miragaia - about 2 tonnes, and the LONG-NECKED stegosaur: seventeen neck vertebrae, more than
+    // most sauropods, which is thought to be about reaching higher browse.
+    "stegosauria:stegosauria-miragaia": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.14,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Alcovasaurus - roughly 2 tonnes, known from material with exceptionally long tail spikes.
+    "stegosauria:stegosauria-alcovasaurus": {
+      "carryingCapacity": 2, "bodyWeight": 2000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.14,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Isaberrysaura - about 1.8 tonnes, and the one animal in this file whose diet is known DIRECTLY.
+    // Its gut contents preserved CYCAD SEEDS, so it gets Grain rather than Fruit as its second pool -
+    // seeds, not soft fruit. It may also have been dispersing them, which makes it the earliest known
+    // seed-dispersing dinosaur.
+    "stegosauria:stegosauria-isaberrysaura": {
+      "carryingCapacity": 2, "bodyWeight": 1800,
+      "isForager": true, "foodCategories": ["Vegetable", "Grain"],
+      "growthRate": 0.12, "predationVulnerability": 0.16,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Kentrosaurus - roughly 1.2 tonnes and the spikiest of the family, with paired spines running
+    // from mid-back to tail tip and one more over each shoulder. Small but genuinely dangerous to
+    // approach, so its vulnerability sits near the far larger Stegosaurus rather than with animals its
+    // own size. Known from a Tendaguru bone bed holding many individuals, hence the larger herd.
+    "stegosauria:stegosauria-kentrosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 1200,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.15,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Gigantspinosaurus - about 700 kg, with shoulder spines so large they are longer than its
+    // shoulder blades. Small, but not something to be casually eaten.
+    "stegosauria:stegosauria-gigantspinosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 700,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.16, "predationVulnerability": 0.2,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Huayangosaurus - roughly 500 kg, one of the earliest and most basal stegosaurs, and still had
+    // teeth in the front of its upper jaw, which later members lost.
+    "stegosauria:stegosauria-huayangosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 500,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.18, "predationVulnerability": 0.35,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // Chungkingosaurus - about 300 kg and the smallest here, with plates intermediate between plates
+    // and spikes. The mod gives it the smallest hitbox of the twelve, which agrees.
+    "stegosauria:stegosauria-chungkingosaurus": {
+      "carryingCapacity": 3, "bodyWeight": 300,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.2, "predationVulnerability": 0.4,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 7200, "gestationDays": 75, "litterSizeMin": 6, "litterSizeMax": 12, "breedingMonths": [4, 5], "juvenileMortality": 0.88 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "stegosauria:stegosauria-dacentrurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-stegosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-wuerhosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-hesperosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-tuojiangosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-miragaia-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-alcovasaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-isaberrysaura-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-kentrosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-gigantspinosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-huayangosaurus-incubating": { "chainSeed": true },
+    "stegosauria:stegosauria-chungkingosaurus-incubating": { "chainSeed": true }
+
+  }
+}
