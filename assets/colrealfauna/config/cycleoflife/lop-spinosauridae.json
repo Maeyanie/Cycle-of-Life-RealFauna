@@ -3,32 +3,30 @@
 // Six spinosaurids, from a 6.5 tonne Spinosaurus to a 1 tonne Irritator, plus their nests. These are
 // carnivores, so unlike the herbivore mods in this series they need no diet rescuing - and they are
 // detected as predators on their own, from a hunt list that resolves properly. Body weight is the
-// usual correction, and then there is one honest limitation worth writing down.
+// usual correction, and then the one thing this family is actually about: fish.
 //
 // 1. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Too light for Spinosaurus, four times
 //    too heavy for Irritator. Published estimates per species, and the mod hitbox ordering agrees
 //    with them exactly here - 2.5 x 5 down to 2 x 3, in the same sequence.
 //
-// 2. THE FISH PROBLEM, WHICH THIS MOD EXPOSES BETTER THAN ANYTHING ELSE IN THE PACK.
+// 2. THEY FISH, and as of Cycle of Life 0.15.26 that is actually modelled - this mod is the reason
+//    it is. Spinosaurids were piscivores, and not by inference: the Baryonyx holotype preserved
+//    acid-etched scales of the fish Lepidotes in its stomach alongside the bones of a juvenile
+//    Iguanodon. The mod follows that faithfully, opening its hunt list with "salmon", "sunfish" and
+//    "geodecrab-*" before the land animals.
 //
-//    Spinosaurids were piscivores. That is not a guess: the Baryonyx holotype preserved acid-etched
-//    scales of the fish Lepidotes in its stomach, alongside the bones of a juvenile Iguanodon. The
-//    mod models this faithfully, opening its hunt list with "salmon", "sunfish" and "geodecrab-*"
-//    before the land animals.
+//    Aquatic species are excluded from our catalog - we place animals on land - so the fish half of
+//    that hunt list still resolves to nothing as PREY. What carries it instead is the FISH FORAGE
+//    POOL, which exists to stand in for exactly this: food an animal really eats that the simulation
+//    does not model as species. Predators used to be stripped of it on the rule that a prey list
+//    already represents the meat they eat. True of Meat, false of Fish - a spinosaurid prey list
+//    represents the Iguanodon, not the Lepidotes - so now only Meat is stripped, and these six draw
+//    on Fish alongside the land animals they hunt. They also compete for that pool with penguins,
+//    which is a sentence this pack is glad to be able to write.
 //
-//    Cycle of Life cannot currently follow it there. Aquatic species are excluded from the catalog
-//    (we place animals on land, so managing fish would veto their spawns and then fail to place
-//    them), so the fish half of that hunt list resolves to nothing. And the Fish FORAGE pool, which
-//    exists precisely to stand in for prey the simulation does not model, is stripped from anything
-//    classed as a predator - the rule being that a predator prey list already represents the meat it
-//    eats, so drawing on Meat as well would be a second, bottomless supply.
-//
-//    That rule is right for Meat and wrong here: a spinosaurid prey list represents the Iguanodon,
-//    not the Lepidotes. The result is that these six are modelled as purely terrestrial hunters,
-//    which is the least true thing in this pack. Their prey bands are set MODEST for their size to
-//    partly compensate - a 6.5 tonne Spinosaurus rated to take only up to a tonne of land animal,
-//    where an abelisaurid of half the mass reaches three times that - so they are not simply large
-//    theropods with an extra sail.
+//    Their prey bands stay MODEST for their size regardless - a 6.5 tonne Spinosaurus rated to take
+//    up to a tonne of land animal, where an abelisaurid of half the mass reaches three times that -
+//    because the land half of their diet genuinely was the side dish.
 //
 // 3. THEY HUNT WHAT THEY CAN CATCH ON LAND, and their own list is kept: it names the sibling Legacy
 //    of the Phanerozoic herbivore groups, gated on "saturated" like the rest of the series, with a
@@ -53,6 +51,7 @@
     "spinosauridae:spinosauridae-spinosaurus": {
       "carryingCapacity": 1, "bodyWeight": 6500, "isPredator": true,
       "preyMinBodyWeight": 5, "preyMaxBodyWeight": 1000, "preyPerPredator": 5,
+      "isForager": true,
       "growthRate": 0.07, "predationVulnerability": 0.03,
       "lifecycle": { "lifespanDays": 13000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
@@ -62,6 +61,7 @@
     "spinosauridae:spinosauridae-oxalaia": {
       "carryingCapacity": 1, "bodyWeight": 4000, "isPredator": true,
       "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "isForager": true,
       "growthRate": 0.07, "predationVulnerability": 0.04,
       "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
@@ -71,6 +71,7 @@
     "spinosauridae:spinosauridae-suchomimus": {
       "carryingCapacity": 1, "bodyWeight": 3800, "isPredator": true,
       "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "isForager": true,
       "growthRate": 0.08, "predationVulnerability": 0.04,
       "lifecycle": { "lifespanDays": 12000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
@@ -78,10 +79,11 @@
     // Baryonyx - roughly 2 tonnes, and the animal that proved what this family ate. Its gut contents
     // held BOTH acid-etched scales of the fish Lepidotes AND the bones of a juvenile Iguanodon -
     // direct evidence of piscivory and of terrestrial predation in the same stomach. Its prey band
-    // covers the second half; the first is not something this simulation can currently represent.
+    // covers the second half, and the Fish forage pool now carries the first.
     "spinosauridae:spinosauridae-baryonyx": {
       "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
       "preyMinBodyWeight": 2, "preyMaxBodyWeight": 500, "preyPerPredator": 4,
+      "isForager": true,
       "growthRate": 0.09, "predationVulnerability": 0.06,
       "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
@@ -91,6 +93,7 @@
     "spinosauridae:spinosauridae-ichthyovenator": {
       "carryingCapacity": 2, "bodyWeight": 2000, "isPredator": true,
       "preyMinBodyWeight": 2, "preyMaxBodyWeight": 500, "preyPerPredator": 4,
+      "isForager": true,
       "growthRate": 0.09, "predationVulnerability": 0.06,
       "lifecycle": { "lifespanDays": 11000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
@@ -100,6 +103,7 @@
     "spinosauridae:spinosauridae-irritator": {
       "carryingCapacity": 2, "bodyWeight": 1000, "isPredator": true,
       "preyMinBodyWeight": 3, "preyMaxBodyWeight": 300, "preyPerPredator": 3,
+      "isForager": true,
       "growthRate": 0.11, "predationVulnerability": 0.1,
       "lifecycle": { "lifespanDays": 10000, "gestationDays": 75, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
     },
