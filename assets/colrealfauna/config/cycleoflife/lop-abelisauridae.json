@@ -1,0 +1,219 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Carnivorous Bull (abelisauridae).
+//
+// Eighteen abelisaurids, from a 3.4 tonne Pycnonemosaurus down to a 250 kg Tarascosaurus, plus their
+// nests. Same authors and same shape as the Birds of Prey raptors, and the same one real problem.
+//
+// 1. PREY NEEDS NO RESCUING. The mod writes a proper hunt list - wild pigs, gazelle, deer, horses,
+//    and the other Legacy of the Phanerozoic herbivore groups (pachycephalosaurs, ankylosaurs,
+//    ceratopsians, ornithomimosaurs, sauropods, stegosaurs, therizinosaurs, hadrosaurs) - gated on
+//    whenNotInEmotionState "saturated", which is to say hunt when not full. A SECOND list of rival
+//    predators (wolves, bears, big cats, other theropods, and abelisaurids themselves) is gated on
+//    "aggressiveondamage", so it reads as retaliation and never becomes a food supply. That is a
+//    well-made distinction and Cycle of Life honours it as written.
+//
+//    MASS BANDS are set anyway: the hunt list names sibling mods a given server may not have
+//    installed, and a band reaches whatever herbivores actually are present instead. Upper bounds
+//    run to about twice body mass, which is what a large theropod taking ornithischians implies
+//    without pretending a lone Carnotaurus pulls down a full-grown sauropod.
+//
+// 2. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Too heavy for all eighteen, and by
+//    more than tenfold at the small end. Weight drives forage demand, grazing range, territory
+//    radius and the satiation reserve here, so this is the correction that matters. Masses are
+//    published estimates, mid-range where sources disagree.
+//
+//    Where the fossil record is thin - Thanos is a single vertebra, Tarascosaurus and Dahalokely
+//    little better - the mod own hitbox ordering is used as the tiebreak, since it is at least the
+//    author stated intent. Where the record is good, it wins: Pycnonemosaurus and Carnotaurus share
+//    a hitbox in the mod but not a mass, because a 3.4 tonne animal and a 1.5 tonne one are not the
+//    same animal however they are drawn.
+//
+// NESTS ARE CHAIN SEEDS, as in the raptor file: they carry "bellalarm" beside "idle" so they fail
+// the static test and would otherwise be managed as breeding animals. Only INCUBATING nests need
+// entries - mature and empty get triesPerChunk 0. Eggs are runtime chance 0.0, and the lure and
+// hitch have no spawn conditions at all, being player equipment.
+//
+// Lifespans are anchored on Majungasaurus, which has the best growth record in the family: slow
+// maturity and a long life, scaled by size across the rest.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Pycnonemosaurus - the largest abelisaurid known, around 3.4 tonnes. The mod gives it the biggest
+    // hitbox in the family, which agrees.
+    "abelisauridae:abelisauridae-pycnonemosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 3400, "isPredator": true,
+      "preyMinBodyWeight": 30, "preyMaxBodyWeight": 7000, "preyPerPredator": 10,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Chenanisaurus - roughly 2 tonnes, and one of the very last abelisaurids, from the final million
+    // years of the Cretaceous.
+    "abelisauridae:abelisauridae-chenanisaurus": {
+      "carryingCapacity": 1, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 20, "preyMaxBodyWeight": 4000, "preyPerPredator": 9,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Ekrixinatosaurus - about 2 tonnes, heavily built, with an unusually large head for its length.
+    "abelisauridae:abelisauridae-ekrixinatosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 2000, "isPredator": true,
+      "preyMinBodyWeight": 20, "preyMaxBodyWeight": 4000, "preyPerPredator": 9,
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "lifecycle": { "lifespanDays": 13000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Carnotaurus - the animal the mod is named for, 1.3-2.1 tonnes. Famously horned and very short
+    // armed, with proportions that read as a pursuit predator rather than a grappler.
+    "abelisauridae:abelisauridae-carnotaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1500, "isPredator": true,
+      "preyMinBodyWeight": 15, "preyMaxBodyWeight": 3000, "preyPerPredator": 8,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Abelisaurus - about 1.4 tonnes, and the genus that named the family, known mainly from a skull.
+    "abelisauridae:abelisauridae-abelisaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1400, "isPredator": true,
+      "preyMinBodyWeight": 14, "preyMaxBodyWeight": 2800, "preyPerPredator": 8,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 12000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Rajasaurus - around 1.2 tonnes, with a single low nasal horn.
+    "abelisauridae:abelisauridae-rajasaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1200, "isPredator": true,
+      "preyMinBodyWeight": 12, "preyMaxBodyWeight": 2400, "preyPerPredator": 8,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Majungasaurus - about 1.1 tonnes, and the abelisaurid with the best growth record, which is what
+    // the long lifespans in this file are anchored on. Also the family member with direct evidence of
+    // cannibalism, though that is not something this simulation models as a food supply.
+    "abelisauridae:abelisauridae-majungasaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1100, "isPredator": true,
+      "preyMinBodyWeight": 11, "preyMaxBodyWeight": 2200, "preyPerPredator": 8,
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Skorpiovenator - roughly a tonne, known from a nearly complete skeleton.
+    "abelisauridae:abelisauridae-skorpiovenator": {
+      "carryingCapacity": 1, "bodyWeight": 1000, "isPredator": true,
+      "preyMinBodyWeight": 10, "preyMaxBodyWeight": 2000, "preyPerPredator": 7,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Rahiolisaurus - about a tonne, known from a bone bed of several individuals.
+    "abelisauridae:abelisauridae-rahiolisaurus": {
+      "carryingCapacity": 1, "bodyWeight": 1000, "isPredator": true,
+      "preyMinBodyWeight": 10, "preyMaxBodyWeight": 2000, "preyPerPredator": 7,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 11000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Xenotarsosaurus - around 800 kg, fragmentary, and an early member of the family.
+    "abelisauridae:abelisauridae-xenotarsosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 800, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 1600, "preyPerPredator": 6,
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 2, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Rugops - about 750 kg, with a lightly built skull often read as suiting scavenging or small prey
+    // more than large kills.
+    "abelisauridae:abelisauridae-rugops": {
+      "carryingCapacity": 1, "bodyWeight": 750, "isPredator": true,
+      "preyMinBodyWeight": 8, "preyMaxBodyWeight": 1500, "preyPerPredator": 6,
+      "growthRate": 0.08, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Arcovenator - roughly 700 kg, and European, which is unusual for the family.
+    "abelisauridae:abelisauridae-arcovenator": {
+      "carryingCapacity": 1, "bodyWeight": 700, "isPredator": true,
+      "preyMinBodyWeight": 7, "preyMaxBodyWeight": 1400, "preyPerPredator": 6,
+      "growthRate": 0.09, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Aucasaurus - about 700 kg, a close and slightly smaller relative of Carnotaurus.
+    "abelisauridae:abelisauridae-aucasaurus": {
+      "carryingCapacity": 1, "bodyWeight": 700, "isPredator": true,
+      "preyMinBodyWeight": 7, "preyMaxBodyWeight": 1400, "preyPerPredator": 6,
+      "growthRate": 0.09, "predationVulnerability": 0.05,
+      "lifecycle": { "lifespanDays": 10000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Viavenator - around 600 kg, mid-sized and lightly built.
+    "abelisauridae:abelisauridae-viavenator": {
+      "carryingCapacity": 2, "bodyWeight": 600, "isPredator": true,
+      "preyMinBodyWeight": 6, "preyMaxBodyWeight": 1200, "preyPerPredator": 5,
+      "growthRate": 0.09, "predationVulnerability": 0.06,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Ilokelesia - roughly 400 kg, and one of the most basal abelisaurids.
+    "abelisauridae:abelisauridae-ilokelesia": {
+      "carryingCapacity": 2, "bodyWeight": 400, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "growthRate": 0.1, "predationVulnerability": 0.07,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Dahalokely - about 400 kg, Madagascan, and known from only a handful of vertebrae and ribs.
+    "abelisauridae:abelisauridae-dahalokely": {
+      "carryingCapacity": 2, "bodyWeight": 400, "isPredator": true,
+      "preyMinBodyWeight": 4, "preyMaxBodyWeight": 800, "preyPerPredator": 5,
+      "growthRate": 0.1, "predationVulnerability": 0.07,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Thanos - named for the Greek Thanatos rather than the film, and known from a single vertebra, so
+    // the mass is a guess in any account. The mod gives it the SMALLEST hitbox in the family, which is
+    // what settles it low here.
+    "abelisauridae:abelisauridae-thanos": {
+      "carryingCapacity": 2, "bodyWeight": 350, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 700, "preyPerPredator": 4,
+      "growthRate": 0.11, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // Tarascosaurus - around 250 kg, European and fragmentary, and the smallest of the eighteen.
+    "abelisauridae:abelisauridae-tarascosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 250, "isPredator": true,
+      "preyMinBodyWeight": 3, "preyMaxBodyWeight": 500, "preyPerPredator": 4,
+      "growthRate": 0.11, "predationVulnerability": 0.08,
+      "lifecycle": { "lifespanDays": 9000, "gestationDays": 70, "litterSizeMin": 3, "litterSizeMax": 6, "breedingMonths": [4, 5], "juvenileMortality": 0.85 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "abelisauridae:abelisauridae-pycnonemosaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-chenanisaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-ekrixinatosaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-carnotaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-abelisaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-rajasaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-majungasaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-skorpiovenator-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-rahiolisaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-xenotarsosaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-rugops-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-arcovenator-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-aucasaurus-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-viavenator-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-ilokelesia-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-dahalokely-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-thanos-incubating": { "chainSeed": true },
+    "abelisauridae:abelisauridae-tarascosaurus-incubating": { "chainSeed": true }
+
+  }
+}

@@ -167,6 +167,29 @@ Three prey bands are set from evidence rather than scaled from mass:
 These are estimates from a contested literature, not measurements. They are recorded here so the
 numbers can be argued with rather than merely trusted.
 
+### Abelisaurid body masses — Carnivorous Bull
+
+Same problem as the raptors, larger: the mod declares a flat **4000 kg for every adult** across
+eighteen species that really run from a ~3.4 tonne *Pycnonemosaurus* to a ~250 kg *Tarascosaurus*.
+Masses used, mid-range where sources disagree:
+
+*Pycnonemosaurus* 3400 · *Chenanisaurus* 2000 · *Ekrixinatosaurus* 2000 · *Carnotaurus* 1500 ·
+*Abelisaurus* 1400 · *Rajasaurus* 1200 · *Majungasaurus* 1100 · *Skorpiovenator* 1000 ·
+*Rahiolisaurus* 1000 · *Xenotarsosaurus* 800 · *Rugops* 750 · *Arcovenator* 700 · *Aucasaurus* 700 ·
+*Viavenator* 600 · *Ilokelesia* 400 · *Dahalokely* 400 · *Thanos* 350 · *Tarascosaurus* 250 (kg)
+
+Two rules were used where those sources are thin:
+
+- **Where the record is poor, the mod's own hitbox ordering breaks the tie.** *Thanos* is known from
+  a single vertebra, *Tarascosaurus* and *Dahalokely* from little more, so their masses follow the
+  size the author drew them at — it is at least a stated intent.
+- **Where the record is good, it wins over the model.** *Pycnonemosaurus* and *Carnotaurus* share a
+  hitbox in the mod but not a mass here, because a 3.4 tonne animal and a 1.5 tonne one are not the
+  same animal however they are drawn.
+
+Lifespans across the family are anchored on *Majungasaurus*, which has the best-studied growth
+record of any abelisaurid, and scaled by size from there.
+
 ## Corrections welcome
 
 If a number here is wrong, the fix is usually one value in one file, and the file will say what the

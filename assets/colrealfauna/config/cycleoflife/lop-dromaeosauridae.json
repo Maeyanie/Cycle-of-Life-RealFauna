@@ -3,17 +3,23 @@
 // Fourteen dromaeosaurids, from a 300 kg Utahraptor down to a 600 g Rahonavis, plus their nests.
 // Two things need doing here, and without either the whole family is inert or absurd.
 //
-// 1. THEY ARE PREDATORS, AND NOTHING WOULD HAVE WORKED THAT OUT. The mod gives them six seekentity
-//    tasks and not one targets wildlife: they seek the PLAYER, the two lure entities, and the hitch
-//    post - all taming and gameplay furniture from dinocore, not prey. There is no entityTags
-//    targeting either, so the huntable-tag path finds nothing, and these entities carry no tags at
-//    all, so the tagged-predator fallback cannot fire. Their diet, meanwhile, is Protein plus meat
-//    and fish food tags, which resolves to Meat and Fish - so left alone, fourteen theropods would
-//    have been filed as FORAGERS grazing the small-prey pools.
+// 1. PREY. The mod is well authored here and needs no rescuing: it writes a real hunt list - hare,
+//    raccoon, fox, capercaillie, pheasant, wild turkey, toad, and the other Legacy of the
+//    Phanerozoic herbivore groups - gated on whenNotInEmotionState "saturated", which is to say
+//    hunt when not full. A SECOND list (wolves, bears, big cats, rival theropods, and
+//    dromaeosaurids themselves) is gated on "aggressiveondamage" and is correctly read as
+//    retaliation rather than hunting, so it never becomes a food supply. The remaining seekentity
+//    tasks target the player, the two lures and the hitch post, which are dinocore taming furniture.
 //
-//    Each therefore gets isPredator and a MASS BAND scaled to its own size. The bands are the point
-//    of the file: a dromaeosaurid family spans two and a half orders of magnitude, and a Microraptor
-//    and a Utahraptor should not be eating the same things.
+//    (An earlier version of this file claimed none of the six tasks targeted wildlife. That was a
+//    truncated read of the JSON, not the mod being wrong. Corrected.)
+//
+//    MASS BANDS are still set, for two reasons. The mod list names other Legacy of the Phanerozoic
+//    mods - ankylosaurs, ceratopsians, hadrosaurs, sauropods - which a given server may not have
+//    installed, and a band reaches whatever herbivores actually are there instead. And a band is
+//    what makes the family legible: it spans two and a half orders of magnitude, and a Microraptor
+//    and a Utahraptor should not be eating the same things. isPredator is stated alongside as
+//    documentation; the hunt list already establishes it.
 //
 // 2. BODY WEIGHT, WHICH THE MOD DECLARES AS A FLAT 1000 kg FOR EVERY ADULT. That is roughly right
 //    for none of them and a thousandfold wrong for the smallest. Weight is not cosmetic here - it
