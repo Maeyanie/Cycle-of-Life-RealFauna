@@ -71,6 +71,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-ankylosauria.json      # Legacy of the Phanerozoic: Fused Body (8 ankylosaurs + nests)
   lop-ceratopsidae.json      # Legacy of the Phanerozoic: Horned Crown (15 ceratopsians + nests)
   lop-ornithomimosauria.json # Legacy of the Phanerozoic: Horrible Hands (14 ostrich mimics + nests)
+  lop-macronaria.json        # Legacy of the Phanerozoic: Long Neck (15 sauropods + nests)
 ```
 
 ### Mods that need no entries

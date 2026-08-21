@@ -1,0 +1,217 @@
+// Cycle of Life: Realistic Fauna - Legacy of the Phanerozoic: Long Neck (macronaria).
+//
+// Fifteen macronarian sauropods, plus their nests. These are the largest animals in the pack by an
+// order of magnitude, and that is the whole story of this file.
+//
+// 1. BODY WEIGHT, DECLARED AS A FLAT 4000 kg FOR EVERY ADULT. Every other mod in this series had
+//    that number too heavy; here it is far too LIGHT - by a factor of nearly twenty for
+//    Argentinosaurus. Four tonnes is a large rhinoceros, not a seventy tonne titanosaur.
+//
+//    This matters more here than anywhere else in the pack, because body weight is what drives
+//    forage demand. A sauropod herd should be the dominant vegetation consumer in its realm, and at
+//    4000 kg apiece it would instead have eaten about as much as a herd of cattle. Masses below are
+//    published estimates, mid-range where sources disagree.
+//
+//    The hitboxes are little help this time - the mod draws most of the fifteen at the same 3.5 x 10
+//    - so the fossil record leads throughout, with the mod ordering used only at the extremes.
+//
+// 2. THEY EAT NOTHING AS SHIPPED, the fifth mod in this series with an empty foodCategories list and
+//    a lone "fruitmash" tag. Given Vegetable + Fruit, vegetable leading, as with the other browsers.
+//    The high-browser / low-browser split (Brachiosaurus and Giraffatitan reaching up, Camarasaurus
+//    cropping coarse growth at head height) is real and noted per species, but the forage model has
+//    only one plant pool per category, so it is flavour rather than mechanism for now.
+//
+// 3. THE SAUROPOD LIFE HISTORY IS GENUINELY STRANGE and the numbers reflect it. They laid clutches
+//    of twenty to forty eggs, buried them, and gave no parental care - so juvenile mortality is set
+//    to 0.95, the highest anywhere in this pack. Almost nothing survives, and what does grows very
+//    fast to a size where nothing can touch it, then lives for decades. Adults are rated among the
+//    least vulnerable animals here, not because they fight but because they are unkillable by mass
+//    alone. A predator eating sauropods is eating juveniles, which is what the record shows.
+//
+//    CARRYING CAPACITY sits at the pack floor of 1 for everything over 20 tonnes, which is as sparse
+//    as the model can currently express. That is still denser than a real sauropod landscape would
+//    have been, and is a known limitation rather than a considered choice.
+//
+// NESTS ARE CHAIN SEEDS, as in the sibling files. Only INCUBATING nests need entries; mature and
+// empty get triesPerChunk 0, and eggs are runtime chance 0.0.
+//
+// NOTE this mod ships as a CODE mod rather than content - it advertises titan-scale combat - so it
+// may do things at runtime the other Legacy of the Phanerozoic mods do not. Nothing here depends on
+// that; the overlay only tunes what discovery reads from the entity data.
+//
+// VERIFICATION STATUS: keys derived from the mod own entity JSON, not read off a live roster - this
+// mod is not installed on the pack author server. A wrong key is inert (the entry is ignored and the
+// animal keeps its auto-discovered values); `/col species` lists the authoritative keys.
+{
+  "species": {
+
+
+    // Bruhathkayosaurus - possibly the largest land animal that ever lived, at somewhere around 80
+    // tonnes and perhaps far more. It is also the LEAST TRUSTWORTHY NUMBER IN THIS PACK: the material
+    // was fragmentary, was never properly described, and has since been destroyed, so every estimate
+    // rests on field notes and photographs. Placed at the top because the mod places it there.
+    "macronaria:macronaria-bruhathkayosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 80000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 29000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Argentinosaurus - about 70 tonnes, and the largest animal here that rests on material anyone can
+    // still examine. The mod gives it the tallest hitbox of the fifteen, which agrees.
+    "macronaria:macronaria-argentinosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 70000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 29000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Patagotitan - around 57 tonnes, known from several individuals found together, which is unusual
+    // for animals this size and is why it herds a little more readily here.
+    "macronaria:macronaria-patagotitan": {
+      "carryingCapacity": 1, "bodyWeight": 57000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.06, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 29000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Dreadnoughtus - roughly 50 tonnes. Originally published at 59 and revised down; the name means
+    // fears nothing, which is a fair summary of its predation vulnerability.
+    "macronaria:macronaria-dreadnoughtus": {
+      "carryingCapacity": 1, "bodyWeight": 50000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.07, "predationVulnerability": 0.02,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 25000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Futalognkosaurus - about 40 tonnes, one of the most complete giant titanosaurs known.
+    "macronaria:macronaria-futalognkosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 40000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 25000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Brachiosaurus - roughly 40 tonnes, and the classic HIGH BROWSER: forelimbs longer than the hind,
+    // shoulders pitched upward, feeding where nothing else could reach.
+    "macronaria:macronaria-brachiosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 40000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.07, "predationVulnerability": 0.03,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 25000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Giraffatitan - about 35 tonnes, long treated as an African species of Brachiosaurus and split
+    // off in the 1990s. Its mounted skeleton in Berlin is the tallest in any museum.
+    "macronaria:macronaria-giraffatitan": {
+      "carryingCapacity": 1, "bodyWeight": 35000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.08, "predationVulnerability": 0.03,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 25000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Ruyangosaurus - roughly 30 tonnes, Chinese, and known from fragmentary material.
+    "macronaria:macronaria-ruyangosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 30000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 22000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Antarctosaurus - about 30 tonnes. Despite the name it is South American; it was named for
+    // southern lands rather than the continent.
+    "macronaria:macronaria-antarctosaurus": {
+      "carryingCapacity": 1, "bodyWeight": 30000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 4, "preferredHerdSize": 2 },
+      "lifecycle": { "lifespanDays": 22000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Europatitan - around 30 tonnes, Spanish, and named in 2017.
+    "macronaria:macronaria-europatitan": {
+      "carryingCapacity": 1, "bodyWeight": 30000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.08, "predationVulnerability": 0.04,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 22000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Camarasaurus - about 20 tonnes and the most abundant sauropod of the Morrison Formation. A LOW
+    // BROWSER with blunt spoon-shaped teeth built for coarse vegetation, and found in groups of mixed
+    // ages, so it takes the largest herd here.
+    "macronaria:macronaria-camarasaurus": {
+      "carryingCapacity": 2, "bodyWeight": 20000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "herd": { "maxHerdSize": 8, "preferredHerdSize": 4 },
+      "lifecycle": { "lifespanDays": 18000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Diamantinasaurus - roughly 20 tonnes, Australian, and known from a skull as well as a skeleton,
+    // which is rare for a titanosaur.
+    "macronaria:macronaria-diamantinasaurus": {
+      "carryingCapacity": 2, "bodyWeight": 20000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.1, "predationVulnerability": 0.06,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 18000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Ampelosaurus - about 10 tonnes, armoured with bony osteoderms, and one of the dwarfed sauropods
+    // of the Late Cretaceous European island archipelago.
+    "macronaria:macronaria-ampelosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 10000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.12, "predationVulnerability": 0.1,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Rapetosaurus - roughly 8 tonnes as an adult, Madagascan, and best known from juveniles - one of
+    // which is the most complete baby sauropod ever found. The mod draws it smallest of the fifteen.
+    "macronaria:macronaria-rapetosaurus": {
+      "carryingCapacity": 2, "bodyWeight": 8000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.12,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // Malawisaurus - about 7 tonnes, small for a titanosaur, and one of the few with skull material.
+    "macronaria:macronaria-malawisaurus": {
+      "carryingCapacity": 2, "bodyWeight": 7000,
+      "isForager": true, "foodCategories": ["Vegetable", "Fruit"],
+      "growthRate": 0.14, "predationVulnerability": 0.12,
+      "herd": { "maxHerdSize": 6, "preferredHerdSize": 3 },
+      "lifecycle": { "lifespanDays": 14000, "gestationDays": 90, "litterSizeMin": 15, "litterSizeMax": 30, "breedingMonths": [4, 5], "juvenileMortality": 0.95 }
+    },
+
+    // ===================== NESTS (chain seeds) =====================
+    // Observed, never spawn-controlled. The mod own chain decides how many there are.
+    "macronaria:macronaria-bruhathkayosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-argentinosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-patagotitan-incubating": { "chainSeed": true },
+    "macronaria:macronaria-dreadnoughtus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-futalognkosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-brachiosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-giraffatitan-incubating": { "chainSeed": true },
+    "macronaria:macronaria-ruyangosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-antarctosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-europatitan-incubating": { "chainSeed": true },
+    "macronaria:macronaria-camarasaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-diamantinasaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-ampelosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-rapetosaurus-incubating": { "chainSeed": true },
+    "macronaria:macronaria-malawisaurus-incubating": { "chainSeed": true }
+
+  }
+}
