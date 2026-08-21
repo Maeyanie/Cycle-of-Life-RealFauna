@@ -21,6 +21,15 @@
 //    Microraptor rated at a tonne would roam like a mammoth and eat like one. Masses below are
 //    published estimates, mid-range where sources disagree, and are listed per species.
 //
+// WHICH VELOCIRAPTOR? The one place where the fossil record and popular depiction differ enough to
+// change the numbers, and the mod page has no pictures. Its own HITBOXES answer it. The mod sorts
+// fourteen species into four size buckets: 1.5x2.0 (Utahraptor), 1.5x1.8 (Dakotaraptor), 1.25x1.7
+// and 1.25x1.5 (Achillobator, Austroraptor), 1.0x1.2 (Deinonychus, Adasaurus), and 0.8x0.8 for
+// everything else. Velociraptor is in the SMALLEST bucket, alongside Microraptor and Rahonavis, not
+// with Deinonychus - so this mod means the real turkey-sized animal and not the film one. 15 kg it
+// is. Note the buckets are coarse: eight species share the smallest, spanning 15 kg down to 600 g,
+// so the masses here are finer-grained than the model. That is the point of the pack.
+//
 // NESTS ARE CHAIN SEEDS. Nests spawn from worldgen and hatch through the mod own incubating ->
 // mature -> empty chain, which is self-capping. Chain detection requires every spawnable variant to
 // be static and tests that against a known list of stationary AI tasks - these nests carry
