@@ -1,0 +1,32 @@
+// Cycle of Life: Realistic Fauna — runtime-spawn blacklist.
+//
+// Entities that vanilla's RUNTIME spawner (the continuous one that places things near players) may
+// never spawn. WORLDGEN IS UNAFFECTED: these still generate with new chunks exactly as their mods
+// intend. Only the near-player spawning is stopped.
+//
+// Both entries are things Cycle of Life deliberately does NOT manage, which is precisely why they
+// need this: with nothing else governing them, vanilla spawns them unchecked, and in practice that
+// meant far too many of them turning up around players.
+//
+// Patterns are matched against the full "domain:path" entity code. Delete a line to hand that
+// spawning back to vanilla. Other packs can add their own "noRuntimeSpawn" lists; all are combined.
+{
+  "noRuntimeSpawn": [
+
+    // DRACONIS NESTS (17 codes: both dragons, the wyvern, and the drake in all fourteen rock colours).
+    // Nests are chain seeds - the nest -> egg -> dragon chain is the mod's own, so the simulation only
+    // observes them. The design assumed a seed's spawn conditions cap themselves. These do not: the
+    // drake nest rolls at 0.00003 across fourteen colours, and the wyvern nest's cap is written
+    // "draconis:draconis:wyvern-nest-{type}", a doubled domain that matches no entity, so it limits
+    // nothing. It is the NESTS that spawn at runtime, not the eggs - in Draconis 1.5.0 every egg has a
+    // runtime chance of 0.0. Blocked here, Draconis populations come from worldgen nests and the eggs
+    // those nests lay, which is how the mod grows them in any case.
+    "draconis:*-nest-*",
+
+    // FotSA CARCASSES (12 codes across Bovinae, Caninae, Capreolinae, Casuariidae, Machairodontinae and
+    // Pantherinae). Ambient carrion placed as set dressing, with live runtime chances of 0.00001 to
+    // 0.0001. Already excluded from the simulation, since a corpse has no ecology to model; this stops
+    // them accumulating around players.
+    "*carcass*"
+  ]
+}

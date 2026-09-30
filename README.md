@@ -78,6 +78,7 @@ assets/colrealfauna/config/cycleoflife/
   lop-carcharodontosauridae.json # LotP: Sharp Tooth (12 carcharodontosaurids + nests)
   lop-hadrosauroidea.json    # Legacy of the Phanerozoic: Shovel Mouth (27 hadrosaurs + nests)
   lop-tyrannosauridae.json   # Legacy of the Phanerozoic: Tyrant King (12 tyrannosaurids + nests)
+  no-runtime-spawn.json      # runtime-spawn blacklist: Draconis nests, FotSA carcasses (worldgen unaffected)
 ```
 
 ### Mods that need no entries
